@@ -1,13 +1,14 @@
-import { FlaskConical } from "lucide-react";
-import { ChartNoAxesCombined } from "lucide-react";
+// import { FlaskConical, ChartNoAxesCombined } from "lucide-react";
 import Lab from '../assets/lab.jpg'
 import Commerce from '../assets/commerce.jpg'
+import { Atom } from '../icons/atom';
+import { ChartNoAxes } from '../icons/chart';
 
 
 function Courses() {
   return (
     <div className="courses-background">
-    <div className="min-h-screen w-full bg-white relative text-gray-800 pb-10">
+    <div className="w-full bg-white relative text-gray-800 pb-10 rounded-br-4xl rounded-bl-4xl border-b border-t border-amber-100 ">
   {/* Zigzag Lightning - Light Pattern */}
   <div
     className="absolute inset-0 z-0 pointer-events-none"
@@ -22,23 +23,24 @@ function Courses() {
   />
   {/* Your Content/Components */}
 
-      <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-        <h2 className="text-5xl font-merri text-gray-800 font-bold tracking-wide pt-9">Our Academic Programs</h2>
+      <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
+        <h2 className="text-5xl font-merri text-blue-900 font-bold tracking-wide pt-10">Our Academic Programs</h2>
         <p className="font-nuno text-2xl text-gray-600 mt-5 font-medium">Choose from our Comphrehensive Programs Designed For Your Success</p>
       </div>
 
     
     <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-      <div className="card bg-base-100 w-96shadow-xl card-lg mx-auto  border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="card bg-base-100 w-96 shadow-xl card-lg mx-auto  border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
         <figure>
           <img
             src={Lab}
             alt="Shoes"
             className="rounded-tl-xl rounded-tr-xl w-full"
+            loading="lazy"
           />
         </figure>
         <div className="card-body ">
-          <h2 className="card-title font-merri text-gray-700 text-xl font-bold ">Science Stream <FlaskConical className="ml-1" /></h2>
+          <h2 className="card-title font-merri text-gray-700 text-2xl font-bold ">Science Stream <Atom stroke="#374151"/> </h2>
           <p className="mb-5 font-nuno text-gray-600 mt-2 ">
             Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
           </p>
@@ -56,10 +58,11 @@ function Courses() {
             src={Commerce}
             alt="Shoes"
             className="rounded-tr-xl rounded-tl-xl w-full" 
+            loading="lazy"
           />
         </figure>
         <div className="card-body ">
-          <h2 className="card-title font-merri font-bold text-gray-700 ">Commerce Stream <ChartNoAxesCombined className="ml-1"/></h2>
+          <h2 className="card-title font-merri font-bold text-gray-700 text-2xl  ">Commerce Stream <ChartNoAxes stroke="#374151"/></h2>
           <p className="mb-5 font-nuno text-gray-600 mt-2">
            Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science. 
           </p>
@@ -81,6 +84,4 @@ function Courses() {
   );
 }
 
-export default Courses; 
-
- 
+export default Courses;

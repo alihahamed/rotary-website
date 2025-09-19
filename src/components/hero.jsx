@@ -1,4 +1,4 @@
-import RotaryCampus from '../assets/campus-rotory.jpg'
+import RotaryCampus from '../assets/campus-rotory.webp'
 
 function Hero() {
     return (
@@ -8,13 +8,14 @@ function Hero() {
             src={RotaryCampus}
             alt="Rotary PU College Campus"
             className="w-full h-full object-cover"
+            fetchPriority='high'
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-maroon-900/60 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-maroon-900/60 "></div>
         </div>
         <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 h-full flex items-center">
           <div className="text-white max-w-3xl">
             <h1 className="text-6xl font-bold leading-tight mb-4 font-merri">
-              Welcome to Your <br /> <span className="text-yellow-400">Bright Future</span>
+              Welcome to <br />  <span className="text-yellow-400">Rotary Pre University College</span>
             </h1>
             <p className="text-xl mb-8 font-nuno ">
               Empowering minds, shaping futures. Join us in pursuing academic excellence and personal growth in a vibrant learning community.

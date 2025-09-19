@@ -3,6 +3,7 @@ import AboutUs from "../components/aboutUs"
 import Courses from "../components/courses"
 import Facilities from "../components/facilities"
 import News from "../components/news"
+import Achievements from "../components/achievements"
 
 function Home() {
     return(
@@ -12,6 +13,7 @@ function Home() {
                 <Courses />
             <Facilities />
             <News />
+            <Achievements />
             
         </>
         
