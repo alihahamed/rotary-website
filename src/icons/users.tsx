@@ -1,38 +1,42 @@
 "use client";
 
-import { motion, useAnimation } from "motion/react";
 import type { Variants } from "motion/react";
+import { motion, useAnimation } from "motion/react";
 
-interface AlbumProps extends React.SVGAttributes<SVGSVGElement> {
+const pathVariants: Variants = {
+  normal: {
+    translateX: 0,
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 13,
+    },
+  },
+  animate: {
+    translateX: [-6, 0],
+    transition: {
+      delay: 0.1,
+      type: "spring",
+      stiffness: 200,
+      damping: 13,
+    },
+  },
+};
+
+interface UsersProps extends React.SVGAttributes<SVGSVGElement> {
   width?: number;
   height?: number;
   strokeWidth?: number;
   stroke?: string;
 }
 
-const bookmarkVariants: Variants = {
-  normal: {
-    scaleY: 1,
-    originY: 0,
-  },
-  animate: {
-    scaleY: [1.2, 0.8, 1],
-    transition: {
-      duration: 0.6,
-      times: [0.4, 0.7, 1],
-      type: "tween",
-      ease: "easeOut",
-    },
-  },
-};
-
-const Album = ({
+const Users = ({
   width = 28,
   height = 28,
   strokeWidth = 2,
   stroke = "#ffffff",
   ...props
-}: AlbumProps) => {
+}: UsersProps) => {
   const controls = useAnimation();
 
   return (
@@ -60,16 +64,21 @@ const Album = ({
         strokeLinejoin="round"
         {...props}
       >
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
         <motion.path
-          d="M11 3 L11 11 L14 8 L17 11 L17 3"
-          variants={bookmarkVariants}
+          d="M22 21v-2a4 4 0 0 0-3-3.87"
+          variants={pathVariants}
           animate={controls}
-          initial="normal"
+        />
+        <motion.path
+          d="M16 3.13a4 4 0 0 1 0 7.75"
+          variants={pathVariants}
+          animate={controls}
         />
       </svg>
     </div>
   );
 };
 
-export { Album };
+export { Users };

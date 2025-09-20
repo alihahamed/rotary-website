@@ -1,38 +1,42 @@
 "use client";
 
+import type { Transition, Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
-import type { Variants } from "motion/react";
 
-interface AlbumProps extends React.SVGAttributes<SVGSVGElement> {
+interface GlobeProps extends React.SVGAttributes<SVGSVGElement> {
   width?: number;
   height?: number;
   strokeWidth?: number;
   stroke?: string;
 }
 
-const bookmarkVariants: Variants = {
-  normal: {
-    scaleY: 1,
-    originY: 0,
-  },
-  animate: {
-    scaleY: [1.2, 0.8, 1],
-    transition: {
-      duration: 0.6,
-      times: [0.4, 0.7, 1],
-      type: "tween",
-      ease: "easeOut",
-    },
-  },
+const transition: Transition = {
+  duration: 0.3,
+  opacity: { delay: 0.15 },
 };
 
-const Album = ({
+const pathVariants: Variants = {
+  normal: {
+    pathLength: 1,
+    opacity: 1,
+  },
+  animate: (custom: number) => ({
+    pathLength: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      ...transition,
+      delay: 0.1 * custom,
+    },
+  }),
+};
+
+const Globe = ({
   width = 28,
   height = 28,
   strokeWidth = 2,
   stroke = "#ffffff",
   ...props
-}: AlbumProps) => {
+}: GlobeProps) => {
   const controls = useAnimation();
 
   return (
@@ -60,16 +64,29 @@ const Album = ({
         strokeLinejoin="round"
         {...props}
       >
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-        <motion.path
-          d="M11 3 L11 11 L14 8 L17 11 L17 3"
-          variants={bookmarkVariants}
+        <motion.circle
+          cx="12"
+          cy="12"
+          r="10"
+          variants={pathVariants}
           animate={controls}
-          initial="normal"
+          custom={0}
+        />
+        <motion.path
+          d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
+          variants={pathVariants}
+          animate={controls}
+          custom={1}
+        />
+        <motion.path
+          d="M2 12h20"
+          variants={pathVariants}
+          animate={controls}
+          custom={2}
         />
       </svg>
     </div>
   );
 };
 
-export { Album };
+export { Globe };

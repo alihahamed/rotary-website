@@ -32,19 +32,19 @@ function Facilities() {
         {/* Your Content/Components */}
 
         <section className="mx-auto   rounded-bl-4xl rounded-br-4xl bg-gradient-to-b from-orange-50 via-amber-50 to-yellow-100/60 border-b border-t border-amber-200">
-          <div className="text-center px-6 pt-8 md:pt-8 ">
-            <h2 className="font-merri text-5xl tracking-wide font-bold text-gray-800 mb-6">
+          <div className="text-center px-4 sm:px-6 pt-6 md:pt-8">
+            <h2 className="font-merri text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold text-gray-800 mb-4 md:mb-6">
               Facilities & Campus Life
             </h2>
-            <p className="text-2xl  font-medium text-gray-600 mb-8 leading-relaxed font-nuno">
+            <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno">
               Explore the resources and activities that make learning at Rotary PU College vibrant and engaging.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-5 pb-12 cursor-pointer">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 cursor-pointer">
             {cards.map((c, i) => (
               <a href={c.link}>
-              <div key={i} className="relative rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition group ring-1 ring-black/5">
+              <div key={i} className="relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition group ring-1 ring-black/5">
                 <img
                   src={c.img}
                   alt={c.title}
@@ -53,12 +53,19 @@ function Facilities() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 pointer-events-none">
-                  <h3 className="text-white font-merri text-xl sm:text-2xl font-bold drop-shadow-md tracking-wide">{c.title}</h3>
-                  
+                  <h3 className="text-white font-merri text-lg sm:text-xl md:text-2xl font-bold drop-shadow-md tracking-wide">{c.title}</h3>
+
                 </div>
               </div>
               </a>
             ))}
+          </div>
+
+          {/* Explore Gallery Button */}
+          <div className="text-center pb-12">
+            <button className="bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base md:text-lg">
+              Explore Our Gallery
+            </button>
           </div>
         </section>
       </div>

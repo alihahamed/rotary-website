@@ -1,6 +1,6 @@
 // import  { Dot } from 'lucide-react'
 // import { LibraryBig } from 'lucide-react'
-import { SwatchBook } from "../icons/book";
+import { Album } from "../icons/book";
 import campus from "../assets/campus.webp";
 
 function AboutUs() {
@@ -21,29 +21,24 @@ function AboutUs() {
 
         <section
           id="about"
-          className="py-23  rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-stone-50 to-amber-100/50 border-b border-b-amber-100"
+          className="py-12 md:py-23 rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-stone-50 to-amber-100/50 border-b border-b-amber-100"
         >
-          <div className="container mx-auto px-6 sm:px-6 md:px-8 lg:px-16">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div>
-                <h2 className="text-[47px] font-bold text-gray-800 mb-8 font-merri tracking-wide flex justify-center items-center ">
-                  About Rotary PU College
-                  <SwatchBook stroke="#374151" className="ml-3 w-9 h-9" />
+                <h2 className="text-3xl md:text-4xl lg:text-[47px] font-bold text-gray-800 mb-6 md:mb-8 font-merri tracking-wide flex flex-col sm:flex-row justify-center sm:justify-center items-center text-center sm:text-left">
+                 <p className="mb-2 sm:mb-0">About <span className="text-red-800">Rotary PU College</span></p>
+                  <Album stroke="#374151" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 mt-2 sm:mt-0 sm:ml-3" />
                 </h2>
-                <p className="text-xl font-medium text-gray-600 mb-8 leading-relaxed font-nuno">
-                  Rotary PU College is a student-friendly campus where quality
-                  education meets excellent facilities. We are committed to
-                  shaping young minds by blending academic excellence with
-                  holistic development. At Rotary, the right atmosphere
-                  motivates students to learn, explore, and discover their true
-                  potential
+                <p className="text-lg md:text-xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno">
+                 <span className="text-gray-800 font-bold">Established in 2015,</span>  Rotary PU College carries forward the legacy of Rotary Institutions, one of the first schools to be founded in Moodbidri. With a focus on academic excellence, discipline, and all-round development, the college provides a strong foundation for students to pursue higher education and future success.
                 </p>
-                <ul className="text-xl font-medium text-gray-600 mb-8 leading-relaxed font-nuno list-none space-y-2">
+                <ul className="text-lg md:text-xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno list-none space-y-2">
                   <li className="flex items-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
+                      fill="#eab308"
                       className="size-5 mt-1 mr-2"
                     >
                       <path
@@ -61,7 +56,7 @@ function AboutUs() {
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
+                      fill="#3b82f6"
                       className="size-5 mt-1 mr-2"
                     >
                       <path
@@ -77,7 +72,7 @@ function AboutUs() {
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
+                      fill="#eab308"
                       className="size-5 mt-1 mr-2"
                     >
                       <path
@@ -95,7 +90,7 @@ function AboutUs() {
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
+                      fill="#3b82f6"
                       className="size-5 mt-1 mr-2"
                     >
                       <path
@@ -114,7 +109,7 @@ function AboutUs() {
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
+                      fill="#eab308"
                       className="size-5 mt-1 mr-2"
                     >
                       <path
@@ -130,7 +125,7 @@ function AboutUs() {
                     </span>
                   </li>
                   <div className="flex justify-center items-center">
-                    <button className="btn btn-outline bg-yellow-200 mt-5">
+                    <button className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-sm">
                       Learn More About Us
                     </button>
                   </div>
@@ -139,8 +134,8 @@ function AboutUs() {
               <div>
                 <img
                   src={campus}
-                  alt=""
-                  className="w-full h-[550px] object-cover rounded-3xl shadow-2xl"
+                  alt="Rotary PU College Campus"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[550px] object-cover rounded-3xl shadow-2xl"
                   loading="lazy"
                 />
               </div>

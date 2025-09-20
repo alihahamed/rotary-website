@@ -3,36 +3,35 @@
 import { motion, useAnimation } from "motion/react";
 import type { Variants } from "motion/react";
 
-interface AlbumProps extends React.SVGAttributes<SVGSVGElement> {
+interface ChevronRightProps extends React.SVGAttributes<SVGSVGElement> {
   width?: number;
   height?: number;
   strokeWidth?: number;
   stroke?: string;
 }
 
-const bookmarkVariants: Variants = {
+const chevronVariants: Variants = {
   normal: {
-    scaleY: 1,
-    originY: 0,
+    x: 0,
+    opacity: 1,
   },
   animate: {
-    scaleY: [1.2, 0.8, 1],
+    x: [4, 0],
+    opacity: [0.3, 1],
     transition: {
-      duration: 0.6,
-      times: [0.4, 0.7, 1],
-      type: "tween",
+      duration: 0.5,
       ease: "easeOut",
     },
   },
 };
 
-const Album = ({
+const ChevronRight = ({
   width = 28,
   height = 28,
   strokeWidth = 2,
   stroke = "#ffffff",
   ...props
-}: AlbumProps) => {
+}: ChevronRightProps) => {
   const controls = useAnimation();
 
   return (
@@ -60,10 +59,9 @@ const Album = ({
         strokeLinejoin="round"
         {...props}
       >
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
         <motion.path
-          d="M11 3 L11 11 L14 8 L17 11 L17 3"
-          variants={bookmarkVariants}
+          d="m9 18 6-6-6-6"
+          variants={chevronVariants}
           animate={controls}
           initial="normal"
         />
@@ -72,4 +70,4 @@ const Album = ({
   );
 };
 
-export { Album };
+export { ChevronRight };

@@ -4,17 +4,17 @@ function Achievements() {
   return (
     <div>
       <section className="mx-auto rounded-bl-4xl rounded-br-4xl bg-gradient-to-b from-orange-50 via-amber-50 to-yellow-100/60 border-b border-amber-200 border-t ">
-        <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-          <h2 className="text-4xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9  flex justify-center items-center text-gray-800 font-merri">
-            Our Achievements
-            <PartyPopper stroke="#374151" className="ml-3 w-9 h-9" />
+        <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-gray-800 font-merri">
+            <span className="mb-2 sm:mb-0">Our Achievements</span>
+            <PartyPopper stroke="#374151" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3" />
           </h2>
-          <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno">
             Celebrating excellence in academics and student success
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-5 pb-12 cursor-pointer">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer">
           <div className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-red-200 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105">
             <div className="card-body flex justify-center items-center">
               <h2 className="card-title  mb-5 bg-gradient-to-l from-[#b91c1c] via-[#ef4444] to-[#fca5a5] p-4 rounded-[50px] text-white border-2 border-gray-400">
@@ -33,10 +33,10 @@ function Achievements() {
                   />
                 </svg>
               </h2>
-              <p className="font-merri text-3xl font-medium text-red-500">
-                95 % 
+              <p className="font-merri text-2xl md:text-3xl font-medium text-red-500">
+                95 %
               </p>
-              <p className="font-nuno text-gray-600  font-medium">
+              <p className="font-nuno text-gray-600 font-medium text-sm md:text-base">
                 Pass percentage
               </p>
             </div>
@@ -60,10 +60,10 @@ function Achievements() {
                   />
                 </svg>
               </h2>
-              <p className="font-merri text-3xl font-medium text-yellow-500 ">
+              <p className="font-merri text-2xl md:text-3xl font-medium text-yellow-500">
                 200+
               </p>
-              <p className="font-nuno text-gray-600  font-medium">
+              <p className="font-nuno text-gray-600 font-medium text-sm md:text-base">
                 Students Graduated Annually
               </p>
             </div>
@@ -87,10 +87,10 @@ function Achievements() {
                   />
                 </svg>
               </h2>
-              <p className="font-merri text-3xl font-medium text-blue-500">
+              <p className="font-merri text-2xl md:text-3xl font-medium text-blue-500">
                 12+
               </p>
-              <p className="font-nuno text-gray-600  font-medium">
+              <p className="font-nuno text-gray-600 font-medium text-sm md:text-base">
                 Years Of Excellence
               </p>
             </div>

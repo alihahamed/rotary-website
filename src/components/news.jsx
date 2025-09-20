@@ -49,7 +49,7 @@ function News() {
 
   return (
     <div>
-      <div className="min-h-screen w-full relative">
+      <div className=" w-full relative">
         {/* Dashed Gradient */}
         <div
           className="absolute inset-0 z-0"
@@ -99,18 +99,18 @@ function News() {
         {/* Your Content/Components */}
 
         <section className="relative z-10 mx-auto border-b border-t border-amber-100 rounded-br-4xl rounded-bl-4xl ">
-          <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-            <h2 className="text-4xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9  flex justify-center items-center text-yellow-500 font-merri">
-              News & Announcements
-              <BellRing stroke="#EAB308" className="ml-3 w-9 h-9 " />
+          <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-yellow-500 font-merri">
+              <span className="mb-2 sm:mb-0">News & Announcements</span>
+              <BellRing stroke="#EAB308" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3" />
             </h2>
-            <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno">
               Stay updated with the latest happenings at Rotary Pre-University
               College
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-15 max-w-6xl mx-auto px-5 pb-12 cursor-pointer ">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-6xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer">
             {newsItems.map((item, i) => (
               <div
                 className="indicator w-full transition-all duration-300 transform hover:-translate-y-2"
@@ -155,17 +155,17 @@ function News() {
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 font-merri">
+                  <div className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3 font-merri">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3 font-nuno">
+                    <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 font-nuno text-sm md:text-base">
                       {item.desc}
                     </p>
-                    <button className="text-blue-500 font-medium hover:text-blue-700 transition flex items-center gap-2 font-nuno">
+                    <button className="text-blue-500 font-medium hover:text-blue-700 transition flex items-center gap-2 font-nuno text-sm md:text-base">
                       Read More
                       <svg
-                        className="w-4 h-4"
+                        className="w-3 h-3 md:w-4 md:h-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -185,11 +185,11 @@ function News() {
           </div>
 
           {/* View All button */}
-          <div className="text-center pb-12">
-            <button className="bg-gradient-to-l from-[#f97316] via-[#e11d48] to-[#ef4444] text-white px-8 py-3 rounded-full font-medium transition flex items-center gap-2 mx-auto cursor-pointer">
+          <div className="text-center pb-8 md:pb-12">
+            <button className="bg-gradient-to-l from-[#f97316] via-[#e11d48] to-[#ef4444] text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-medium transition flex items-center gap-2 mx-auto cursor-pointer text-sm md:text-base">
               View All Announcements
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 md:w-5 md:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
