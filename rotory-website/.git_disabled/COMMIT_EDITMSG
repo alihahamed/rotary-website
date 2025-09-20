@@ -1,0 +1,9 @@
+feat: Complete website redesign with responsive components
+
+- Add achievements section with animated cards
+- Update facilities and achievements backgrounds with warm gradients
+- Fix mobile responsiveness for achievement cards
+- Add lazy loading for offscreen images
+- Fix Framer Motion animation issues
+- Update component styling and hover effects
+- Add new icons and improve visual hierarchy
