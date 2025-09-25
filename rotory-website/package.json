@@ -9,14 +9,20 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "daisyui": "^5.1.12",
+    "express": "^5.1.0",
+    "leaflet": "^1.9.4",
     "motion": "^12.23.14",
+    "nodemailer": "^7.0.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.9.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13"

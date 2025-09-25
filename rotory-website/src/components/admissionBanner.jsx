@@ -2,7 +2,7 @@ function AdmissionBanner() {
   return (
     <div>
       <section className="bg-red-800 mx-auto">
-        <div className="flex justify-between items-center mb-12 px-4 sm:px-6 md:px-8 lg:px-16 py-12">
+        <div className="flex justify-between items-center  px-4 sm:px-6 md:px-8 lg:px-16 py-12">
           <div className="flex-1">
             <h2 className="text-4xl md:text-5xl 2xl:text-5xl font-bold tracking-wide text-white font-merri text-left">
               Ready To Start Your Journey?

@@ -1,9 +1,9 @@
 // import { FlaskConical, ChartNoAxesCombined } from "lucide-react";
-import Lab from '../assets/lab.jpg'
-import Commerce from '../assets/commerce.jpg'
+
 import { Atom } from '../icons/atom';
 import { ChartNoAxes } from '../icons/chart';
-
+import lab from '../assets/geminilab.png'
+import commerce from '../assets/geminicommerce.png'
 
 function Courses() {
   return (
@@ -33,7 +33,7 @@ function Courses() {
       <div className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
         <figure>
           <img
-            src={Lab}
+            src={lab}
             alt="Shoes"
             className="rounded-tl-xl rounded-tr-xl w-full"
             loading="lazy"
@@ -55,7 +55,7 @@ function Courses() {
         <div className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
         <figure className="">
           <img
-            src={Commerce}
+            src={commerce}
             alt="Shoes"
             className="rounded-tr-xl rounded-tl-xl w-full" 
             loading="lazy"

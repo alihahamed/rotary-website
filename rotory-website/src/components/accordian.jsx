@@ -29,7 +29,7 @@ function Accordian() {
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto ">
+          <div className="max-w-2xl mx-auto bg-gradient-to-r from-stone-100 to-zinc-50 ">
             <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl ">
               <input type="radio" name="my-accordion-3" defaultChecked aria-label="Toggle answer for: What makes Rotary PU College different from other PU colleges in the region?" />
             <div className="collapse-title font-semibold font-merri text-gray-800">
@@ -99,7 +99,7 @@ function Accordian() {
                 responsibility, and confidence.{" "}
               </div>
             </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-3">
+            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-9">
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What is the admission process, and what documents are required?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 What is the admission process, and what documents are required?

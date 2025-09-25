@@ -7,6 +7,9 @@ import Achievements from "../components/achievements"
 import Testimonials from "../components/testimonials"
 import Accordian from "../components/accordian"
 import AdmissionBanner from "../components/admissionBanner"
+import AdmissionForm from "../components/admissionForm"
+import Footer from "../components/footer"
+import Location from "../components/location"
 
 function Home() {
     return(
@@ -20,6 +23,10 @@ function Home() {
             <Testimonials />
             <Accordian />
             <AdmissionBanner />
+            <AdmissionForm />
+            <Location />
+            <Footer />
+            
         </>
         
     )

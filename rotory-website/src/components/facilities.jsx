@@ -62,8 +62,8 @@ function Facilities() {
           </div>
 
           {/* Explore Gallery Button */}
-          <div className="text-center pb-12">
-            <button className="bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base md:text-lg">
+          <div className="text-center pb-12 font-nuno">
+            <button className="bg-gradient-to-r from-amber-600  to-yellow-300 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base md:text-lg">
               Explore Our Gallery
             </button>
           </div>
