@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Hero from "../components/hero"
 import AboutUs from "../components/aboutUs"
 import Courses from "../components/courses"
@@ -12,6 +13,18 @@ import Footer from "../components/footer"
 import Location from "../components/location"
 
 function Home() {
+    useEffect(() => {
+        
+        const hash = window.location.hash;
+        if (hash === '#home') {
+            const element = document.getElementById('home');
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    }, []);
     return(
         <>
             <Hero />

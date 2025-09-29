@@ -1,7 +1,8 @@
 // import  { Dot } from 'lucide-react'
 // import { LibraryBig } from 'lucide-react'
 import { Album } from "../icons/book";
-import campus from "../assets/campus.webp";
+
+import Auditorium from '../assets/auditorium.webp'
 
 function AboutUs() {
   return (
@@ -30,6 +31,7 @@ function AboutUs() {
                  <p className="mb-2 sm:mb-0">About <span className="text-red-800">Rotary PU College</span></p>
                   <Album stroke="#374151" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 mt-2 sm:mt-0 sm:ml-3" />
                 </h2>
+                <div className="w-24 h-1 bg-red-600 mx-auto mt-4 mb-6 md:mb-8"></div>
                 <p className="text-lg md:text-xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno">
                  <span className="text-gray-800 font-bold">Established in 2015,</span>  Rotary PU College carries forward the legacy of Rotary Institutions, one of the first schools to be founded in Moodbidri. With a focus on academic excellence, discipline, and all-round development, the college provides a strong foundation for students to pursue higher education and future success.
                 </p>
@@ -133,7 +135,7 @@ function AboutUs() {
               </div>
               <div>
                 <img
-                  src={campus}
+                  src={Auditorium}
                   alt="Rotary PU College Campus"
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[550px] object-cover rounded-3xl shadow-2xl"
                   loading="lazy"

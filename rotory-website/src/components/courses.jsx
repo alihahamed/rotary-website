@@ -7,30 +7,29 @@ import commerce from '../assets/geminicommerce.png'
 
 function Courses() {
   return (
-    <div className="courses-background">
-    <div className="w-full bg-white relative text-gray-800 pb-10 rounded-br-4xl rounded-bl-4xl border-b border-t border-amber-100 ">
-  {/* Zigzag Lightning - Light Pattern */}
-  <div
-    className="absolute inset-0 z-0 pointer-events-none"
-    style={{
-      backgroundImage: `
-        repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(75, 85, 99, 0.08) 20px, rgba(75, 85, 99, 0.08) 21px),
-        repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(107, 114, 128, 0.06) 30px, rgba(107, 114, 128, 0.06) 31px),
-        repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(55, 65, 81, 0.05) 40px, rgba(55, 65, 81, 0.05) 41px),
-        repeating-linear-gradient(150deg, transparent, transparent 35px, rgba(31, 41, 55, 0.04) 35px, rgba(31, 41, 55, 0.04) 36px)
+    <div className=" w-full bg-white relative">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
       `,
-    }}
-  />
-  {/* Your Content/Components */}
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="w-full relative text-gray-800 pb-10 rounded-br-4xl rounded-bl-4xl border-b border-t border-amber-100 z-10">
 
       <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-blue-900 font-bold tracking-wide pt-6 md:pt-10">Our Academic Programs</h2>
+        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
         <p className="font-nuno text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium">Choose from our Comprehensive Programs Designed For Your Success</p>
       </div>
 
     
     <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto px-4">
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div  className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
         <figure>
           <img
             src={lab}
@@ -45,9 +44,9 @@ function Courses() {
             Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
           </p>
           <div className="card-actions">
-            <button className="btn px-6 py-2 rounded-lg font-nuno w-full text-white text-[16px] font-semibold 
-            bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 
-             hover:from-blue-600 hover:to-blue-800 transition-all">Explore More</button>
+            <a href="/courses#scienceStream" className="btn px-6 py-2 rounded-lg font-nuno w-full text-white text-[16px] font-semibold
+            bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700
+             hover:from-blue-600 hover:to-blue-800 transition-all inline-block text-center">Explore More</a>
           </div>
         </div>
       </div>
@@ -67,9 +66,9 @@ function Courses() {
            Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science.
           </p>
           <div className="card-actions flex justify-center items-center">
-            <button className="btn px-6 py-2 rounded-lg text-white font-nuno w-full text-[16px] font-semibold 
-        bg-gradient-to-r from-red-700 via-red-800 to-yellow-600 
-      hover:from-red-800 hover:to-yellow-700 transition-all">Explore More</button>
+            <a href="/courses#commerceStream" className="btn px-6 py-2 rounded-lg text-white font-nuno w-full text-[16px] font-semibold
+        bg-gradient-to-r from-red-700 via-red-800 to-yellow-600
+      hover:from-red-800 hover:to-yellow-700 transition-all inline-block text-center">Explore More</a>
           </div>
         </div>
       </div>

@@ -29,24 +29,19 @@ function Testimonials() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <div>
-      <div className="w-full bg-white relative text-gray-800  border-t border-amber-100 rounded-br-4xl rounded-bl-4xl">
-        {/* Circuit Board - Light Pattern */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-        repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-        radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.12) 2px, transparent 2px),
-        radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.12) 2px, transparent 2px)
+    <div className=" w-full bg-white relative">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
       `,
-            backgroundSize: "40px 40px, 40px 40px, 40px 40px, 40px 40px",
-          }}
-        />
-        {/* Your Content/Components */}
-
-        <section className="pb-10">
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <section className="pb-10 relative z-10">
           <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9  flex justify-center items-center text-red-800 font-merri">
               Voices of Our Alumni
@@ -55,6 +50,7 @@ function Testimonials() {
                 className="ml-3 w-6 h-6 2xl:w-8 2xl:h-8"
               />
             </h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
             <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
               Graduates share their journey and memories with us.
             </p>
@@ -141,7 +137,6 @@ function Testimonials() {
             </button>
           </div>
         </section>
-      </div>
     </div>
   );
 }

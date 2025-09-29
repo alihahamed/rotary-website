@@ -23,6 +23,7 @@ function Accordian() {
               Frequently Asked Questions
               <Globe stroke="#374151" className="ml-3 w-6 h-6 2xl:w-9 2xl:h-9" />
             </h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
             <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
               Get answers to the most common questions about admissions,
               academics, and campus life at Rotary PU College.

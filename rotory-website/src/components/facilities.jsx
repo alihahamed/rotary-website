@@ -33,10 +33,11 @@ function Facilities() {
 
         <section className="mx-auto   rounded-bl-4xl rounded-br-4xl bg-gradient-to-b from-orange-50 via-amber-50 to-yellow-100/60 border-b border-t border-amber-200">
           <div className="text-center px-4 sm:px-6 pt-6 md:pt-8">
-            <h2 className="font-merri text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold text-gray-800 mb-4 md:mb-6">
+            <h2 className="font-merri text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold text-gray-800 mb-4 md:mb-3">
               Facilities & Campus Life
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno">
+            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+            <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-600 mb-6 mt-2 md:mb-8 leading-relaxed font-nuno">
               Explore the resources and activities that make learning at Rotary PU College vibrant and engaging.
             </p>
           </div>

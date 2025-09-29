@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Layers } from '../icons/layers';
 import { Compass } from '../icons/compass';
-import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css'
 
 
 
@@ -22,36 +22,32 @@ const center = {
     }
 
     return (
-        <div className="w-full bg-white relative text-gray-800 border-t border-amber-100 rounded-br-4xl rounded-bl-4xl">
-            {/* Circuit Board - Light Pattern */}
+        <div className=" w-full bg-white relative">
+            {/* Grid Background */}
             <div
-                className="absolute inset-0 z-0 pointer-events-none"
+                className="absolute inset-0 z-0"
                 style={{
                     backgroundImage: `
-        repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-        radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.12) 2px, transparent 2px),
-        radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.12) 2px, transparent 2px)
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
       `,
-                    backgroundSize: "40px 40px, 40px 40px, 40px 40px, 40px 40px",
-                }}
+                    backgroundSize: "40px 40px",
+                }} 
             />
-
-            {/* Content on top of background */}
-            <div className="relative z-10">
-                <section className="py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+            <section className="py-16 px-4 sm:px-6 md:px-8 lg:px-16 relative z-10" id='campusLocation'>
             {/* Header */}
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-wide text-blue-800 font-merri">
                     Visit Our Campus
                 </h2>
+                <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
                 <p className="text-gray-600 mt-4 text-lg">
                     Find us on the map and get directions
                 </p>
             </div>
 
             {/* Bento Box Grid Layout */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6" >
                 {/* Left Info Cards - Vertical Stack */}
                 <div className="space-y-6">
                     {/* Address Card */}
@@ -172,8 +168,7 @@ const center = {
                 </div>
             </div>
         </section>
-            </div>
-        </div>
+    </div>
     )
 
 }

@@ -3,6 +3,7 @@ import { BellRing } from "../icons/bellring";
 import Sports1 from "../assets/sports1.webp";
 import PHY_LAB1 from "../assets/PHY-LAB1.webp";
 import study from "../assets/study.webp";
+import nss from '../assets/nss.webp'
 function News() {
   const newsItems = [
     {
@@ -37,73 +38,36 @@ function News() {
     },
     {
       id: 4,
-      title: "Science Exhibition Winners Announced",
-      desc: "Congratulations to all participants and winners of the inter-collegiate science exhibition. Awards ceremony on January 30th.",
-      date: "Jan 5, 2025",
+      title: "NSS Camp Currently Ongoing at College",
+      desc: "Students are actively engaged in a week-long NSS camp featuring community service projects, environmental conservation efforts, and social awareness programs.",
+      date: "Sep 15, 2025",
       category: "Events",
       categoryColor:
         "bg-gradient-to-l from-[#fb7185] via-[#a21caf] to-[#6366f1]",
-      img: PHY_LAB1,
+      img: nss,
     },
   ];
 
   return (
-    <div>
-      <div className=" w-full relative">
-        {/* Dashed Gradient */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `
-        linear-gradient(to right, #e7e5e4 1px, transparent 1px),
-        linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+    <div className=" w-full bg-white relative">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
       `,
-            backgroundSize: "20px 20px",
-            backgroundPosition: "0 0, 0 0",
-            maskImage: `
-        repeating-linear-gradient(
-          to right,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        )
-      `,
-            WebkitMaskImage: `
-        repeating-linear-gradient(
-          to right,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          black 0px,
-          black 3px,
-          transparent 3px,
-          transparent 8px
-        )
-      `,
-            maskComposite: "intersect",
-            WebkitMaskComposite: "source-in",
-          }}
-        />
-        {/* Your Content/Components */}
-
-        <section className="relative z-10 mx-auto border-b border-t border-amber-100 rounded-br-4xl rounded-bl-4xl ">
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <section className="relative z-10 mx-auto border-b border-t border-amber-100 rounded-br-4xl rounded-bl-4xl ">
           <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-yellow-500 font-merri">
               <span className="mb-2 sm:mb-0">News & Announcements</span>
               <BellRing stroke="#EAB308" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3" />
             </h2>
+            <div className="w-24 h-1 bg-yellow-500 mx-auto mt-4"></div>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno">
               Stay updated with the latest happenings at Rotary Pre-University
               College
@@ -204,7 +168,6 @@ function News() {
             </button>
           </div>
         </section>
-      </div>
     </div>
   );
 }

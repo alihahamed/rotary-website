@@ -9,6 +9,7 @@ function Achievements() {
             <span className="mb-2 sm:mb-0">Our Achievements</span>
             <PartyPopper stroke="#374151" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3" />
           </h2>
+          <div className="w-24 h-1 bg-gray-600 mx-auto mt-4"></div>
           <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno">
             Celebrating excellence in academics and student success
           </p>

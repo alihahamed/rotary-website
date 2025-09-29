@@ -45,25 +45,24 @@ function AdmissionForm() {
   };
 
   return (
-    <div>
-      <section className="relative  w-full bg-white">
-        {/* Noise Texture (Darker Dots) Background - NOW INSIDE SECTION */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background: "#ffffff",
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.35) 1px, transparent 0)",
-            backgroundSize: "20px 20px",
-          }}
-        />
-
-        {/* Content on top of background */}
-        <div className="relative z-10">
+    <div className=" w-full bg-white relative">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+      `,
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <section className="relative z-10">
           <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9 flex justify-center items-center text-gray-800 font-merri">
               Admission Enquiry
             </h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
             <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
               Take the first step towards your bright future. Submit your
               enquiry and we'll get back to you soon!
@@ -226,7 +225,6 @@ function AdmissionForm() {
               </div>
             </div>
           </div>
-        </div>
       </section>
     </div>
   );
