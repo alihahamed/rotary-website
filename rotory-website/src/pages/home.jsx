@@ -1,16 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
+import TopAnnouncement from "../components/TopAnnouncement"
 import Hero from "../components/hero"
-import AboutUs from "../components/aboutUs"
-import Courses from "../components/courses"
-import Facilities from "../components/facilities"
-import News from "../components/news"
-import Achievements from "../components/achievements"
-import Testimonials from "../components/testimonials"
-import Accordian from "../components/accordian"
-import AdmissionBanner from "../components/admissionBanner"
-import AdmissionForm from "../components/admissionForm"
-import Footer from "../components/footer"
-import Location from "../components/location"
+
+// Lazy load heavy components
+const AboutUs = lazy(() => import("../components/aboutUs"));
+const Courses = lazy(() => import("../components/courses"));
+const Facilities = lazy(() => import("../components/facilities"));
+const News = lazy(() => import("../components/news"));
+const Achievements = lazy(() => import("../components/achievements"));
+const Testimonials = lazy(() => import("../components/testimonials"));
+const Accordian = lazy(() => import("../components/accordian"));
+const AdmissionBanner = lazy(() => import("../components/admissionBanner"));
+const AdmissionForm = lazy(() => import("../components/admissionForm"));
+const Footer = lazy(() => import("../components/footer"));
+const Location = lazy(() => import("../components/location"));
 
 function Home() {
     useEffect(() => {
@@ -27,21 +30,43 @@ function Home() {
     }, []);
     return(
         <>
+            <TopAnnouncement  />
             <Hero />
-            <AboutUs />
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <AboutUs />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <Courses />
-            <Facilities />
-            <News />
-            <Achievements />
-            <Testimonials />
-            <Accordian />
-            <AdmissionBanner />
-            <AdmissionForm />
-            <Location />
-            <Footer />
-            
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Facilities />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <News />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Achievements />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Testimonials />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Accordian />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <AdmissionBanner />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <AdmissionForm />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Location />
+            </Suspense>
+            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+                <Footer />
+            </Suspense>
         </>
-        
+
     )
 }   
 

@@ -1,7 +1,9 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Suspense, lazy } from 'react';
 import { Layers } from '../icons/layers';
 import { Compass } from '../icons/compass';
-import 'leaflet/dist/leaflet.css'
+
+// Lazy load the map component
+const MapComponent = lazy(() => import('./MapComponent'));
 
 
 
@@ -46,123 +48,81 @@ const center = {
                 </p>
             </div>
 
-            {/* Bento Box Grid Layout */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6" >
-                {/* Left Info Cards - Vertical Stack */}
-                <div className="space-y-6">
-                    {/* Address Card */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl shadow-lg border border-blue-300">
-                        <div className="flex items-center mb-4">
-                            <div className="bg-blue-600 p-3 rounded-2xl mr-4">
-                                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-merri font-bold text-gray-800 tracking-wide">Address</h3>
+            {/* Simplified Layout */}
+            <div className="max-w-7xl mx-auto">
+                {/* Address and Contact Info - Simple Text */}
+                <div className="text-center mb-8">
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4">📍 Address</h3>
+                            <p className="text-gray-700 leading-relaxed font-nuno text-lg">
+                                Rotary Pre-University College, Jyotinagara<br/>
+                                Moodbidri, Karnataka<br/>
+                                India - 574227
+                            </p>
                         </div>
-                        <p className="text-blue-800 leading-relaxed font-nuno">
-                            Rotary Pre-University College, Jyotinagara<br/>
-                            Moodbidri, Karnataka<br/>
-                            India - 574227
-                        </p>
-                    </div>
-
-                    {/* Contact Card */}
-                    <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border border-yellow-300">
-                        <div className="flex items-center mb-4">
-                            <div className="bg-yellow-500 p-3 rounded-2xl mr-4">
-                                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                                </svg>
+                        <div>
+                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4">📞 Contact</h3>
+                            <div className="text-gray-700 font-nuno text-lg space-y-2">
+                                <p>📞 +91 12345 67890</p>
+                                <p>✉️ info@rotarycollege.edu</p>
+                                <p>🕒 Mon - Sat: 8:30 AM - 2:00 PM</p>
                             </div>
-                            <h3 className="text-xl font-merri font-bold text-gray-800 tracking-wide">Contact</h3>
-                        </div>
-                        <div className="space-y-2 text-yellow-800 font-nuno">
-                            <p>📞 +91 12345 67890</p>
-                            <p>✉️ info@rotarycollege.edu</p>
-                            <p>🕒 Mon - Sat: 8:30 AM - 2:00 PM</p>
                         </div>
                     </div>
                 </div>
 
-                {/* Center Map - Main Feature */}
-                <div className="lg:col-span-1">
-                    <div className="bg-white p-2 rounded-3xl shadow-2xl border border-gray-200">
-                        <MapContainer
-                            center={center}
-                            zoom={14}
-                            style={{height:'500px', width:'100%'}}
-                            className="rounded-2xl"
-                            eventHandlers={{click:handleClick}}
-                        >
-                            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                            <Marker
-                                position={center}
-                                eventHandlers={{
-                                    click: handleClick
-                                }}
-                            >
-                                <Popup>
-                                    <div className='text-center p-2'>
-                                        <h3 className="font-bold text-lg mb-2">Rotary Pre-University College</h3>
-                                        <p className="text-sm text-gray-600 mb-3">Click to open in Google Maps</p>
-                                        <button
-                                            onClick={handleClick}
-                                            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl font-medium transition-colors"
-                                        >
-                                            🗺️ Open in Google Maps
-                                        </button>
-                                    </div>
-                                </Popup>
-                            </Marker>
-                        </MapContainer>
-                    </div>
-                </div>
-
-                {/* Right Info Cards - Vertical Stack */}
-                <div className="space-y-6">
-                    {/* Directions Card */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-200 p-4 rounded-3xl shadow-lg border border-red-300">
-                        <div className="flex items-center mb-3">
-                            <div className="bg-red-400 p-2 rounded-2xl mr-4">
-                                <Compass />
+                {/* Map and Quick Actions */}
+                <div className="grid lg:grid-cols-3 gap-6">
+                    {/* Map - Main Feature */}
+                    <div className="lg:col-span-2">
+                        <Suspense fallback={
+                            <div className="bg-white p-2 rounded-3xl shadow-2xl border border-gray-200 h-[500px] flex items-center justify-center">
+                                <div className="text-center">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                                    <p className="text-gray-600 font-nuno">Loading map...</p>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-merri font-bold text-gray-800 tracking-wide">How to Reach</h3>
-                        </div>
-                        <div className="space-y-2 text-gray-600 font-nuno">
-                            <div className="flex items-start">
-                                <span className="font-bold mr-2">🚗</span>
-                                <span>5 Minute Drive From Moodbidri Bustand</span>
-                            </div>
-                            <div className="flex items-start">
-                                <span className="font-bold mr-2">🚌</span>
-                                <span>Bus routes: 15A, 22B, 45C</span>
-                            </div>
-                            <div className="flex items-start">
-                                <span className="font-bold mr-2">🚆</span>
-                                <span>Near Police Station, Moodbidri</span>
-                            </div>
-                        </div>
+                        }>
+                            <MapComponent />
+                        </Suspense>
                     </div>
 
-                    {/* Quick Actions Card */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-200 p-4 rounded-3xl shadow-lg border border-orange-200">
-                        <div className="flex items-center mb-3">
-                            <div className="bg-orange-400 p-2 rounded-2xl mr-4">
-                                <Layers />
+                    {/* Quick Actions Sidebar */}
+                    <div className="space-y-6">
+                        {/* Directions */}
+                        <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200">
+                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4">🗺️ How to Reach</h3>
+                            <div className="space-y-3 text-gray-600 font-nuno">
+                                <div className="flex items-start">
+                                    <span className="font-bold mr-3">🚗</span>
+                                    <span>5 Minute Drive From Moodbidri Bustand</span>
+                                </div>
+                                <div className="flex items-start">
+                                    <span className="font-bold mr-3">🚌</span>
+                                    <span>Bus routes: 15A, 22B, 45C</span>
+                                </div>
+                                <div className="flex items-start">
+                                    <span className="font-bold mr-3">🚆</span>
+                                    <span>Near Police Station, Moodbidri</span>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-merri font-bold text-gray-800">Quick Actions</h3>
                         </div>
-                        <div className="space-y-2">
-                            <button
-                                onClick={handleClick}
-                                className="w-full bg-orange-300 hover:bg-orange-600 text-white py-2 px-3 rounded-xl font-medium transition-colors flex items-center justify-center"
-                            >
-                                🗺️ Get Directions
-                            </button>
-                            <button onClick={handleCall} className="w-full bg-white hover:bg-gray-50 text-orange-800 py-2 px-3 rounded-xl font-medium border border-orange-300 transition-colors flex items-center justify-center">
-                                📞 Call Now
-                            </button>
+
+                        {/* Quick Actions */}
+                        <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200">
+                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4">⚡ Quick Actions</h3>
+                            <div className="space-y-3">
+                                <button
+                                    onClick={handleClick}
+                                    className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-xl font-medium transition-colors flex items-center justify-center"
+                                >
+                                    🗺️ Get Directions
+                                </button>
+                                <button onClick={handleCall} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-xl font-medium border border-gray-300 transition-colors flex items-center justify-center">
+                                    📞 Call Now
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

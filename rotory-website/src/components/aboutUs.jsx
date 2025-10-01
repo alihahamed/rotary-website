@@ -21,13 +21,12 @@ function AboutUs() {
         {/* Your Content/Components */}
 
         <section
-          id="about"
           className="py-12 md:py-23 rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-stone-50 to-amber-100/50 border-b border-b-amber-100"
         >
           <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl lg:text-[47px] font-bold text-gray-800 mb-6 md:mb-8 font-merri tracking-wide flex flex-col sm:flex-row justify-center sm:justify-center items-center text-center sm:text-left">
+                <h2 className="text-3xl md:text-4xl lg:text-[47px] font-bold text-gray-800 mb-6 md:mb-4 font-merri tracking-wide flex flex-col sm:flex-row justify-center sm:justify-center items-center text-center sm:text-left">
                  <p className="mb-2 sm:mb-0">About <span className="text-red-800">Rotary PU College</span></p>
                   <Album stroke="#374151" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 mt-2 sm:mt-0 sm:ml-3" />
                 </h2>
@@ -127,9 +126,9 @@ function AboutUs() {
                     </span>
                   </li>
                   <div className="flex justify-center items-center">
-                    <button className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-sm">
+                    <a href="/about-us#aboutUs" className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-sm">
                       Learn More About Us
-                    </button>
+                    </a>
                   </div>
                 </ul>
               </div>

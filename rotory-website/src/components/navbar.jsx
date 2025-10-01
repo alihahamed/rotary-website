@@ -48,29 +48,29 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link to={"/about-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
                 About us
-              </a>
+              </Link>
             </li>
             <li>
               <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
                 Courses
               </a>
             </li>
-            <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
-                Why Choose Us
-              </a>
-            </li>
+          <li>
+            <Link to={"/why-choose-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              Why Choose Us
+            </Link>
+          </li>
             <li>
               <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
                 About us
               </a>
             </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link to={"/news-events"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
                 News & Events
-              </a>
+              </Link>
             </li>
             <li>
               <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
@@ -93,9 +93,9 @@ function Navbar() {
         <ul className="menu menu-horizontal font-nuno text-[14px] bg-gradient-to-r from-white to-blue-50 border border-gray-400 rounded-lg px-4 py-2 font-semibold">
           
             <li>
-              <button onClick={handleHomeClick} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link to={"/"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
                 Home
-              </button>
+              </Link>
             </li>
           
           {/* <li>
@@ -120,14 +120,14 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link to={"/why-choose-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
               Why Choose Us
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link to={"/news-events"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
               News & Events
-            </a>
+            </Link>
           </li>
           <li>
             <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">

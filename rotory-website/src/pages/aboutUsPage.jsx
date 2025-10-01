@@ -1,6 +1,23 @@
 import principalImg from '../assets/principal.webp';
+import TopAnnouncement from '../components/TopAnnouncement';
+import { useEffect } from 'react';
 
 function AboutUsPage() {
+
+
+    useEffect(() => {
+            
+            const hash = window.location.hash;
+            if (hash) {
+                const element = document.querySelector(hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        }, []);
+
     return(
         <div className=" w-full bg-white relative">
             {/* Grid Background */}
@@ -14,7 +31,8 @@ function AboutUsPage() {
                     backgroundSize: "40px 40px",
                 }}
             />
-            <section className="py-12 md:py-16 relative z-10">
+            <TopAnnouncement  />
+            <section className="py-12 md:py-16 relative z-10 " id='aboutUs'>
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     <div className="text-center mb-8 md:mb-12">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
