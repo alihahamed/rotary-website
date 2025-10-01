@@ -4,6 +4,7 @@ import { Atom } from '../icons/atom';
 import { ChartNoAxes } from '../icons/chart';
 import lab from '../assets/geminilab.png'
 import commerce from '../assets/geminicommerce.png'
+import { motion } from 'framer-motion';
 
 function Courses() {
   return (
@@ -27,13 +28,49 @@ function Courses() {
         <p className="font-nuno text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium">Choose from our Comprehensive Programs Designed For Your Success</p>
       </div>
 
-    
-    <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto px-4">
-      <div  className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+    <motion.div
+      className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto px-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.3,
+            delayChildren: 0.1
+          }
+        }
+      }}
+    >
+      <motion.div
+        className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        variants={{
+          hidden: {
+            opacity: 0,
+            x: -60,
+            scale: 0.8,
+            rotateY: -15
+          },
+          visible: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            rotateY: 0,
+            transition: {
+              duration: 0.5,
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 50
+            }
+          }
+        }}
+      >
         <figure>
           <img
             src={lab}
-            alt="Shoes"
+            alt="Science Stream"
             className="rounded-tl-xl rounded-tr-xl w-full"
             loading="lazy"
           />
@@ -49,14 +86,36 @@ function Courses() {
              hover:from-blue-600 hover:to-blue-800 transition-all inline-block text-center">Explore More</a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-        <div className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <motion.div
+        className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        variants={{
+          hidden: {
+            opacity: 0,
+            x: 60,
+            scale: 0.8,
+            rotateY: 15
+          },
+          visible: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            rotateY: 0,
+            transition: {
+              duration: 0.5,
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100
+            }
+          }
+        }}
+      >
         <figure className="">
           <img
             src={commerce}
-            alt="Shoes"
-            className="rounded-tr-xl rounded-tl-xl w-full" 
+            alt="Commerce Stream"
+            className="rounded-tr-xl rounded-tl-xl w-full"
             loading="lazy"
           />
         </figure>
@@ -71,8 +130,8 @@ function Courses() {
       hover:from-red-800 hover:to-yellow-700 transition-all inline-block text-center">Explore More</a>
           </div>
         </div>
-      </div>
-      </div>
+      </motion.div>
+    </motion.div>
     </div>
     </div>
     

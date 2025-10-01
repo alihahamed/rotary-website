@@ -1,4 +1,5 @@
 import { PartyPopper } from "../icons/party";
+import { motion } from 'framer-motion'
 
 function Achievements() {
   return (
@@ -15,8 +16,33 @@ function Achievements() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer">
-          <div className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-red-200 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105">
+        <motion.div
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1
+              }
+            }
+          }}
+        >
+          <motion.div
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-red-200 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: "easeOut" }
+              }
+            }}
+          >
             <div className="card-body flex justify-center items-center">
               <h2 className="card-title  mb-5 bg-gradient-to-l from-[#b91c1c] via-[#ef4444] to-[#fca5a5] p-4 rounded-[50px] text-white border-2 border-gray-400">
                 <svg
@@ -41,9 +67,19 @@ function Achievements() {
                 Pass percentage
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105">
+          <motion.div
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: "easeOut" }
+              }
+            }}
+          >
             <div className="card-body flex justify-center items-center ">
               <h2 className="card-title  mb-5 bg-gradient-to-r from-[#fde68a]  to-[#f59e0b] rounded-[50px] p-5 text-white border-2 border-gray-400">
                 <svg
@@ -68,9 +104,19 @@ function Achievements() {
                 Students Graduated Annually
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105">
+          <motion.div
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: "easeOut" }
+              }
+            }}
+          >
             <div className="card-body flex justify-center items-center ">
               <h2 className="card-title  mb-5 bg-gradient-to-r from-[#06b6d4] via-[#2563eb] to-[#6366f1] rounded-[50px] p-5 text-white border-2 border-gray-400">
                 <svg
@@ -95,8 +141,8 @@ function Achievements() {
                 Years Of Excellence
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
     </div>
   );

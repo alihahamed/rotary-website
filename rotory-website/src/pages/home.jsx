@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from 'react';
 import TopAnnouncement from "../components/TopAnnouncement"
 import Hero from "../components/hero"
+import {motion} from 'framer-motion'
 
 // Lazy load heavy components
 const AboutUs = lazy(() => import("../components/aboutUs"));
@@ -28,13 +29,25 @@ function Home() {
             }
         }
     }, []);
+
+    const variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
+    }
     return(
         <>
             <TopAnnouncement  />
+        <motion.div variants={variants} initial="hidden" whileInView="visible"viewport={{ once: true }} transition={{ duration: 0.5 }} >
             <Hero />
+        </motion.div >
+            <motion.div initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-200px", amount:0.2 }}
+        transition={{ duration: 1.0 }}>
             <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <AboutUs />
             </Suspense>
+            </motion.div>
             <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <Courses />
             </Suspense>

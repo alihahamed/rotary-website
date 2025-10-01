@@ -1,4 +1,5 @@
 import React from 'react';
+import TopAnnouncement from '../components/TopAnnouncement';
 
 function NewsEventsPage() {
     // Dummy news data
@@ -97,6 +98,7 @@ function NewsEventsPage() {
                     backgroundSize: "40px 40px",
                 }}
             />
+            <TopAnnouncement />
             <section className="py-12 md:py-16 relative z-10">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     {/* Header */}

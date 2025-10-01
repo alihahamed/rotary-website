@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const nodemailer = require('nodemailer')
+import express, { json } from 'express';
+import cors from 'cors';
+import { createTransport } from 'nodemailer';
 
-const transporter = nodemailer.createTransport({
+const transporter = createTransport({
   service:'gmail',
   auth:{
     user:'aliahmedyus@gmail.com',
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 app.post('/api/admission-enquiry', async (req, res) => {
   

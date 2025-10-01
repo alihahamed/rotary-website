@@ -1,4 +1,5 @@
 import { Globe } from "../icons/globe";
+import { motion } from 'framer-motion'
 
 function Accordian() {
   return (
@@ -30,10 +31,31 @@ function Accordian() {
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto bg-gradient-to-r from-stone-100 to-zinc-50 ">
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl ">
+          <motion.div
+            className="max-w-2xl mx-auto bg-gradient-to-r from-stone-100 to-zinc-50"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
+          >
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" defaultChecked aria-label="Toggle answer for: What makes Rotary PU College different from other PU colleges in the region?" />
-            <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-gray-800">
                 What makes Rotary PU College different from other PU colleges in
                 the region?
               </div>
@@ -45,8 +67,15 @@ function Accordian() {
                 supportive infrastructure, we provide an environment where
                 students truly thrive.
               </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl">
+            </motion.div>
+
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What courses and training programs does Rotary PU College offer?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 What courses and training programs does Rotary PU College offer?
@@ -58,8 +87,15 @@ function Accordian() {
                 NEET, as well as professional courses like CA and ACCA to
                 prepare them for future careers.
               </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl">
+            </motion.div>
+
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college provide entrance and professional exam coaching?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 How does the college provide entrance and professional exam
@@ -71,8 +107,15 @@ function Accordian() {
                 KCET, JEE, NEET, CA, and ACCA, ensuring students get
                 personalized guidance alongside their regular classes.
               </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl">
+            </motion.div>
+
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What facilities and achievements make Rotary PU College stand out?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 What facilities and achievements make Rotary PU College stand
@@ -85,8 +128,15 @@ function Accordian() {
                 benefit from free mid-day meals and reliable bus facilities,
                 making it a supportive and well-rounded environment.{" "}
               </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl">
+            </motion.div>
+
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college ensure the overall development and discipline of students?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 How does the college ensure the overall development and
@@ -99,8 +149,15 @@ function Accordian() {
                 structured discipline system help students build character,
                 responsibility, and confidence.{" "}
               </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-9">
+            </motion.div>
+
+            <motion.div
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-9"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What is the admission process, and what documents are required?" />
               <div className="collapse-title font-semibold font-merri text-gray-800">
                 What is the admission process, and what documents are required?
@@ -111,8 +168,8 @@ function Accordian() {
                 KCET, JEE, NEET, CA, and ACCA, ensuring students get
                 personalized guidance alongside their regular classes.
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from 'framer-motion'
 
 function AdmissionForm() {
   const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ function AdmissionForm() {
             </p>
           </div>
 
-          {loading ? <div className="toast toast-top toast-end z-10">
+          {loading ? <div className="toast toast-bottom toast-end z-10">
             {/* <div className="alert alert-info">
               <span>New mail arrived.</span>
             </div> */}
@@ -79,12 +80,39 @@ function AdmissionForm() {
           </div> : "" }
           
 
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+          <motion.div
+            className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+          >
+            <motion.div
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+              }}
+            >
               {/* Form Sections */}
               <div className="p-8 space-y-8">
                 {/* Personal Information Section */}
-                <div className="border-l-4 border-blue-600 pl-6">
+                <motion.div
+                  className="border-l-4 border-blue-600 pl-6"
+                  variants={{
+                    hidden: { opacity: 0, x: -40 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                >
                   <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
                     <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">1</span>
@@ -157,10 +185,16 @@ function AdmissionForm() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Academic Information Section */}
-                <div className="border-l-4 border-yellow-500 pl-6">
+                <motion.div
+                  className="border-l-4 border-yellow-500 pl-6"
+                  variants={{
+                    hidden: { opacity: 0, x: 40 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                >
                   <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
                     <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">2</span>
@@ -184,10 +218,16 @@ function AdmissionForm() {
                       </fieldset>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Additional Information Section */}
-                <div className="border-l-4 border-red-500 pl-6">
+                <motion.div
+                  className="border-l-4 border-red-500 pl-6"
+                  variants={{
+                    hidden: { opacity: 0, x: -40 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+                  }}
+                >
                   <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
                     <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm ">3</span>
@@ -211,20 +251,26 @@ function AdmissionForm() {
                       </fieldset>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Submit Button */}
-                <div className="text-center pt-6 border-t border-gray-200">
+                <motion.div
+                  className="text-center pt-6 border-t border-gray-200"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } }
+                  }}
+                >
                   <button
                     onClick={handleSubmit}
                     className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg font-nuno"
                   >
                     Submit Application
                   </button>
-                </div>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
       </section>
     </div>
   );

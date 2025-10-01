@@ -2,6 +2,7 @@ import { Users } from "../icons/users";
 import { ChevronRight } from "../icons/chevronRight";
 import { ChevronLeft } from "../icons/chevronLeft";
 import { useState } from "react";
+import { motion } from 'framer-motion'
 function Testimonials() {
 
   const testimonials = [
@@ -56,18 +57,47 @@ function Testimonials() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-4 max-w-6xl mx-auto">
+          <motion.div
+            className="flex items-center justify-center gap-4 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  staggerChildren: 0.2,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+          >
             {/* Left Arrow */}
-            <button
+            <motion.button
               className="btn btn-circle btn-outline bg-white shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={prevCard}
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 }
+              }}
             >
               <ChevronLeft stroke="#1e40af" className="w-6 h-6" />
-            </button>
+            </motion.button>
 
             {/* Testimonial Card */}
-            <div
+            <motion.div
               className="card max-w-4xl rounded-3xl card-lg shadow-2xl hover:shadow-3xl transition-all duration-300 mx-auto bg-gradient-to-r from-stone-100 to-zinc-50 p-6 h-[500px] flex-1"
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.7, ease: "easeOut" }
+                }
+              }}
             >
               <div className="card-body grid grid-rows-[auto_1fr_auto] gap-4 h-full">
                 {/* Large Quotation Mark SVG - Fixed at top */}
@@ -88,54 +118,49 @@ function Testimonials() {
 
                 {/* Testimonial Text - Takes remaining space */}
                 <div className="flex items-center justify-center overflow-hidden">
-                  <h2
+                  <motion.h2
                     key={`${currentIndex}-${direction}`}
-                    className={`card-title text-center italic text-gray-800 font-nuno line-clamp-6 leading-relaxed ${
-                      direction === 'next' ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                    }`}
+                    className="card-title text-center italic text-gray-800 font-nuno line-clamp-6 leading-relaxed"
+                    initial={{ opacity: 0, x: direction === 'next' ? 30 : -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   >
                     {currentTestimonial.text}
-                  </h2>
+                  </motion.h2>
                 </div>
 
                 {/* Author Info - Fixed at bottom */}
-                <div className="flex flex-col items-center justify-center space-y-1">
-                  <p
-                    key={`author-${currentIndex}-${direction}`}
-                    className={`text-center text-gray-800 font-extrabold font-merri text-xl ${
-                      direction === 'next' ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                    }`}
-                  >
+                <motion.div
+                  className="flex flex-col items-center justify-center space-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <p className="text-center text-gray-800 font-extrabold font-merri text-xl">
                     {currentTestimonial.Author}
                   </p>
-                  <p
-                    key={`stream-${currentIndex}-${direction}`}
-                    className={`text-center text-gray-600 font-nuno text-lg ${
-                      direction === 'next' ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                    }`}
-                  >
+                  <p className="text-center text-gray-600 font-nuno text-lg">
                     {currentTestimonial.Stream}
                   </p>
-                  <p
-                    key={`year-${currentIndex}-${direction}`}
-                    className={`text-center text-gray-600 font-nuno font-medium text-base underline decoration-2 decoration-gray-500 underline-offset-2 ${
-                      direction === 'next' ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                    }`}
-                  >
+                  <p className="text-center text-gray-600 font-nuno font-medium text-base underline decoration-2 decoration-gray-500 underline-offset-2">
                     {currentTestimonial.Year}
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Arrow */}
-            <button
+            <motion.button
               className="btn btn-circle btn-outline bg-white shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={nextCard}
+              variants={{
+                hidden: { opacity: 0, x: 20 },
+                visible: { opacity: 1, x: 0 }
+              }}
             >
               <ChevronRight stroke="#1e40af" className="w-6 h-6" />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </section>
     </div>
   );

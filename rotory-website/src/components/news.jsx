@@ -4,6 +4,7 @@ import Sports1 from "../assets/sports1.webp";
 import PHY_LAB1 from "../assets/PHY-LAB1.webp";
 import study from "../assets/study.webp";
 import nss from '../assets/nss.webp'
+import { motion } from 'framer-motion'
 function News() {
   const newsItems = [
     {
@@ -74,11 +75,46 @@ function News() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer">
+          <motion.div
+            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+          >
             {newsItems.map((item, i) => (
-              <div
+              <motion.div
                 className="indicator w-full transition-all duration-300 transform hover:-translate-y-2"
                 key={i}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    x: -80,
+                    scale: 0.9,
+                    rotateY: -10
+                  },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    rotateY: 0,
+                    transition: {
+                      duration: 0.7,
+                      ease: "easeOut",
+                      type: "spring",
+                      stiffness: 50
+                    }
+                  }
+                }}
               >
                 {/* DaisyUI Indicator Badge */}
                 <span
@@ -144,9 +180,9 @@ function News() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* View All button */}
           <div className="text-center pb-8 md:pb-12">

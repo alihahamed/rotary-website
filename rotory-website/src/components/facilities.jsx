@@ -4,6 +4,7 @@ import bioLab from '../assets/bio-lab.webp'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'
+import { motion } from 'framer-motion'
 
 function Facilities() {
   const cards = [
@@ -42,25 +43,46 @@ function Facilities() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 cursor-pointer">
+          <motion.div
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 cursor-pointer"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15
+                }
+              }
+            }}
+          >
             {cards.map((c, i) => (
-              <a href={c.link}>
-              <div key={i} className="relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition group ring-1 ring-black/5">
-                <img
-                  src={c.img}
-                  alt={c.title}
-                  className="w-full h-40 sm:h-44 md:h-48 lg:h-52 xl:h-56 2xl:h-58 object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 pointer-events-none">
-                  <h3 className="text-white font-merri text-lg sm:text-xl md:text-2xl font-bold drop-shadow-md tracking-wide">{c.title}</h3>
-
+              <motion.a
+                key={i}
+                href={c.link}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className="relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition group ring-1 ring-black/5">
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    className="w-full h-40 sm:h-44 md:h-48 lg:h-52 xl:h-56 2xl:h-58 object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 pointer-events-none">
+                    <h3 className="text-white font-merri text-lg sm:text-xl md:text-2xl font-bold drop-shadow-md tracking-wide">{c.title}</h3>
+                  </div>
                 </div>
-              </div>
-              </a>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
 
           {/* Explore Gallery Button */}
           <div className="text-center pb-12 font-nuno">
