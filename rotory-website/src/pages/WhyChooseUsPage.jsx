@@ -2,8 +2,11 @@ import Achievements from '../components/achievements';
 import pucStaff from '../assets/puc_staff.webp';
 import nonTeaching from '../assets/non_teaching.webp';
 import TopAnnouncement from '../components/TopAnnouncement';
+import { motion } from 'framer-motion'
+
 
 function WhyChooseUsPage() {
+    
     return(
         <div className=" w-full bg-white relative">
             {/* Grid Background */}
@@ -20,15 +23,35 @@ function WhyChooseUsPage() {
             <TopAnnouncement />
             <section className="py-12 md:py-16 relative z-10">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                    <div className="text-center mb-8 md:mb-12">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
+                    <motion.div
+                        className="text-center mb-8 md:mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
+                        <motion.h2
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
                             Why Choose Rotary PU College
-                        </h2>
-                        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-                        <p className="text-lg md:text-xl text-gray-600 mt-4 font-nuno">
+                        </motion.h2>
+                        <motion.div
+                            className="w-24 h-1 bg-blue-600 mx-auto mt-4"
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: 1 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        />
+                        <motion.p
+                            className="text-lg md:text-xl text-gray-600 mt-4 font-nuno"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                        >
                             Discover what makes us the preferred choice for pre-university education
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     {/* Achievements Section */}
                     <div className="mb-12 md:mb-16">
@@ -67,10 +90,32 @@ function WhyChooseUsPage() {
                                         This section will showcase our brightest minds and their remarkable achievements.
                                     </p>
                                 </div>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                                <motion.div
+                                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: {
+                                            opacity: 1,
+                                            transition: {
+                                                staggerChildren: 0.2,
+                                                delayChildren: 0.1
+                                            }
+                                        }
+                                    }}
+                                >
                                     {/* Placeholder cards for toppers */}
                                     {[1, 2, 3].map((index) => (
-                                        <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                                        <motion.div
+                                            key={index}
+                                            className="bg-white rounded-lg shadow-md p-6 border border-gray-200"
+                                            variants={{
+                                                hidden: { opacity: 0, y: 30, scale: 0.9 },
+                                                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } }
+                                            }}
+                                        >
                                             <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
                                                 <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -85,9 +130,9 @@ function WhyChooseUsPage() {
                                             <p className="text-blue-600 font-nuno text-sm mt-1">
                                                 Coming Soon
                                             </p>
-                                        </div>
+                                        </motion.div>
                                     ))}
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
@@ -101,9 +146,30 @@ function WhyChooseUsPage() {
                             <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <motion.div
+                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.15,
+                                        delayChildren: 0.2
+                                    }
+                                }
+                            }}
+                        >
                             {/* Legacy & Heritage */}
-                            <div className="bg-gradient-to-r from-white to-red-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-red-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: -20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,10 +184,16 @@ function WhyChooseUsPage() {
                                     Building on 45+ years of educational excellence from Rotary Central School,
                                     established in 1980 as one of Moodbidri's oldest institutions.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Holistic Development */}
-                            <div className="bg-gradient-to-r from-white to-yellow-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-yellow-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: 20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,10 +208,16 @@ function WhyChooseUsPage() {
                                     Beyond academics, we nurture leadership, creativity, and social responsibility
                                     through sports, cultural activities, and community service.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Modern Facilities */}
-                            <div className="bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: -20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,10 +232,16 @@ function WhyChooseUsPage() {
                                     State-of-the-art science laboratories, well-equipped library, sports facilities,
                                     and smart classrooms for enhanced learning experiences.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Experienced Faculty */}
-                            <div className="bg-gradient-to-r from-white to-red-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-red-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: 20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,10 +256,16 @@ function WhyChooseUsPage() {
                                     Dedicated and qualified teachers who provide personalized attention,
                                     mentorship, and guidance to help every student succeed.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Individual Attention */}
-                            <div className="bg-gradient-to-r from-white to-yellow-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-yellow-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: -20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,10 +280,16 @@ function WhyChooseUsPage() {
                                     Small class sizes ensure individual attention, regular progress monitoring,
                                     and personalized support for each student's growth journey.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Career Guidance */}
-                            <div className="bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-md p-6 md:p-8">
+                            <motion.div
+                                className="bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-md p-6 md:p-8"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30, x: 20 },
+                                    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6 } }
+                                }}
+                            >
                                 <div className="flex items-center mb-6">
                                     <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center mr-4">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,8 +304,8 @@ function WhyChooseUsPage() {
                                     Comprehensive career counseling, entrance exam preparation,
                                     and university admission guidance to shape successful futures.
                                 </p>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
 
                     {/* Faculty & Staff Section */}
@@ -224,41 +320,76 @@ function WhyChooseUsPage() {
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <motion.div
+                            className="grid md:grid-cols-2 gap-8"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.3,
+                                        delayChildren: 0.2
+                                    }
+                                }
+                            }}
+                        >
                             {/* Faculty Members */}
-                            <div className="text-center">
+                            <motion.div
+                                className="text-center"
+                                variants={{
+                                    hidden: { opacity: 0, y: 40, scale: 0.95 },
+                                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7 } }
+                                }}
+                            >
                                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-merri mb-4">
                                     Faculty Members
                                 </h3>
-                                <img
+                                <motion.img
                                     src={pucStaff}
                                     alt="Rotary PU College Faculty Members"
                                     className="w-full h-64 object-cover rounded-lg shadow-lg mb-4"
                                     loading="lazy"
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
                                 />
                                 <p className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg">
                                     Our experienced and qualified faculty members are committed to providing
                                     quality education and nurturing the potential of every student.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* Staff Members */}
-                            <div className="text-center">
+                            <motion.div
+                                className="text-center"
+                                variants={{
+                                    hidden: { opacity: 0, y: 40, scale: 0.95 },
+                                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7 } }
+                                }}
+                            >
                                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-merri mb-4">
                                     Support Staff
                                 </h3>
-                                <img
+                                <motion.img
                                     src={nonTeaching}
                                     alt="Rotary PU College Support Staff & Workers"
                                     className="w-full h-64 object-cover rounded-lg shadow-lg mb-4"
                                     loading="lazy"
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
                                 />
                                 <p className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg">
                                     Our dedicated support staff works tirelessly behind the scenes to ensure
                                     a smooth and conducive learning environment for all students.
                                 </p>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

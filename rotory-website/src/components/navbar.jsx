@@ -7,15 +7,32 @@ function Navbar() {
 
   const handleHomeClick = () => {
     if (location.pathname === '/') {
-      // Already on home page, just scroll to hero
-      const element = document.getElementById('home');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      // Already on home page, just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Navigate to home page with hash for scrolling
-      navigate('/#home');
+      // Navigate to home page and scroll to top
+      navigate('/');
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     }
+  };
+
+  const handlePageClick = (path) => {
+    if (location.pathname === path) {
+      // Already on the page, just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Navigate to the page and scroll to top
+      navigate(path);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
   return (
     <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
@@ -43,39 +60,58 @@ function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-nuno"
           >
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to="/"
+                onClick={() => handlePageClick('/')}
+                className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <Link to={"/about-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to={"/about-us"}
+                onClick={() => handlePageClick('/about-us')}
+                className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 About us
               </Link>
             </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to={"/courses"}
+                onClick={() => handlePageClick('/courses')}
+                className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 Courses
-              </a>
+              </Link>
             </li>
           <li>
-            <Link to={"/why-choose-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/why-choose-us"}
+              onClick={() => handlePageClick('/why-choose-us')}
+              className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
               Why Choose Us
             </Link>
           </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
-                About us
-              </a>
-            </li>
-            <li>
-              <Link to={"/news-events"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to={"/news-events"}
+                onClick={() => handlePageClick('/news-events')}
+                className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 News & Events
               </Link>
             </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to={"/gallery"}
+                onClick={() => handlePageClick('/gallery')}
+                className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 Gallery
-              </a>
+              </Link>
             </li>
             <li>
               <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
@@ -91,13 +127,17 @@ function Navbar() {
       </div>
       <div className="navbar-end hidden lg:flex ">
         <ul className="menu menu-horizontal font-nuno text-[14px] bg-gradient-to-r from-white to-blue-50 border border-gray-400 rounded-lg px-4 py-2 font-semibold">
-          
+
             <li>
-              <Link to={"/"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to="/"
+                onClick={() => handlePageClick('/')}
+                className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 Home
               </Link>
             </li>
-          
+
           {/* <li>
         <details>
           <summary>Parent</summary>
@@ -107,32 +147,52 @@ function Navbar() {
           </ul>
         </details>
       </li> */}
-          
+
             <li>
-            <Link to={"/about-us"}   className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/about-us"}
+              onClick={() => handlePageClick('/about-us')}
+              className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
                 About us
               </Link>
             </li>
-          
+
           <li>
-            <Link to={"/courses"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/courses"}
+              onClick={() => handlePageClick('/courses')}
+              className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
               Courses
             </Link>
           </li>
           <li>
-            <Link to={"/why-choose-us"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/why-choose-us"}
+              onClick={() => handlePageClick('/why-choose-us')}
+              className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
               Why Choose Us
             </Link>
           </li>
           <li>
-            <Link to={"/news-events"} className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/news-events"}
+              onClick={() => handlePageClick('/news-events')}
+              className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
               News & Events
             </Link>
           </li>
           <li>
-            <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+            <Link
+              to={"/gallery"}
+              onClick={() => handlePageClick('/gallery')}
+              className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+            >
               Gallery
-            </a>
+            </Link>
           </li>
           <li>
             <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">

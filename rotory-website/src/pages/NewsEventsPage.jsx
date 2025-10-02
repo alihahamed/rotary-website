@@ -1,7 +1,9 @@
-import React from 'react';
+
 import TopAnnouncement from '../components/TopAnnouncement';
+import { motion } from 'framer-motion'
 
 function NewsEventsPage() {
+    
     // Dummy news data
     const newsData = [
         {
@@ -102,20 +104,74 @@ function NewsEventsPage() {
             <section className="py-12 md:py-16 relative z-10">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     {/* Header */}
-                    <div className="text-center mb-12">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri mb-4">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
+                        <motion.h1
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri mb-4"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
                             Latest News
-                        </h1>
-                        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-                        <p className="text-lg md:text-xl text-gray-600 mt-4 font-nuno">
+                        </motion.h1>
+                        <motion.div
+                            className="w-24 h-1 bg-blue-600 mx-auto mt-4"
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: 1 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        />
+                        <motion.p
+                            className="text-lg md:text-xl text-gray-600 mt-4 font-nuno"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                        >
                             Stay updated with the latest news and announcements at Rotary PU College
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     {/* News Section */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-15">
-                        {newsData.map((news) => (
-                            <div key={news.id} className="indicator w-full transition-all duration-300 transform hover:-translate-y-2">
+                    <motion.div
+                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-15"
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.15,
+                                    delayChildren: 0.2
+                                }
+                            }
+                        }}
+                    >
+                        {newsData.map((news, index) => (
+                            <motion.div
+                                key={news.id}
+                                className="indicator w-full transition-all duration-300 transform hover:-translate-y-2"
+                                variants={{
+                                    hidden: {
+                                        opacity: 0,
+                                        y: 50,
+                                        scale: 0.9
+                                    },
+                                    visible: {
+                                        opacity: 1,
+                                        y: 0,
+                                        scale: 1,
+                                        transition: {
+                                            duration: 0.6,
+                                            ease: "easeOut",
+                                            delay: index * 0.1
+                                        }
+                                    }
+                                }}
+                            >
                                 {/* DaisyUI Indicator Badge */}
                                 <span className={`indicator-item badge text-white font-semibold p-3 absolute right-4 font-nuno border-1 border-black ${getCategoryColor(news.category)}`}>
                                     {news.category}
@@ -169,9 +225,9 @@ function NewsEventsPage() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </div>

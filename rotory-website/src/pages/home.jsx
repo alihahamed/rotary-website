@@ -37,9 +37,7 @@ function Home() {
     return(
         <>
             <TopAnnouncement  />
-        <motion.div variants={variants} initial="hidden" whileInView="visible"viewport={{ once: true }} transition={{ duration: 0.5 }} >
             <Hero />
-        </motion.div >
             <motion.div initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-200px", amount:0.2 }}

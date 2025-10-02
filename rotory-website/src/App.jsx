@@ -9,6 +9,7 @@ import AboutUsPage from './pages/aboutUsPage'
 import CoursesPage from './pages/CoursesPage'
 import WhyChooseUsPage from './pages/WhyChooseUsPage'
 import NewsEventsPage from './pages/NewsEventsPage'
+import GalleryPage from './pages/GalleryPage'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/courses' element={<CoursesPage />}></Route>
         <Route path='/why-choose-us' element={<WhyChooseUsPage />}></Route>
         <Route path='/news-events' element={<NewsEventsPage />}></Route>
+        <Route path='/gallery' element={<GalleryPage />}></Route>
       </Routes>
     </>   
   )

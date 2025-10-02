@@ -43,7 +43,7 @@ const center = {
                     Visit Our Campus
                 </h2>
                 <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-                <p className="text-gray-600 mt-4 text-lg">
+                <p className="text-gray-600 mt-4 text-xl md:text-2xl 2xl:text-2xl font-nuno">
                     Find us on the map and get directions
                 </p>
             </div>
