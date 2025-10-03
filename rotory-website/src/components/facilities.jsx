@@ -4,14 +4,16 @@ import bioLab from '../assets/bio-lab.webp'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'
+import culturalEvent from '../assets/cultural-event.webp'
+import socialLife from '../assets/social-life.webp'
 import { motion } from 'framer-motion'
 
 function Facilities() {
   const cards = [
     { title: "Sports & Athletics", desc: "Stay active with various sports and fitness programs", img: sports, link:"/" },
-    { title: "Cultural Events", desc: "Express creativity through festivals and performances", img: campusImg },
+    { title: "Cultural Events", desc: "Express creativity through festivals and performances", img: culturalEvent },
     { title: "Study Groups", desc: "Collaborative learning in our modern library", img: library },
-    { title: "Campus Social Life", desc: "Build lifelong friendships and connections", img: commerceImg },
+    { title: "Campus Social Life", desc: "Build lifelong friendships and connections", img: socialLife },
     { title: "Tech Workshops", desc: "Learn cutting-edge technology and skills", img: bioLab },
     { title: "Mid-Day Meals", desc: "Free Mid-Day Meals For Students", img: midDay },
   ];

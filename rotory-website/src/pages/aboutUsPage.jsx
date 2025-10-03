@@ -28,7 +28,7 @@ function AboutUsPage() {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
                             Principal's Message
                         </h2>
-                        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                        <motion.div className="w-24 h-1 bg-blue-600 mx-auto mt-4" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.4 }}></motion.div>
                     </div>
 
                     <motion.div
