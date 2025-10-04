@@ -1,4 +1,3 @@
-import RotaryCampus from '../assets/campus-rotory.webp'
 import { motion } from 'framer-motion'
 
 function Hero() {
@@ -14,7 +13,7 @@ function Hero() {
           
         <div className="absolute inset-0">
           <img
-            src={RotaryCampus}
+            src="/campus-rotory.webp"
             alt="Rotary PU College Campus"
             className="w-full h-full object-cover"
             fetchPriority='high'

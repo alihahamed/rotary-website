@@ -2,7 +2,7 @@
 import { Atom } from "../icons/atom";
 import { ChartNoAxes } from "../icons/chart";
 import lab from "../assets/PHY-LAB.webp";
-import commerce from "../assets/cs-lab.webp";
+import commerce from "/gallery/cs-lab.webp";
 import TopAnnouncement from "../components/TopAnnouncement";
 import { motion } from "framer-motion";
 

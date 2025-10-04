@@ -1,7 +1,7 @@
 import campusImg from "../assets/campus.webp";
 import { BellRing } from "../icons/bellring";
 import Sports1 from "../assets/sports1.webp";
-import PHY_LAB1 from "../assets/PHY-LAB1.webp";
+import PHY_LAB1 from "/gallery/PHY-LAB1.webp";
 import study from "../assets/study.webp";
 import nss from '../assets/nss.webp'
 import { motion } from 'framer-motion'

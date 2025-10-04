@@ -1,6 +1,6 @@
 import campusImg from '../assets/campus.webp'
 
-import bioLab from '../assets/bio-lab.webp'
+import bioLab from '/gallery/bio-lab.webp'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'

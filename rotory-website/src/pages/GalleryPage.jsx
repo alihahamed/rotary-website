@@ -8,70 +8,70 @@ function GalleryPage() {
     const photos = [
         {
             id: 1,
-            src: "/src/assets/comOrientation-1.jpg",
+            src: "/gallery/comOrientation-1.jpg",
             title: "Commerce Orientation Day 1",
             description: "Welcome session and introduction to commerce stream",
             alt: "Commerce Orientation Day 1"
         },
         {
             id: 2,
-            src: "/src/assets/comOrientation-2.jpg",
+            src: "/gallery/comOrientation-2.jpg",
             title: "Commerce Orientation Day 2",
             description: "Interactive workshops and faculty introductions",
             alt: "Commerce Orientation Day 2"
         },
         {
             id: 3,
-            src: "/src/assets/comOrientation-3.jpg",
+            src: "/gallery/comOrientation-3.jpg",
             title: "Commerce Orientation Day 3",
             description: "Campus tour and facility exploration",
             alt: "Commerce Orientation Day 3"
         },
         {
             id: 4,
-            src: "/src/assets/comOrientation-4.jpg",
+            src: "/gallery/comOrientation-4.jpg",
             title: "Commerce Orientation Day 4",
             description: "Subject overview and curriculum discussion",
             alt: "Commerce Orientation Day 4"
         },
         {
             id: 5,
-            src: "/src/assets/comOrientation-5.jpg",
+            src: "/gallery/comOrientation-5.jpg",
             title: "Commerce Orientation Day 5",
             description: "Closing ceremony and student networking",
             alt: "Commerce Orientation Day 5"
         },
         {
             id: 6,
-            src: "/src/assets/bio-lab.webp",
+            src: "/gallery/bio-lab.webp",
             title: "Biology Laboratory",
             description: "Advanced biology lab with modern equipment and research facilities",
             alt: "Biology Laboratory"
         },
         {
             id: 7,
-            src: "/src/assets/cs-lab.webp",
+            src: "/gallery/cs-lab.webp",
             title: "Computer Science Lab",
             description: "State-of-the-art computer lab with latest technology and software",
             alt: "Computer Science Lab"
         },
         {
             id: 8,
-            src: "/src/assets/chem-lab-1.webp",
+            src: "/gallery/chem-lab-1.webp",
             title: "Chemistry Laboratory",
             description: "Well-equipped Chemistry lab for practical experiments and research",
             alt: "chem Laboratory"
         },
         {
             id: 9,
-            src: "/src/assets/PHY-LAB1.webp",
+            src: "/gallery/PHY-LAB1.webp",
             title: "Advanced Physics Lab",
             description: "Specialized physics laboratory for advanced experiments",
             alt: "Advanced Physics Lab"
-        }, 
+        },
         {
             id: 10,
-            src: "/src/assets/chem-lab-2.webp",
+            src: "/gallery/chem-lab-2.webp",
             title: "Chemistry Lab",
             description: "Specialized chemistry laboratory for advanced experiments",
             alt: "Advanced chem Lab"
@@ -86,7 +86,7 @@ function GalleryPage() {
             shortDesc: "New student leaders take charge with enthusiasm and vision",
             emoji: "👑",
             gradient: "from-indigo-600 to-purple-700",
-            videoSrc: "/src/videos/student-council.mp4",
+            videoSrc: "/gallery/student-council.mp4",
             hasVideo: true
         },
         {
@@ -96,7 +96,7 @@ function GalleryPage() {
             shortDesc: "Building anticipation for our special decade milestone",
             emoji: "🎬",
             gradient: "from-blue-600 to-purple-700",
-            videoSrc: "/src/videos/annieversary-promotion.mp4",
+            videoSrc: "/gallery/annieversary-promotion.mp4",
             hasVideo: true
         },
         {
@@ -106,7 +106,7 @@ function GalleryPage() {
             shortDesc: "A decade of memories, achievements, and celebrations",
             emoji: "🎉",
             gradient: "from-purple-600 to-pink-700",
-            videoSrc: "/src/videos/annieversary.mp4",
+            videoSrc: "/gallery/annieversary.mp4",
             hasVideo: true
         },
         {
@@ -116,7 +116,7 @@ function GalleryPage() {
             shortDesc: "Warm welcome and orientation for our new students",
             emoji: "🎓",
             gradient: "from-green-600 to-teal-700",
-            videoSrc: "/src/videos/freshers-day.mp4",
+            videoSrc: "/gallery/freshers-day.mp4",
             hasVideo: true
         },
         {
@@ -126,7 +126,7 @@ function GalleryPage() {
             shortDesc: "Cherished memories and well-wishes for graduates",
             emoji: "👋",
             gradient: "from-red-600 to-pink-700",
-            videoSrc: "/src/videos/farewell.mp4",
+            videoSrc: "/gallery/farewell.mp4",
             hasVideo: true
         },
         {
@@ -136,7 +136,7 @@ function GalleryPage() {
             shortDesc: "Passion, teamwork, and sporting excellence on display",
             emoji: "⚽",
             gradient: "from-orange-600 to-yellow-700",
-            videoSrc: "/src/videos/football.mp4",
+            videoSrc: "/gallery/football.mp4",
             hasVideo: true
         }
     ];
@@ -308,7 +308,7 @@ function GalleryPage() {
                                                     controls
                                                     preload="metadata"
                                                     poster={video.thumbnail || undefined}
-                                                    
+
                                                 >
                                                     <source src={video.videoSrc} type="video/mp4" />
                                                     Your browser does not support the video tag.
