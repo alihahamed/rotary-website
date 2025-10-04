@@ -1,4 +1,4 @@
-import Achievements from '../components/achievements';
+
 import pucStaff from '../assets/puc_staff.webp';
 import nonTeaching from '../assets/non_teaching.webp';
 import TopAnnouncement from '../components/TopAnnouncement';
@@ -38,7 +38,7 @@ function WhyChooseUsPage() {
                             Why Choose Rotary PU College
                         </motion.h2>
                         <motion.div
-                            className="w-24 h-1 bg-blue-600 mx-auto mt-4"
+                            className="w-50 h-1 bg-red-600 mx-auto mt-4"
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
@@ -53,10 +53,148 @@ function WhyChooseUsPage() {
                         </motion.p>
                     </motion.div>
 
-                    {/* Achievements Section */}
-                    <div className="mb-12 md:mb-16">
-                        <Achievements />
-                    </div>
+                    {/* College Facilities Section */}
+                    <motion.div
+                        className="mb-12 md:mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.8 }}
+                    >
+                        <div className="text-center mb-8 md:mb-12">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
+                                College Facilities
+                            </h2>
+                            <motion.div
+                                className="w-24 h-1 bg-blue-600 mx-auto mt-4"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 0.8, delay: 1.0 }}
+                            />
+                            <p className="text-lg md:text-xl text-gray-600 mt-4 font-nuno">
+                                State-of-the-art infrastructure designed for optimal learning and development
+                            </p>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-stone-100 to-zinc-50 rounded-lg shadow-md p-6 md:p-8">
+                            <div className="grid lg:grid-cols-2 gap-4 items-start">
+                                {/* Facilities List - Left Side */}
+                                <div className="lg:col-span-1">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        {/* Column 1 */}
+                                        <div className="space-y-3">
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Open Space Auditorium</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">WiFi</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Classrooms</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Chemistry Lab</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Physics Lab</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">CS Lab</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Bio Lab</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Sports Grounds</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Volleyball Ground</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Hockey Ground</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Football Ground</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Column 2 */}
+                                        <div className="space-y-3">
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Noise Free Environment</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Tobacco Free Environment</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Cafeteria</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Free Mid Day Meals</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Medical Room</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Bus Transportation</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Green Spaces</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Parking</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Security</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Library</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
+                                                <span className="text-gray-700 font-nuno text-base">Study Areas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Image Carousel - Right Side */}
+                                <div className="lg:col-span-1">
+                                    <div className="sticky top-8">
+                                        <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gray-200">
+                                            <img
+                                                src="/src/assets/campus.webp"
+                                                alt="Campus Facilities"
+                                                className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
+                                                loading="lazy"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
 
                     {/* Student Toppers Section */}
                     <div className="mt-12 md:mt-16">
