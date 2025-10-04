@@ -28,9 +28,11 @@ function CoursesPage() {
       <section className="py-12 md:py-16 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri" initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}>
               Our Academic Programs
-            </h2>
+            </motion.h2>
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}

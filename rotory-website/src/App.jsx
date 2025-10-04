@@ -10,6 +10,7 @@ import CoursesPage from './pages/CoursesPage'
 import WhyChooseUsPage from './pages/WhyChooseUsPage'
 import NewsEventsPage from './pages/NewsEventsPage'
 import GalleryPage from './pages/GalleryPage'
+import AdmissionsPage from './pages/AdmissionsPage'
 import Footer from './components/footer'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/why-choose-us' element={<WhyChooseUsPage />}></Route>
         <Route path='/news-events' element={<NewsEventsPage />}></Route>
         <Route path='/gallery' element={<GalleryPage />}></Route>
+        <Route path='/admissions' element={<AdmissionsPage />}></Route>
       </Routes>
       <Footer />
     </>   

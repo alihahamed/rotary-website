@@ -114,9 +114,13 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
+              <Link
+                to={"/admissions"}
+                onClick={() => handlePageClick('/admissions')}
+                className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              >
                 Admissions
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -138,15 +142,8 @@ function Navbar() {
               </Link>
             </li>
 
-          {/* <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li> */}
+          
+      
 
             <li>
             <Link
@@ -195,10 +192,17 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a className="hover:text-red-800 hover:border-b-2 hover:border-red-800 transition">
-              Admissions
-            </a>
-          </li>
+        <details>
+          <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
+          
+          <ul className="p-2">
+           <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
+              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
+            <li><a>Procedure</a></li>
+            <li><a>Results</a></li>
+          </ul>
+        </details>
+      </li>
         </ul>
       </div>
     </div>

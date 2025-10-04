@@ -8,38 +8,73 @@ function GalleryPage() {
     const photos = [
         {
             id: 1,
-            src: "/src/assets/commerce.jpg",
-            title: "Commerce Stream Inauguration",
-            description: "Celebrating the launch of our Commerce program with great enthusiasm",
-            alt: "Commerce Stream Inauguration"
+            src: "/src/assets/comOrientation-1.jpg",
+            title: "Commerce Orientation Day 1",
+            description: "Welcome session and introduction to commerce stream",
+            alt: "Commerce Orientation Day 1"
         },
         {
             id: 2,
-            src: "/src/assets/lab.jpg",
-            title: "Science Stream Inauguration",
-            description: "Launching our advanced Science program with state-of-the-art facilities",
-            alt: "Science Stream Inauguration"
+            src: "/src/assets/comOrientation-2.jpg",
+            title: "Commerce Orientation Day 2",
+            description: "Interactive workshops and faculty introductions",
+            alt: "Commerce Orientation Day 2"
         },
         {
             id: 3,
-            src: "/src/assets/campus.webp",
-            title: "Independence Day Celebrations",
-            description: "Patriotic celebrations and cultural programs marking our national pride",
-            alt: "Independence Day Celebrations"
+            src: "/src/assets/comOrientation-3.jpg",
+            title: "Commerce Orientation Day 3",
+            description: "Campus tour and facility exploration",
+            alt: "Commerce Orientation Day 3"
         },
         {
             id: 4,
-            src: "/src/assets/mid-day.webp",
-            title: "Food Fest Highlights",
-            description: "Delicious culinary creations and cultural food showcase",
-            alt: "Food Fest Highlights"
+            src: "/src/assets/comOrientation-4.jpg",
+            title: "Commerce Orientation Day 4",
+            description: "Subject overview and curriculum discussion",
+            alt: "Commerce Orientation Day 4"
         },
         {
             id: 5,
-            src: "/src/assets/PHY-LAB.webp",
-            title: "Laboratory Sessions",
-            description: "Hands-on learning experiences in our modern science laboratories",
-            alt: "Laboratory Sessions"
+            src: "/src/assets/comOrientation-5.jpg",
+            title: "Commerce Orientation Day 5",
+            description: "Closing ceremony and student networking",
+            alt: "Commerce Orientation Day 5"
+        },
+        {
+            id: 6,
+            src: "/src/assets/bio-lab.webp",
+            title: "Biology Laboratory",
+            description: "Advanced biology lab with modern equipment and research facilities",
+            alt: "Biology Laboratory"
+        },
+        {
+            id: 7,
+            src: "/src/assets/cs-lab.webp",
+            title: "Computer Science Lab",
+            description: "State-of-the-art computer lab with latest technology and software",
+            alt: "Computer Science Lab"
+        },
+        {
+            id: 8,
+            src: "/src/assets/chem-lab-1.webp",
+            title: "Chemistry Laboratory",
+            description: "Well-equipped Chemistry lab for practical experiments and research",
+            alt: "chem Laboratory"
+        },
+        {
+            id: 9,
+            src: "/src/assets/PHY-LAB1.webp",
+            title: "Advanced Physics Lab",
+            description: "Specialized physics laboratory for advanced experiments",
+            alt: "Advanced Physics Lab"
+        }, 
+        {
+            id: 10,
+            src: "/src/assets/chem-lab-2.webp",
+            title: "Chemistry Lab",
+            description: "Specialized chemistry laboratory for advanced experiments",
+            alt: "Advanced chem Lab"
         }
     ];
 
@@ -157,24 +192,21 @@ function GalleryPage() {
                     <motion.div
                         className="mb-16"
                         initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 font-merri mb-8 text-center">
                              Campus Moments
                         </h2>
 
-                        {/* 2x4 Grid Layout */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                            {/* Row 1 */}
-                            {photos.slice(0, 4).map((photo, index) => (
+                        {/* 5 Column Grid Layout */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
+                            {photos.map((photo, index) => (
                                 <motion.div
                                     key={photo.id}
                                     className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                                     initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
+                                    animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     whileHover={{ scale: 1.05 }}
                                 >
@@ -183,6 +215,7 @@ function GalleryPage() {
                                             src={photo.src}
                                             alt={photo.alt}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                            loading='lazy'
                                         />
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -193,55 +226,6 @@ function GalleryPage() {
                                         <p className="text-xs opacity-90 font-nuno line-clamp-2">
                                             {photo.description}
                                         </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-
-                            {/* Row 2 */}
-                            {photos.slice(4, 5).map((photo, index) => (
-                                <motion.div
-                                    key={photo.id}
-                                    className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: (index + 4) * 0.1 }}
-                                    whileHover={{ scale: 1.05 }}
-                                >
-                                    <div className="aspect-square overflow-hidden">
-                                        <img
-                                            src={photo.src}
-                                            alt={photo.alt}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                                        />
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-3 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                        <h3 className="text-sm font-bold font-merri mb-1 line-clamp-2">
-                                            {photo.title}
-                                        </h3>
-                                        <p className="text-xs opacity-90 font-nuno line-clamp-2">
-                                            {photo.description}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-
-                            {/* Placeholder cards for Row 2 */}
-                            {[6, 7, 8].map((id, index) => (
-                                <motion.div
-                                    key={id}
-                                    className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: (index + 5) * 0.1 }}
-                                    whileHover={{ scale: 1.05 }}
-                                >
-                                    <div className="text-center text-gray-500 p-4">
-                                        <div className="text-3xl mb-2">📷</div>
-                                        <p className="text-sm font-semibold font-nuno">Coming Soon</p>
-                                        <p className="text-xs opacity-75 font-nuno">More photos</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -251,8 +235,7 @@ function GalleryPage() {
                         <motion.div
                             className="text-center mt-8"
                             initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1 }}
                             transition={{ duration: 0.5, delay: 0.8 }}
                         >
                             <button
@@ -297,8 +280,7 @@ function GalleryPage() {
                     <motion.div
                         className="mb-8"
                         initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 font-merri mb-8 text-center">
@@ -312,8 +294,7 @@ function GalleryPage() {
                                     key={video.id}
                                     className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${video.hasVideo ? '' : `bg-gradient-to-br ${video.gradient}`}`}
                                     initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
+                                    animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     whileHover={{ scale: video.hasVideo ? 1.02 : 1.02 }}
                                 >
@@ -327,6 +308,7 @@ function GalleryPage() {
                                                     controls
                                                     preload="metadata"
                                                     poster={video.thumbnail || undefined}
+                                                    
                                                 >
                                                     <source src={video.videoSrc} type="video/mp4" />
                                                     Your browser does not support the video tag.
