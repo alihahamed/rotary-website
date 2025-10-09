@@ -6,6 +6,7 @@ function GalleryPage() {
     const [showMore, setShowMore] = useState(false);
 
     const photos = [
+        // Commerce Orientation Photos
         {
             id: 1,
             src: "/gallery/comOrientation-1.jpg",
@@ -41,6 +42,8 @@ function GalleryPage() {
             description: "Closing ceremony and student networking",
             alt: "Commerce Orientation Day 5"
         },
+
+        // Laboratory Photos
         {
             id: 6,
             src: "/gallery/bio-lab.webp",
@@ -60,7 +63,7 @@ function GalleryPage() {
             src: "/gallery/chem-lab-1.webp",
             title: "Chemistry Laboratory",
             description: "Well-equipped Chemistry lab for practical experiments and research",
-            alt: "chem Laboratory"
+            alt: "Chemistry Laboratory"
         },
         {
             id: 9,
@@ -74,7 +77,168 @@ function GalleryPage() {
             src: "/gallery/chem-lab-2.webp",
             title: "Chemistry Lab",
             description: "Specialized chemistry laboratory for advanced experiments",
-            alt: "Advanced chem Lab"
+            alt: "Advanced Chemistry Lab"
+        },
+
+        // Annual Event Photos
+        {
+            id: 11,
+            src: "/gallery/annual_01.webp",
+            title: "Annual Day Celebration",
+            description: "Grand annual day celebration showcasing student talents and achievements",
+            alt: "Annual Day Celebration"
+        },
+        {
+            id: 12,
+            src: "/gallery/annual_2.webp",
+            title: "Annual Cultural Program",
+            description: "Traditional and modern cultural performances by students",
+            alt: "Annual Cultural Program"
+        },
+        {
+            id: 13,
+            src: "/gallery/annual_3.webp",
+            title: "Annual Sports Events",
+            description: "Exciting sports competitions and athletic achievements",
+            alt: "Annual Sports Events"
+        },
+        {
+            id: 14,
+            src: "/gallery/annual_4.webp",
+            title: "Annual Prize Distribution",
+            description: "Recognition and awards for outstanding academic and extracurricular performance",
+            alt: "Annual Prize Distribution"
+        },
+        {
+            id: 15,
+            src: "/gallery/annual_5.webp",
+            title: "Annual Alumni Meet",
+            description: "Reunion with former students and cherished memories",
+            alt: "Annual Alumni Meet"
+        },
+        {
+            id: 16,
+            src: "/gallery/annual_6.webp",
+            title: "Annual Farewell",
+            description: "Emotional farewell ceremony for graduating students",
+            alt: "Annual Farewell"
+        },
+
+        // Drug Awareness Campaign Photos
+        {
+            id: 17,
+            src: "/gallery/drug_1.webp",
+            title: "Drug Awareness Workshop",
+            description: "Educational session on drug abuse prevention and healthy lifestyle",
+            alt: "Drug Awareness Workshop"
+        },
+        {
+            id: 18,
+            src: "/gallery/drug_2.webp",
+            title: "Anti-Drug Campaign",
+            description: "Student participation in anti-drug awareness activities",
+            alt: "Anti-Drug Campaign"
+        },
+        {
+            id: 19,
+            src: "/gallery/drug_3.webp",
+            title: "Drug Prevention Seminar",
+            description: "Interactive seminar on the dangers of substance abuse",
+            alt: "Drug Prevention Seminar"
+        },
+        {
+            id: 20,
+            src: "/gallery/drug_4.webp",
+            title: "Drug Awareness Rally",
+            description: "Community outreach and awareness campaign against drug abuse",
+            alt: "Drug Awareness Rally"
+        },
+
+        // Independence Day Photos
+        {
+            id: 21,
+            src: "/gallery/ind_1.JPG",
+            title: "Independence Day Celebration",
+            description: "Patriotic celebrations marking India's independence with flag hoisting and cultural programs",
+            alt: "Independence Day Celebration"
+        },
+        {
+            id: 22,
+            src: "/gallery/ind_2.JPG",
+            title: "Independence Day Parade",
+            description: "Students participating in the independence day parade and cultural performances",
+            alt: "Independence Day Parade"
+        },
+
+        // Interact Club Photos
+        {
+            id: 23,
+            src: "/gallery/interact_club_1.jpeg",
+            title: "Interact Club Meeting",
+            description: "Rotary Interact Club members engaged in community service planning",
+            alt: "Interact Club Meeting"
+        },
+        {
+            id: 24,
+            src: "/gallery/interact_club_2.jpeg",
+            title: "Interact Community Service",
+            description: "Interact club members participating in local community service projects",
+            alt: "Interact Community Service"
+        },
+        {
+            id: 25,
+            src: "/gallery/interact_club_3.jpeg",
+            title: "Interact Leadership Workshop",
+            description: "Leadership development and skill-building workshop for Interact members",
+            alt: "Interact Leadership Workshop"
+        },
+        {
+            id: 26,
+            src: "/gallery/interact_club_4.jpeg",
+            title: "Interact Social Initiative",
+            description: "Interact club organizing social awareness campaigns and initiatives",
+            alt: "Interact Social Initiative"
+        },
+        {
+            id: 27,
+            src: "/gallery/interact_club_5.jpeg",
+            title: "Interact Club Activities",
+            description: "Various club activities promoting service, leadership, and fellowship",
+            alt: "Interact Club Activities"
+        },
+
+        // Taluk Runners Photos
+        {
+            id: 28,
+            src: "/gallery/talukRunners_boys.webp",
+            title: "Taluk Runners Championship - Boys",
+            description: "Boys team competing in the prestigious Taluk Runners Championship",
+            alt: "Taluk Runners Championship Boys"
+        },
+        {
+            id: 29,
+            src: "/gallery/talukRunners_girls.webp",
+            title: "Taluk Runners Championship - Girls",
+            description: "Girls team showcasing athletic excellence in Taluk Runners Championship",
+            alt: "Taluk Runners Championship Girls"
+        },
+
+        // Cultural Event Photo
+        {
+            id: 30,
+            src: "/gallery/cultural-event.webp",
+            title: "Cultural Festival",
+            description: "Vibrant cultural festival celebrating diversity and artistic talents",
+            alt: "Cultural Festival"
+        },
+
+        // Entry Photo
+        {
+            id: 31,
+            src: "/gallery/entry.webp",
+            title: "College Entrance",
+            description: "Beautiful college entrance welcoming students and visitors",
+            alt: "College Entrance"
         }
     ];
 
@@ -219,14 +383,14 @@ function GalleryPage() {
                                         />
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-3 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                    {/* <div className="absolute bottom-0 left-0 right-0 p-3 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                         <h3 className="text-sm font-bold font-merri mb-1 line-clamp-2">
                                             {photo.title}
                                         </h3>
                                         <p className="text-xs opacity-90 font-nuno line-clamp-2">
                                             {photo.description}
                                         </p>
-                                    </div>
+                                    </div> */}
                                 </motion.div>
                             ))}
                         </div>

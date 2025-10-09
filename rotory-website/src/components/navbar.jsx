@@ -198,8 +198,9 @@ function Navbar() {
           <ul className="p-2">
            <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
               className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
-            <li><a>Procedure</a></li>
-            <li><a>Results</a></li>
+            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
+            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
+            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
           </ul>
         </details>
       </li>

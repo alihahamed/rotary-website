@@ -135,7 +135,7 @@ function Achievements() {
                 </svg>
               </h2>
               <p className="font-merri text-2xl md:text-3xl font-medium text-blue-500">
-                12+
+                10+
               </p>
               <p className="font-nuno text-gray-600 font-medium text-sm md:text-base">
                 Years Of Excellence

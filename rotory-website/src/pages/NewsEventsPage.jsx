@@ -17,11 +17,11 @@ function NewsEventsPage() {
         },
         {
             id: 2,
-            title: "New Science Laboratory Inauguration",
+            title: "Admission Applications Now Open for 2025-26",
             date: "2025-01-10",
             category: "Infrastructure",
-            excerpt: "State-of-the-art science laboratory equipped with modern equipment inaugurated to enhance practical learning experience.",
-            image: "/src/assets/lab.jpg",
+            excerpt: "Applications for Science and Commerce streams are now being accepted. Early bird discount available for early applications.",
+            image: "/gallery/entry.webp",
             readTime: "2 min read"
         },
         {
@@ -48,7 +48,7 @@ function NewsEventsPage() {
             date: "2024-12-15",
             category: "Anniversary",
             excerpt: "A decade of academic excellence, holistic development, and community service celebrated with great enthusiasm.",
-            image: "/src/assets/campus-rotory.webp",
+            image: "/public/gallery/annual_5.webp",
             readTime: "5 min read"
         },
         {

@@ -14,6 +14,9 @@ const WhyChooseUsPage = lazy(() => import('./pages/WhyChooseUsPage'))
 const NewsEventsPage = lazy(() => import('./pages/NewsEventsPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const AdmissionsPage = lazy(() => import('./pages/AdmissionsPage'))
+const AdmissionProcedurePage = lazy(() => import('./pages/AdmissionProcedurePage'))
+const ApplyPage = lazy(() => import('./pages/ApplyPage'))
+const ResultsPage = lazy(() => import('./pages/ResultsPage'))
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path='/news-events' element={<NewsEventsPage />}></Route>
           <Route path='/gallery' element={<GalleryPage />}></Route>
           <Route path='/admissions' element={<AdmissionsPage />}></Route>
+          <Route path='/admissions/procedure' element={<AdmissionProcedurePage />}></Route>
+          <Route path='/admissions/apply' element={<ApplyPage />}></Route>
+          <Route path='/admissions/results' element={<ResultsPage />}></Route>
         </Routes>
       </Suspense>
       <Footer />
