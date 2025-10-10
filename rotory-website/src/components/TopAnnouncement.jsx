@@ -5,10 +5,10 @@ function TopAnnouncement() {
             <div className="flex items-center h-full">
                 <div className="animate-marquee whitespace-nowrap font-nuno text-sm font-medium">
                     <span className="mr-8">🎓 Admission's Open - Apply Now!</span>
-                    <span className="mr-8">📞 +91 8867145921</span>
+                    <span className="mr-8">📞 +91 8258298524</span>
                     <span className="mr-8">✉️ info@rotarycollege.edu</span>
                     <span className="mr-8">🎓 Admission's Open - Apply Now!</span>
-                    <span className="mr-8">📞 +91 8867145921</span>
+                    <span className="mr-8">📞 +91 8258298524</span>
                     <span className="mr-8">✉️ info@rotarycollege.edu</span>
                 </div>
             </div>

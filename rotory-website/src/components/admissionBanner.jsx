@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 function AdmissionBanner() {
+  const navigate = useNavigate()
   return (
     <div>
       <section className="bg-red-800 mx-auto">
@@ -52,10 +54,16 @@ function AdmissionBanner() {
               }
             }}
           >
-            <button className="bg-white text-red-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+            <button
+              onClick={() => navigate('/admissions/apply')}
+              className="bg-white text-red-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300"
+            >
               Apply Now
             </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-800 transition duration-300">
+            <button
+              onClick={() => navigate('/admissions')}
+              className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-800 transition duration-300"
+            >
               Learn More
             </button>
           </motion.div>

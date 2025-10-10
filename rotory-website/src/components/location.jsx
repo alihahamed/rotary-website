@@ -64,7 +64,7 @@ const center = {
                         <div>
                             <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4">📞 Contact</h3>
                             <div className="text-gray-700 font-nuno text-lg space-y-2">
-                                <p>📞 +91 12345 67890</p>
+                                <p>📞 +91 8258298524</p>
                                 <p>✉️ info@rotarycollege.edu</p>
                                 <p>🕒 Mon - Sat: 8:30 AM - 3:00 PM</p>
                             </div>
