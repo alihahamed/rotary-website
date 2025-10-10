@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 function Hero() {
     const handleExploreCampus = () => {
@@ -23,8 +24,11 @@ function Hero() {
           
         </div>
         <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 h-full flex items-center">
+          {/* Text Overlay for Better Readability */}
+          <div className="absolute inset-0 bg-black/40 sm:bg-black/30 lg:bg-black/20"></div>
+
           <motion.div
-            className="text-white max-w-3xl"
+            className="relative text-white max-w-3xl z-10"
             initial="hidden"
             animate="visible"
             variants={{
@@ -54,7 +58,7 @@ function Hero() {
                 visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } }
               }}
             >
-              Empowering minds, shaping futures. Join us in pursuing academic excellence and personal growth in a vibrant learning community.
+              Your journey to academic success begins here. Experience quality education, supportive mentors, and a dynamic campus life that prepares you for a bright future.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
@@ -71,15 +75,17 @@ function Hero() {
                 }
               }}
             >
+              <Link to={"/admissions/apply"}>
               <motion.button
-                className="bg-gradient-to-r from-red-500 to-red-600 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-sm sm:text-base"
+                className="bg-gradient-to-r from-red-700 to-red-400 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-lg "
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
                 }}
               >
-                Apply now
+               Apply now
               </motion.button>
+              </Link>
               <motion.button
                 onClick={handleExploreCampus}
                 className="bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl shadow-lg hover:bg-white hover:text-blue-800 transition-all duration-300 text-sm sm:text-base"

@@ -124,8 +124,8 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <img src={RotaryLogo} alt="Rotary Logo" className="h-10 w-10 mr-2" />
-        <button onClick={handleHomeClick} className="btn btn-ghost text-xl font-merri" > 
+        <img src={RotaryLogo} alt="Rotary Logo" className="h-13 w-13" />
+        <button onClick={handleHomeClick} className="btn btn-ghost text-2xl font-merri tracking-wide" > 
           Rotary Pre-University College{" "}
         </button>
       </div>

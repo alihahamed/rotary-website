@@ -101,10 +101,11 @@ function NewsEventsPage() {
                 }}
             />
             <TopAnnouncement />
-            <section className="py-12 md:py-16 relative z-10">
+            <section className="py-12 md:py-16 relative z-10" id='newsEvents'>
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     {/* Header */}
                     <motion.div
+                    
                         className="text-center mb-12"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -136,6 +137,7 @@ function NewsEventsPage() {
 
                     {/* News Section */}
                     <motion.div
+                    
                         className="grid md:grid-cols-2 lg:grid-cols-3 gap-15"
                         initial="hidden"
                         animate="visible"

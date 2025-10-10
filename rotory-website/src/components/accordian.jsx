@@ -163,10 +163,63 @@ function Accordian() {
                 What is the admission process, and what documents are required?
               </div>
               <div className="collapse-content text-sm font-nuno text-gray-600">
-                Rotary PU College invites expert training officers and subject
-                specialists who conduct focused coaching sessions for exams like
-                KCET, JEE, NEET, CA, and ACCA, ensuring students get
-                personalized guidance alongside their regular classes.
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">Admission Timeline</h4>
+                    <p className="mb-3">The Admission commences immediately after the announcement of S.S.L.C results.</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">How to Apply</h4>
+                    <p className="mb-3">Candidates who wish to take admission should contact the Principal/Admission office personally along with parent/guardian. They should bring completely filled application form along with four passport size photographs and a statement of marks obtained in S.S.L.C Examination duly attested by the Headmaster/Principal of the School.</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">Eligibility Requirements</h4>
+                    <ul className="list-disc list-inside mb-3 space-y-1">
+                      <li>Passing of 10th standard (SSLC/ICSE/CBSE or equivalent)</li>
+                      <li>Student should be above 16 years of age</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">Required Documents</h4>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-medium text-gray-700 mb-2">Academic Documents</h5>
+                        <ul className="list-disc list-inside space-y-1 text-sm">
+                          <li>10th Standard Mark Sheet</li>
+                          <li>10th Standard Pass Certificate</li>
+                          <li>Transfer Certificate</li>
+                          <li>Conduct Certificate</li>
+                          <li>Marks card of S.S.L.C or equivalent exam</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-medium text-gray-700 mb-2">Personal Documents</h5>
+                        <ul className="list-disc list-inside space-y-1 text-sm">
+                          <li>Recent Passport Size Photos (4 copies)</li>
+                          <li>Aadhaar Card Copy</li>
+                          <li>Caste Certificate (if applicable)</li>
+                          <li>Medical Certificate</li>
+                          <li>Bank Passbook</li>
+                          <li>Income Certificate</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">Application Form</h4>
+                    <p className="mb-3">Application form with Prospectus can be obtained from the College or Admission Office.</p>
+                  </div>
+
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                    <p className="text-yellow-800 text-sm font-medium">
+                      <strong>Important Note:</strong> All admissions are provisional and are subject to final approval by the Dept. of P.U. Education, Govt. of Karnataka.
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

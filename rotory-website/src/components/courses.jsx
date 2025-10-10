@@ -5,8 +5,27 @@ import { ChartNoAxes } from '../icons/chart';
 import lab from '../assets/geminilab.png'
 import commerce from '../assets/geminicommerce.png'
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
+import e from 'cors';
 
 function Courses() {
+
+  
+  const navigate = useNavigate()
+  const handleCourse = (sectionId) => {
+    navigate('/courses')
+
+    setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if(element) {
+          element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 100)
+  }
+
   return (
     <div className=" w-full bg-white relative">
       {/* Grid Background */}
@@ -81,9 +100,9 @@ function Courses() {
             Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
           </p>
           <div className="card-actions">
-            <a href="/courses#scienceStream" className="btn px-6 py-2 rounded-lg font-nuno w-full text-white text-[16px] font-semibold
+            <button onClick={() => handleCourse('scienceStream')} className="btn px-6 py-2 rounded-lg font-nuno w-full text-white text-[16px] font-semibold
             bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700
-             hover:from-blue-600 hover:to-blue-800 transition-all inline-block text-center">Explore More</a>
+             hover:from-blue-600 hover:to-blue-800 transition-all inline-block text-center">Explore More</button>
           </div>
         </div>
       </motion.div>
@@ -125,9 +144,9 @@ function Courses() {
            Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science.
           </p>
           <div className="card-actions flex justify-center items-center">
-            <a href="/courses#commerceStream" className="btn px-6 py-2 rounded-lg text-white font-nuno w-full text-[16px] font-semibold
+            <button onClick={() => handleCourse('comStream')} className="btn px-6 py-2 rounded-lg text-white font-nuno w-full text-[16px] font-semibold
         bg-gradient-to-r from-red-700 via-red-800 to-yellow-600
-      hover:from-red-800 hover:to-yellow-700 transition-all inline-block text-center">Explore More</a>
+      hover:from-red-800 hover:to-yellow-700 transition-all inline-block text-center">Explore More</button>
           </div>
         </div>
       </motion.div>

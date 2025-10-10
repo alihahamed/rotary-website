@@ -1,79 +1,165 @@
 import TopAnnouncement from '../components/TopAnnouncement';
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 function GalleryPage() {
     const [showMore, setShowMore] = useState(false);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Handle photo click to open modal
+    const openModal = (photo, index) => {
+        setSelectedPhoto(photo);
+        setCurrentIndex(index);
+    };
+
+    // Close modal
+    const closeModal = () => {
+        setSelectedPhoto(null);
+    };
+
+    // Navigate to next photo
+    const nextPhoto = () => {
+        const nextIndex = (currentIndex + 1) % photos.length;
+        setCurrentIndex(nextIndex);
+        setSelectedPhoto(photos[nextIndex]);
+    };
+
+    // Navigate to previous photo
+    const prevPhoto = () => {
+        const prevIndex = currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
+        setCurrentIndex(prevIndex);
+        setSelectedPhoto(photos[prevIndex]);
+    };
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (!selectedPhoto) return;
+
+            switch (e.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowRight':
+                    nextPhoto();
+                    break;
+                case 'ArrowLeft':
+                    prevPhoto();
+                    break;
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyPress);
+        return () => document.removeEventListener('keydown', handleKeyPress);
+    }, [selectedPhoto, currentIndex]);
 
     const photos = [
         // Commerce Orientation Photos
         {
             id: 1,
             src: "/gallery/comOrientation-1.jpg",
-            title: "Commerce Orientation Day 1",
+            title: "Commerce Orientation",
             description: "Welcome session and introduction to commerce stream",
             alt: "Commerce Orientation Day 1"
         },
         {
             id: 2,
             src: "/gallery/comOrientation-2.jpg",
-            title: "Commerce Orientation Day 2",
+            title: "Commerce Orientation",
             description: "Interactive workshops and faculty introductions",
             alt: "Commerce Orientation Day 2"
         },
         {
             id: 3,
             src: "/gallery/comOrientation-3.jpg",
-            title: "Commerce Orientation Day 3",
+            title: "Commerce Orientation",
             description: "Campus tour and facility exploration",
             alt: "Commerce Orientation Day 3"
         },
         {
             id: 4,
             src: "/gallery/comOrientation-4.jpg",
-            title: "Commerce Orientation Day 4",
+            title: "Commerce Orientation",
             description: "Subject overview and curriculum discussion",
             alt: "Commerce Orientation Day 4"
         },
         {
             id: 5,
             src: "/gallery/comOrientation-5.jpg",
-            title: "Commerce Orientation Day 5",
+            title: "Commerce Orientation",
             description: "Closing ceremony and student networking",
             alt: "Commerce Orientation Day 5"
         },
 
-        // Laboratory Photos
+        // Science Orientation Photos
         {
             id: 6,
+            src: "/gallery/sciOrientation_1.jpg",
+            title: "Science Orientation",
+            description: "Welcome session and introduction to science stream",
+            alt: "Science Orientation Day 1"
+        },
+        {
+            id: 7,
+            src: "/gallery/sciOrientation_2.jpg",
+            title: "Science Orientation",
+            description: "Laboratory tours and hands-on science demonstrations",
+            alt: "Science Orientation Day 2"
+        },
+        {
+            id: 8,
+            src: "/gallery/sciOrientation_3.jpg",
+            title: "Science Orientation",
+            description: "Interactive workshops and faculty introductions",
+            alt: "Science Orientation Day 3"
+        },
+        {
+            id: 9,
+            src: "/gallery/sciOrientation_4.jpg",
+            title: "Science Orientation",
+            description: "Subject overview and curriculum discussion for PCMB/PCMC",
+            alt: "Science Orientation Day 4"
+        },
+        {
+            id: 10,
+            src: "/gallery/sciOrientation_5.jpg",
+            title: "Science Orientation",
+            description: "Closing ceremony and student networking for science stream",
+            alt: "Science Orientation Day 5"
+        },
+
+        // Laboratory Photos
+        {
+            id: 11,
             src: "/gallery/bio-lab.webp",
             title: "Biology Laboratory",
             description: "Advanced biology lab with modern equipment and research facilities",
             alt: "Biology Laboratory"
         },
         {
-            id: 7,
+            id: 12,
             src: "/gallery/cs-lab.webp",
             title: "Computer Science Lab",
             description: "State-of-the-art computer lab with latest technology and software",
             alt: "Computer Science Lab"
         },
         {
-            id: 8,
+            id: 13,
             src: "/gallery/chem-lab-1.webp",
             title: "Chemistry Laboratory",
             description: "Well-equipped Chemistry lab for practical experiments and research",
             alt: "Chemistry Laboratory"
         },
         {
-            id: 9,
+            id: 14,
             src: "/gallery/PHY-LAB1.webp",
             title: "Advanced Physics Lab",
             description: "Specialized physics laboratory for advanced experiments",
             alt: "Advanced Physics Lab"
         },
         {
-            id: 10,
+            id: 15,
             src: "/gallery/chem-lab-2.webp",
             title: "Chemistry Lab",
             description: "Specialized chemistry laboratory for advanced experiments",
@@ -82,125 +168,125 @@ function GalleryPage() {
 
         // Annual Event Photos
         {
-            id: 11,
+            id: 16,
             src: "/gallery/annual_01.webp",
             title: "Annual Day Celebration",
             description: "Grand annual day celebration showcasing student talents and achievements",
             alt: "Annual Day Celebration"
         },
         {
-            id: 12,
+            id: 17,
             src: "/gallery/annual_2.webp",
             title: "Annual Cultural Program",
             description: "Traditional and modern cultural performances by students",
             alt: "Annual Cultural Program"
         },
         {
-            id: 13,
+            id: 18,
             src: "/gallery/annual_3.webp",
             title: "Annual Sports Events",
             description: "Exciting sports competitions and athletic achievements",
             alt: "Annual Sports Events"
         },
         {
-            id: 14,
+            id: 19,
             src: "/gallery/annual_4.webp",
             title: "Annual Prize Distribution",
             description: "Recognition and awards for outstanding academic and extracurricular performance",
             alt: "Annual Prize Distribution"
         },
         {
-            id: 15,
+            id: 20,
             src: "/gallery/annual_5.webp",
-            title: "Annual Alumni Meet",
+            title: "Annual Day",
             description: "Reunion with former students and cherished memories",
             alt: "Annual Alumni Meet"
         },
         {
-            id: 16,
+            id: 21,
             src: "/gallery/annual_6.webp",
-            title: "Annual Farewell",
+            title: "Annual Day",
             description: "Emotional farewell ceremony for graduating students",
             alt: "Annual Farewell"
         },
 
         // Drug Awareness Campaign Photos
         {
-            id: 17,
+            id: 22,
             src: "/gallery/drug_1.webp",
             title: "Drug Awareness Workshop",
             description: "Educational session on drug abuse prevention and healthy lifestyle",
             alt: "Drug Awareness Workshop"
         },
         {
-            id: 18,
+            id: 23,
             src: "/gallery/drug_2.webp",
             title: "Anti-Drug Campaign",
             description: "Student participation in anti-drug awareness activities",
             alt: "Anti-Drug Campaign"
         },
         {
-            id: 19,
+            id: 24,
             src: "/gallery/drug_3.webp",
             title: "Drug Prevention Seminar",
             description: "Interactive seminar on the dangers of substance abuse",
             alt: "Drug Prevention Seminar"
         },
         {
-            id: 20,
+            id: 25,
             src: "/gallery/drug_4.webp",
-            title: "Drug Awareness Rally",
+            title: "Drug Awareness Workshop",
             description: "Community outreach and awareness campaign against drug abuse",
             alt: "Drug Awareness Rally"
         },
 
         // Independence Day Photos
         {
-            id: 21,
+            id: 26,
             src: "/gallery/ind_1.JPG",
             title: "Independence Day Celebration",
             description: "Patriotic celebrations marking India's independence with flag hoisting and cultural programs",
             alt: "Independence Day Celebration"
         },
         {
-            id: 22,
+            id: 27,
             src: "/gallery/ind_2.JPG",
-            title: "Independence Day Parade",
+            title: "Independence Day Celebration",
             description: "Students participating in the independence day parade and cultural performances",
             alt: "Independence Day Parade"
         },
 
         // Interact Club Photos
         {
-            id: 23,
+            id: 28,
             src: "/gallery/interact_club_1.jpeg",
             title: "Interact Club Meeting",
             description: "Rotary Interact Club members engaged in community service planning",
             alt: "Interact Club Meeting"
         },
         {
-            id: 24,
+            id: 29,
             src: "/gallery/interact_club_2.jpeg",
             title: "Interact Community Service",
             description: "Interact club members participating in local community service projects",
             alt: "Interact Community Service"
         },
         {
-            id: 25,
+            id: 30,
             src: "/gallery/interact_club_3.jpeg",
             title: "Interact Leadership Workshop",
             description: "Leadership development and skill-building workshop for Interact members",
             alt: "Interact Leadership Workshop"
         },
         {
-            id: 26,
+            id: 31,
             src: "/gallery/interact_club_4.jpeg",
             title: "Interact Social Initiative",
             description: "Interact club organizing social awareness campaigns and initiatives",
             alt: "Interact Social Initiative"
         },
         {
-            id: 27,
+            id: 32,
             src: "/gallery/interact_club_5.jpeg",
             title: "Interact Club Activities",
             description: "Various club activities promoting service, leadership, and fellowship",
@@ -209,14 +295,14 @@ function GalleryPage() {
 
         // Taluk Runners Photos
         {
-            id: 28,
+            id: 33,
             src: "/gallery/talukRunners_boys.webp",
             title: "Taluk Runners Championship - Boys",
             description: "Boys team competing in the prestigious Taluk Runners Championship",
             alt: "Taluk Runners Championship Boys"
         },
         {
-            id: 29,
+            id: 34,
             src: "/gallery/talukRunners_girls.webp",
             title: "Taluk Runners Championship - Girls",
             description: "Girls team showcasing athletic excellence in Taluk Runners Championship",
@@ -225,16 +311,16 @@ function GalleryPage() {
 
         // Cultural Event Photo
         {
-            id: 30,
+            id: 35,
             src: "/gallery/cultural-event.webp",
-            title: "Cultural Festival",
+            title: "Food Fest",
             description: "Vibrant cultural festival celebrating diversity and artistic talents",
             alt: "Cultural Festival"
         },
 
         // Entry Photo
         {
-            id: 31,
+            id: 36,
             src: "/gallery/entry.webp",
             title: "College Entrance",
             description: "Beautiful college entrance welcoming students and visitors",
@@ -373,6 +459,7 @@ function GalleryPage() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     whileHover={{ scale: 1.05 }}
+                                    onClick={() => openModal(photo, index)}
                                 >
                                     <div className="aspect-square overflow-hidden">
                                         <img
@@ -396,7 +483,7 @@ function GalleryPage() {
                         </div>
 
                         {/* Show More Button */}
-                        <motion.div
+                        {/* <motion.div
                             className="text-center mt-8"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -408,7 +495,7 @@ function GalleryPage() {
                             >
                                 {showMore ? 'Show Less' : 'Show More Photos'}
                             </button>
-                        </motion.div>
+                        </motion.div> */}
 
                         {/* Additional content when Show More is clicked */}
                         {showMore && (
@@ -524,6 +611,102 @@ function GalleryPage() {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Fullscreen Photo Modal */}
+            <AnimatePresence>
+                {selectedPhoto && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={closeModal}
+                    >
+                        {/* Close Button */}
+                        <button
+                            className="absolute top-4 right-4 z-60 text-white hover:text-gray-300 transition-colors"
+                            onClick={closeModal}
+                        >
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                        {/* Previous Button */}
+                        <button
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-full p-3 hover:bg-black/40"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                prevPhoto();
+                            }}
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Next Button */}
+                        <button
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-full p-3 hover:bg-black/40"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                nextPhoto();
+                            }}
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        {/* Main Image Container */}
+                        <motion.div
+                            className="relative max-w-5xl max-h-screen p-4"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedPhoto.src}
+                                alt={selectedPhoto.alt}
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                            />
+
+                            {/* Image Info Overlay */}
+                            <motion.div
+                                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                            >
+                                <h3 className="text-white text-xl md:text-2xl font-bold font-merri mb-2">
+                                    {selectedPhoto.title}
+                                </h3>
+                                <p className="text-white/90 text-sm md:text-base font-nuno leading-relaxed">
+                                    {selectedPhoto.description}
+                                </p>
+
+                                {/* Photo Counter */}
+                                <div className="mt-4 text-white/70 text-sm font-nuno">
+                                    {currentIndex + 1} of {photos.length}
+                                </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Mobile Swipe Indicators */}
+                        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:hidden">
+                            <div className="text-white/50 text-sm">Swipe</div>
+                            <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                            </svg>
+                            <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

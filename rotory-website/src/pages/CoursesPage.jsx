@@ -294,7 +294,7 @@ function CoursesPage() {
           </div>
 
           {/* Commerce Stream */}
-          <div className="mb-12 md:mb-16" id="commerceStream">
+          <div className="mb-12 md:mb-16" id="comStream">
             <div className="text-center mb-8 md:mb-12">
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-800 font-merri">
                 Commerce Stream

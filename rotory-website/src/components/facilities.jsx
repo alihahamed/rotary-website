@@ -1,5 +1,5 @@
 import campusImg from '../assets/campus.webp'
-
+import { Link } from 'react-router-dom'
 import bioLab from '/gallery/bio-lab.webp'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
@@ -88,9 +88,11 @@ function Facilities() {
 
           {/* Explore Gallery Button */}
           <div className="text-center pb-12 font-nuno">
+            <Link to={"/gallery"}>
             <button className="bg-gradient-to-r from-amber-600  to-yellow-300 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base md:text-lg">
               Explore Our Gallery
             </button>
+            </Link>
           </div>
         </section>
       </div>

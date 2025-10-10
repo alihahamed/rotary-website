@@ -66,7 +66,7 @@ const center = {
                             <div className="text-gray-700 font-nuno text-lg space-y-2">
                                 <p>📞 +91 12345 67890</p>
                                 <p>✉️ info@rotarycollege.edu</p>
-                                <p>🕒 Mon - Sat: 8:30 AM - 2:00 PM</p>
+                                <p>🕒 Mon - Sat: 8:30 AM - 3:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -92,16 +92,16 @@ const center = {
                     <div className="space-y-6">
                         {/* Directions */}
                         <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200">
-                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4">🗺️ How to Reach</h3>
+                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4"> How to Reach</h3>
                             <div className="space-y-3 text-gray-600 font-nuno">
                                 <div className="flex items-start">
                                     <span className="font-bold mr-3">🚗</span>
                                     <span>5 Minute Drive From Moodbidri Bustand</span>
                                 </div>
-                                <div className="flex items-start">
+                                {/* <div className="flex items-start">
                                     <span className="font-bold mr-3">🚌</span>
                                     <span>Bus routes: 15A, 22B, 45C</span>
-                                </div>
+                                </div> */}
                                 <div className="flex items-start">
                                     <span className="font-bold mr-3">🚆</span>
                                     <span>Near Police Station, Moodbidri</span>
@@ -111,7 +111,7 @@ const center = {
 
                         {/* Quick Actions */}
                         <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200">
-                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4">⚡ Quick Actions</h3>
+                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4"> Quick Actions</h3>
                             <div className="space-y-3">
                                 <button
                                     onClick={handleClick}

@@ -5,7 +5,25 @@ import PHY_LAB1 from "/gallery/PHY-LAB1.webp";
 import study from "../assets/study.webp";
 import nss from '../assets/nss.webp'
 import { motion } from 'framer-motion'
+import { Link, useNavigate } from "react-router-dom";
 function News() {
+
+
+
+  const navigate = useNavigate()
+  const handleNews = () => {
+    navigate('/news-events')
+
+    setTimeout(() => {
+        const element = document.getElementById('newsEvents')
+        if(element) {
+          element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 100)
+  }
   const newsItems = [
     {
       id: 1,
@@ -171,7 +189,8 @@ function News() {
 
           {/* View All button */}
           <div className="text-center pb-8 md:pb-12">
-            <button className="bg-gradient-to-l from-[#f97316] via-[#e11d48] to-[#ef4444] text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-medium transition flex items-center gap-2 mx-auto cursor-pointer text-sm md:text-base">
+            
+            <button onClick={() => handleNews()} className="bg-gradient-to-l from-[#f97316] via-[#e11d48] to-[#ef4444] text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-medium transition flex items-center gap-2 mx-auto cursor-pointer text-sm md:text-base hover:scale-105">
               View All Announcements
               <svg
                 className="w-4 h-4 md:w-5 md:h-5"
@@ -187,6 +206,7 @@ function News() {
                 />
               </svg>
             </button>
+            
           </div>
         </section>
     </div>
