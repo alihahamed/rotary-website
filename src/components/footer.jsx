@@ -61,7 +61,7 @@ function Footer() {
                     <p className="text-center text-xs text-blue-100/60 font-nuno">
                         developed by{' '}
                         <a
-                            href="https://www.instagram.com/aliahmd.25/"
+                            href="https://github.com/alihahamed"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-blue-200 transition-colors duration-200 underline decoration-1 underline-offset-2"

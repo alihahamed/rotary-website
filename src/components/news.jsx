@@ -84,7 +84,7 @@ function News() {
           <div className="text-center mt-5 mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-yellow-500 font-merri">
               <span className="mb-2 sm:mb-0">News & Announcements</span>
-              <BellRing stroke="#EAB308" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3" />
+              <BellRing stroke="#EAB308" className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mt-2 sm:mt-0 sm:ml-3 lg:opacity-100 " />
             </h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto mt-4"></div>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno">

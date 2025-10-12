@@ -21,7 +21,7 @@ function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 sm:from-blue-900/80 to-maroon-900/50 sm:to-maroon-900/60 backdrop-blur-sm"></div>
           {/* Black Overlay for Better Readability */}
-          <div className="absolute inset-0 bg-black/60 sm:bg-black/50 lg:bg-black/40"></div>
+          {/* <div className="absolute inset-0 bg-black/60 sm:bg-black/50 lg:bg-black/40"></div> */}
 
         </div>
         <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 h-full flex items-center justify-center sm:justify-start">
