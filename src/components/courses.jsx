@@ -43,10 +43,11 @@ function Courses() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="flex h-80">
+          {/* Mobile: Stack vertically, Desktop: Side by side */}
+          <div className="flex flex-col md:flex-row h-auto md:h-80">
 
-            {/* Left Colored Section - Science */}
-            <div className="flex-1 bg-gradient-to-br from-teal-600 to-cyan-500 relative overflow-hidden">
+            {/* Mobile: Top, Desktop: Left Colored Section - Science */}
+            <div className="flex-1 md:flex-1 bg-gradient-to-br from-teal-600 to-cyan-500 relative overflow-hidden h-48 md:h-auto">
               {/* Subtle Pattern Overlay */}
               <div className="absolute inset-0 opacity-[0.08]">
                 <div className="absolute inset-0" style={{
@@ -57,23 +58,23 @@ function Courses() {
 
               {/* Large White Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <Atom className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-lg" />
+                <Atom className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
               </div>
             </div>
 
-            {/* Right Content Section */}
-            <div className="flex-[1.4] bg-white p-8 md:p-10 flex flex-col justify-center">
-              <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-merri font-bold text-gray-900 leading-tight">
+            {/* Mobile: Bottom, Desktop: Right Content Section */}
+            <div className="flex-1 bg-white p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+              <div className="space-y-3 md:space-y-4">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-merri font-bold text-gray-900 leading-tight">
                   Science Stream
                 </h3>
-                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed">
                   Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
                 </p>
-                <div className="pt-4">
+                <div className="pt-3 md:pt-4">
                   <button
                     onClick={() => handleCourse('scienceStream')}
-                    className="px-8 py-3 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+                    className="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105 text-sm md:text-base"
                   >
                     Explore More
                   </button>
@@ -91,10 +92,11 @@ function Courses() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="flex h-80">
+          {/* Mobile: Stack vertically, Desktop: Side by side */}
+          <div className="flex flex-col md:flex-row h-auto md:h-80">
 
-            {/* Left Colored Section - Commerce */}
-            <div className="flex-1 bg-gradient-to-br from-orange-600 to-amber-500 relative overflow-hidden">
+            {/* Mobile: Top, Desktop: Left Colored Section - Commerce */}
+            <div className="flex-1 md:flex-1 bg-gradient-to-br from-orange-600 to-amber-500 relative overflow-hidden h-48 md:h-auto">
               {/* Subtle Pattern Overlay */}
               <div className="absolute inset-0 opacity-[0.08]">
                 <div className="absolute inset-0" style={{
@@ -105,23 +107,23 @@ function Courses() {
 
               {/* Large White Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <ChartNoAxes className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-lg" />
+                <ChartNoAxes className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
               </div>
             </div>
 
-            {/* Right Content Section */}
-            <div className="flex-[1.4] bg-white p-8 md:p-10 flex flex-col justify-center">
-              <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-merri font-bold text-gray-900 leading-tight">
+            {/* Mobile: Bottom, Desktop: Right Content Section */}
+            <div className="flex-1 bg-white p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+              <div className="space-y-3 md:space-y-4">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-merri font-bold text-gray-900 leading-tight">
                   Commerce Stream
                 </h3>
-                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed">
                   Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science.
                 </p>
-                <div className="pt-4">
+                <div className="pt-3 md:pt-4">
                   <button
                     onClick={() => handleCourse('comStream')}
-                    className="px-8 py-3 bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+                    className="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105 text-sm md:text-base"
                   >
                     Explore More
                   </button>

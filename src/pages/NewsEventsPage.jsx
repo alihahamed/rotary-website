@@ -1,6 +1,12 @@
 
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion'
+import campus from '../assets/campus.webp';
+import studyGroup from '../assets/studyGroup.webp';
+import sports from '../assets/sports.webp';
+import nss from '../assets/nss.webp';
+import entry from '/gallery/entry.webp';
+import annual5 from '/gallery/annual_5.webp';
 
 function NewsEventsPage() {
     
@@ -12,7 +18,7 @@ function NewsEventsPage() {
             date: "2025-03-15",
             category: "Academic",
             excerpt: "Our students have achieved outstanding results in the recent board examinations, with 95% pass percentage across all streams.",
-            image: "/assets/campus.webp",
+            image: campus,
             readTime: "3 min read"
         },
         {
@@ -21,7 +27,7 @@ function NewsEventsPage() {
             date: "2025-04-29",
             category: "Infrastructure",
             excerpt: "Applications for Science and Commerce streams are now being accepted. Early bird discount available for early applications.",
-            image: "/gallery/entry.webp",
+            image: entry,
             readTime: "2 min read"
         },
         {
@@ -30,7 +36,7 @@ function NewsEventsPage() {
             date: "2025-07-05",
             category: "Sports",
             excerpt: "Annual sports meet featuring various athletic events and competitions showcasing student talent and teamwork.",
-            image: "/assets/sports.webp",
+            image: sports,
             readTime: "4 min read"
         },
         {
@@ -39,7 +45,7 @@ function NewsEventsPage() {
             date: "2024-12-20",
             category: "Career",
             excerpt: "Interactive workshop conducted by industry experts to guide students on career choices and higher education opportunities.",
-            image: "/assets/studyGroup.webp",
+            image: studyGroup,
             readTime: "3 min read"
         },
         {
@@ -48,7 +54,7 @@ function NewsEventsPage() {
             date: "2024-11-30",
             category: "Anniversary",
             excerpt: "A decade of academic excellence, holistic development, and community service celebrated with great enthusiasm.",
-            image: "/gallery/annual_5.webp",
+            image: annual5,
             readTime: "5 min read"
         },
         {
@@ -57,7 +63,7 @@ function NewsEventsPage() {
             date: "2024-9-23",
             category: "Community Service",
             excerpt: "National Service Scheme camp conducted to promote social responsibility and community development activities.",
-            image: "/assets/nss.webp",
+            image: nss,
             readTime: "3 min read"
         }
     ];

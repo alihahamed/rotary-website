@@ -1,3 +1,6 @@
+
+import logo from '../assets/logo.webp'
+
 function Footer() {
     return(
         <footer className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 text-white">
@@ -6,7 +9,7 @@ function Footer() {
                     {/* Institution Info */}
                     <div className="text-center md:text-left">
                         <img
-                            src="/src/assets/logo.webp"
+                            src={logo}
                             alt="Rotary Pre-University College Logo"
                             className="h-16 mx-auto md:mx-0 mb-4 rounded-2xl"
                             loading="lazy"
