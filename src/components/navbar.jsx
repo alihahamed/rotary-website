@@ -35,10 +35,10 @@ function Navbar() {
     return location.pathname === path;
   };
   return (
-    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-2 sm:px-4">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -57,58 +57,58 @@ function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-nuno"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-64 p-2 shadow-lg font-nuno text-base"
           >
-            <li>
+            <li className="py-1">
               <Link
                 to="/"
                 onClick={() => handlePageClick('/')}
-                className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+                className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
                 Home
               </Link>
             </li>
-            <li>
+            <li className="py-1">
               <Link
                 to={"/about-us"}
                 onClick={() => handlePageClick('/about-us')}
-                className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+                className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
                 About us
               </Link>
             </li>
-            <li>
+            <li className="py-1">
               <Link
                 to={"/courses"}
                 onClick={() => handlePageClick('/courses')}
-                className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+                className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
                 Courses
               </Link>
             </li>
-          <li>
+          <li className="py-1">
             <Link
               to={"/why-choose-us"}
               onClick={() => handlePageClick('/why-choose-us')}
-              className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+              className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
             >
               Why Choose Us
             </Link>
           </li>
-            <li>
+            <li className="py-1">
               <Link
                 to={"/news-events"}
                 onClick={() => handlePageClick('/news-events')}
-                className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+                className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
                 News & Events
               </Link>
             </li>
-            <li>
+            <li className="py-1">
               <Link
                 to={"/gallery"}
                 onClick={() => handlePageClick('/gallery')}
-                className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
+                className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
                 Gallery
               </Link>
@@ -119,18 +119,19 @@ function Navbar() {
 
           <ul className="p-2">
            <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
-              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
-            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
-            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
-            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
+              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
+            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
+            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
+            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
           </ul>
         </details>
       </li>
           </ul>
         </div>
-        <img src={RotaryLogo} alt="Rotary Logo" className="h-13 w-13" />
-        <button onClick={handleHomeClick} className="btn btn-ghost text-2xl font-merri tracking-wide" > 
-          Rotary Pre-University College{" "}
+        <img src={RotaryLogo} alt="Rotary Logo" className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-13 lg:w-13" />
+        <button onClick={handleHomeClick} className="btn btn-ghost text-lg sm:text-lg md:text-xl lg:text-2xl font-merri tracking-wide" >
+          <span>Rotary Pre-University College</span>
+          
         </button>
       </div>
       <div className="navbar-end hidden lg:flex ">
