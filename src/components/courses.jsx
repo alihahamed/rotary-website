@@ -2,11 +2,8 @@
 
 import { Atom } from '../icons/atom';
 import { ChartNoAxes } from '../icons/chart';
-import lab from '../assets/geminilab.png'
-import commerce from '../assets/geminicommerce.png'
 import { motion } from 'framer-motion';
-import { useNavigate, useLocation } from 'react-router-dom';
-import e from 'cors';
+import { useNavigate } from 'react-router-dom';
 
 function Courses() {
 
@@ -27,131 +24,113 @@ function Courses() {
   }
 
   return (
-    <div className=" w-full bg-white relative">
-      {/* Grid Background */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
-      `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-      <div className="w-full relative text-gray-800 pb-10 rounded-br-4xl rounded-bl-4xl border-b border-t border-amber-100 z-10">
+    <div className="w-full relative bg-gradient-to-br from-gray-50 to-gray-100/50">
 
-      <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-blue-900 font-bold tracking-wide pt-6 md:pt-10">Our Academic Programs</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-        <p className="font-nuno text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium">Choose from our Comprehensive Programs Designed For Your Success</p>
+      {/* Minimal Header */}
+      <div className="text-center py-8 px-4 sm:px-6 md:px-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-blue-900 font-bold tracking-wide">Our Academic Programs</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4"></div>
       </div>
 
-    <motion.div
-      className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto px-4"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.3,
-            delayChildren: 0.1
-          }
-        }
-      }}
-    >
-      <motion.div
-        className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-        variants={{
-          hidden: {
-            opacity: 0,
-            x: -60,
-            scale: 0.8,
-            rotateY: -15
-          },
-          visible: {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            rotateY: 0,
-            transition: {
-              duration: 0.5,
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 50
-            }
-          }
-        }}
-      >
-        <figure>
-          <img
-            src={lab}
-            alt="Science Stream"
-            className="rounded-tl-xl rounded-tr-xl w-full"
-            loading="lazy"
-          />
-        </figure>
-        <div className="card-body ">
-          <h2 className="card-title font-merri text-gray-700 text-xl md:text-2xl font-bold ">Science Stream <Atom stroke="#374151"/> </h2>
-          <p className="mb-5 font-nuno text-gray-600 mt-2 text-sm md:text-base">
-            Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
-          </p>
-          <div className="card-actions">
-            <button onClick={() => handleCourse('scienceStream')} className="btn px-6 py-2 rounded-lg font-nuno w-full text-white text-[16px] font-semibold
-            bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700
-             hover:from-blue-600 hover:to-blue-800 transition-all inline-block text-center">Explore More</button>
-          </div>
-        </div>
-      </motion.div>
+      {/* Split Card Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-6 py-8 max-w-7xl mx-auto">
 
-      <motion.div
-        className="card bg-base-100 w-full max-w-sm mx-auto shadow-xl card-lg border border-gray-200 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-        variants={{
-          hidden: {
-            opacity: 0,
-            x: 60,
-            scale: 0.8,
-            rotateY: 15
-          },
-          visible: {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            rotateY: 0,
-            transition: {
-              duration: 0.5,
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100
-            }
-          }
-        }}
-      >
-        <figure className="">
-          <img
-            src={commerce}
-            alt="Commerce Stream"
-            className="rounded-tr-xl rounded-tl-xl w-full"
-            loading="lazy"
-          />
-        </figure>
-        <div className="card-body ">
-          <h2 className="card-title font-merri font-bold text-gray-700 text-xl md:text-2xl  ">Commerce Stream <ChartNoAxes stroke="#374151"/></h2>
-          <p className="mb-5 font-nuno text-gray-600 mt-2 text-sm md:text-base">
-           Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science.
-          </p>
-          <div className="card-actions flex justify-center items-center">
-            <button onClick={() => handleCourse('comStream')} className="btn px-6 py-2 rounded-lg text-white font-nuno w-full text-[16px] font-semibold
-        bg-gradient-to-r from-red-700 via-red-800 to-yellow-600
-      hover:from-red-800 hover:to-yellow-700 transition-all inline-block text-center">Explore More</button>
+        {/* Science Card */}
+        <motion.div
+          className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white group"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="flex h-80">
+
+            {/* Left Colored Section - Science */}
+            <div className="flex-1 bg-gradient-to-br from-teal-600 to-cyan-500 relative overflow-hidden">
+              {/* Subtle Pattern Overlay */}
+              <div className="absolute inset-0 opacity-[0.08]">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px)`,
+                  backgroundSize: '20px 20px'
+                }}></div>
+              </div>
+
+              {/* Large White Icon */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Atom className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-lg" />
+              </div>
+            </div>
+
+            {/* Right Content Section */}
+            <div className="flex-[1.4] bg-white p-8 md:p-10 flex flex-col justify-center">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-merri font-bold text-gray-900 leading-tight">
+                  Science Stream
+                </h3>
+                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                  Explore the world of science with combinations like PCMB (Physics, Chemistry, Mathematics, Biology) and PCMC (Physics, Chemistry, Mathematics, Computer Science).
+                </p>
+                <div className="pt-4">
+                  <button
+                    onClick={() => handleCourse('scienceStream')}
+                    className="px-8 py-3 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+                  >
+                    Explore More
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
-    </motion.div>
-    </div>
+        </motion.div>
+
+        {/* Commerce Card */}
+        <motion.div
+          className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white group"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="flex h-80">
+
+            {/* Left Colored Section - Commerce */}
+            <div className="flex-1 bg-gradient-to-br from-orange-600 to-amber-500 relative overflow-hidden">
+              {/* Subtle Pattern Overlay */}
+              <div className="absolute inset-0 opacity-[0.08]">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px)`,
+                  backgroundSize: '20px 20px'
+                }}></div>
+              </div>
+
+              {/* Large White Icon */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <ChartNoAxes className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-lg" />
+              </div>
+            </div>
+
+            {/* Right Content Section */}
+            <div className="flex-[1.4] bg-white p-8 md:p-10 flex flex-col justify-center">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-merri font-bold text-gray-900 leading-tight">
+                  Commerce Stream
+                </h3>
+                <p className="font-nuno text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                  Our Commerce stream offers combinations like EBAS, CEBA, and SEBA, covering Economics, Business Studies, Accountancy, Statistics, and Computer Science.
+                </p>
+                <div className="pt-4">
+                  <button
+                    onClick={() => handleCourse('comStream')}
+                    className="px-8 py-3 bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-nuno font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+                  >
+                    Explore More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
     
 

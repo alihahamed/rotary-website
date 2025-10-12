@@ -35,7 +35,7 @@ function Navbar() {
     return location.pathname === path;
   };
   return (
-    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-2 sm:px-4">
+    <div className="navbar bg-white/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 border-b border-gray-200">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">

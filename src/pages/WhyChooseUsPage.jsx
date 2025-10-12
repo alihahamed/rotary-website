@@ -176,7 +176,7 @@ function WhyChooseUsPage() {
                                     <div className="sticky top-8">
                                         <div className="relative overflow-hidden rounded-lg shadow-2xl bg-gray-200">
                                             <img
-                                                src="/src/assets/campus.webp"
+                                                src="/assets/campus.webp"
                                                 alt="Campus Facilities"
                                                 className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
                                                 loading="lazy"
@@ -251,7 +251,7 @@ function WhyChooseUsPage() {
                                     >
                                         <div className="relative mb-4 flex justify-center">
                                             <img
-                                                src="/src/assets/1.%20ANUSHREE%20%28PCMB%29%20580%20%2896.6%25%29.jpg"
+                                                src="/assets/1.%20ANUSHREE%20%28PCMB%29%20580%20%2896.6%25%29.jpg"
                                                 alt="ANUSHREE - PCMB Topper with 96.6% marks"
                                                 className="h-[400px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '313px' }}
@@ -287,7 +287,7 @@ function WhyChooseUsPage() {
                                     >
                                         <div className="relative mb-4 flex justify-center">
                                             <img
-                                                src="/src/assets/2.%20KSHITHI%20U%20SHETTY%20%28PCMC%29%20576%20%2896%25%29.jpg"
+                                                src="/assets/2.%20KSHITHI%20U%20SHETTY%20%28PCMC%29%20576%20%2896%25%29.jpg"
                                                 alt="KSHITHI U SHETTY - PCMC Topper with 96% marks"
                                                 className="h-[400px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '313px' }}
@@ -323,7 +323,7 @@ function WhyChooseUsPage() {
                                     >
                                         <div className="relative mb-4 flex justify-center">
                                             <img
-                                                src="/src/assets/3.%20SAKSHI%20%28EBAC%29%20574%20%2895.6%25%29.jpg"
+                                                src="/assets/3.%20SAKSHI%20%28EBAC%29%20574%20%2895.6%25%29.jpg"
                                                 alt="SAKSHI - EBAC Topper with 95.6% marks"
                                                 className="h-[400px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '313px' }}

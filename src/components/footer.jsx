@@ -6,7 +6,7 @@ function Footer() {
                     {/* Institution Info */}
                     <div className="text-center md:text-left">
                         <img
-                            src="/src/assets/logo.webp"
+                            src="/assets/logo.webp"
                             alt="Rotary Pre-University College Logo"
                             className="h-16 mx-auto md:mx-0 mb-4 rounded-2xl"
                             loading="lazy"

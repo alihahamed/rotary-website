@@ -1,102 +1,232 @@
-import campusImg from '../assets/campus.webp'
+
 import { Link } from 'react-router-dom'
-import bioLab from '/gallery/bio-lab.webp'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'
 import culturalEvent from '../assets/cultural-event.webp'
-import socialLife from '../assets/social-life.webp'
 import { motion } from 'framer-motion'
 
 function Facilities() {
-  const cards = [
-    { title: "Sports & Athletics", desc: "Stay active with various sports and fitness programs", img: sports, link:"/" },
-    { title: "Cultural Events", desc: "Express creativity through festivals and performances", img: culturalEvent },
-    { title: "Study Groups", desc: "Collaborative learning in our modern library", img: library },
-    { title: "Campus Social Life", desc: "Build lifelong friendships and connections", img: socialLife },
-    { title: "Tech Workshops", desc: "Learn cutting-edge technology and skills", img: bioLab },
-    { title: "Mid-Day Meals", desc: "Free Mid-Day Meals For Students", img: midDay },
-  ];
+
   return (
-    <div>
-      {/* <div className="w-full bg-white relative text-gray-800 border-gray-400 border-b  "> */}
-        {/* Crosshatch Art - Light Pattern */}
-        {/* <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-        repeating-linear-gradient(22.5deg, transparent, transparent 2px, rgba(75, 85, 99, 0.06) 2px, rgba(75, 85, 99, 0.06) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(67.5deg, transparent, transparent 2px, rgba(107, 114, 128, 0.05) 2px, rgba(107, 114, 128, 0.05) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(112.5deg, transparent, transparent 2px, rgba(55, 65, 81, 0.04) 2px, rgba(55, 65, 81, 0.04) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(157.5deg, transparent, transparent 2px, rgba(31, 41, 55, 0.03) 2px, rgba(31, 41, 55, 0.03) 3px, transparent 3px, transparent 8px)
-      `,
-          }}
-        /> */}
-        {/* Your Content/Components */}
+    <section className="relative bg-amber-50 py-15 px-8 overflow-hidden">
+      {/* Subtle dot pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.04]"
+           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23000000" fill-opacity="1"%3E%3Ccircle cx="3" cy="3" r="1"/%3E%3Ccircle cx="13" cy="13" r="1"/%3E%3C/g%3E%3C/svg%3E")' }} />
 
-        <section className="mx-auto   rounded-bl-4xl rounded-br-4xl bg-gradient-to-b from-orange-50 via-amber-50 to-yellow-100/60 border-b border-t border-amber-200">
-          <div className="text-center px-4 sm:px-6 pt-6 md:pt-8">
-            <h2 className="font-merri text-3xl md:text-4xl lg:text-5xl tracking-wide font-bold text-gray-800 mb-4 md:mb-3">
-              Facilities & Campus Life
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-            <p className="text-lg md:text-xl lg:text-2xl font-medium text-gray-600 mb-6 mt-2 md:mb-8 leading-relaxed font-nuno">
-              Explore the resources and activities that make learning at Rotary PU College vibrant and engaging.
-            </p>
-          </div>
+      {/* Header */}
+      <div className="text-center mb-9">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri font-bold text-gray-900 mb-4 tracking-wide">
+          Facilities & Campus Life
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-gray-800 to-gray-900 mx-auto mt-4 mb-7"></div>
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 font-nuno font-medium max-w-3xl mx-auto leading-relaxed">
+          Explore the resources and activities that make learning at Rotary PU College vibrant and engaging.
+        </p>
+      </div>
 
-          <motion.div
-            className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 cursor-pointer"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15
-                }
+      {/* Bento Grid Layout */}
+      <div className="max-w-7xl mx-auto relative ">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
               }
+            }
+          }}
+        >
+
+          {/* Sports & Athletics - Large Card */}
+          <motion.div
+            className="relative col-span-1 row-span-1 xl:col-span-1 xl:row-span-2 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
             }}
           >
-            {cards.map((c, i) => (
-              <motion.a
-                key={i}
-                href={c.link}
-                variants={{
-                  hidden: { opacity: 0, y: 50 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <div className="relative rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition group ring-1 ring-black/5">
-                  <img
-                    src={c.img}
-                    alt={c.title}
-                    className="w-full h-40 sm:h-44 md:h-48 lg:h-52 xl:h-56 2xl:h-58 object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 pointer-events-none">
-                    <h3 className="text-white font-merri text-lg sm:text-xl md:text-2xl font-bold drop-shadow-md tracking-wide">{c.title}</h3>
-                  </div>
-                </div>
-              </motion.a>
-            ))}
+            <div className="relative h-full min-h-[400px] xl:min-h-[500px]">
+              <img src={sports} alt="Sports & Athletics" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              {/* Icon in top-left */}
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 8.5L9.5 12L6 15.5M18 12H10M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 22V12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              {/* Title */}
+              <div className="absolute bottom-8 left-8 right-8 z-20">
+                <h3 className="text-white text-2xl md:text-3xl font-merri font-bold drop-shadow-lg">
+                  Sports & Athletics
+                </h3>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Explore Gallery Button */}
-          <div className="text-center pb-12 font-nuno">
-            <Link to={"/gallery"}>
-            <button className="bg-gradient-to-r from-amber-600  to-yellow-300 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base md:text-lg">
+          {/* Cultural Events - Medium */}
+          <motion.div
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }
+            }}
+          >
+            <div className="relative h-[250px]">
+              <img src={culturalEvent} alt="Cultural Events" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12l2 2 4-4M21.791 5.759l-1.586 9.689c-.047.286-.145.557-.288.794l-3.732 6.564c-.914 1.609-3.162 1.609-4.076 0l-3.732-6.564c-.143-.237-.241-.508-.288-.794l-1.586-9.689c-.029-.18.108-.348.288-.348h12.808c.18 0 .317.168.288.348z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <h3 className="text-white text-xl md:text-2xl font-merri font-bold drop-shadow-lg">
+                  Cultural Events
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Study Groups - Medium */}
+          <motion.div
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }
+            }}
+          >
+            <div className="relative h-[250px]">
+              <img src={library} alt="Study Groups" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2l8 5v10l-8 5-8-5V7l8-5z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7 10.5L12 13l5-2.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <h3 className="text-white text-xl md:text-2xl font-merri font-bold drop-shadow-lg">
+                  Study Groups
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mid-Day Meals - Medium Image Card */}
+          <motion.div
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.3 } }
+            }}
+          >
+            <div className="relative h-[250px]">
+              <img src={midDay} alt="Mid-Day Meals" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6 1v3M10 1v3M14 1v3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <h3 className="text-white text-xl md:text-2xl font-merri font-bold drop-shadow-lg">
+                  Mid-Day Meals
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Tech Workshops - Medium Image Card */}
+          <motion.div
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.4 } }
+            }}
+          >
+            <div className="relative h-[250px]">
+              <img src="/gallery/bio-lab.webp" alt="Tech Workshops" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="3" width="16" height="12" rx="2" stroke="white" strokeWidth="2"/>
+                  <path d="M9 8h2M11 11v2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                  <circle cx="12" cy="15" r="2" stroke="white" strokeWidth="2"/>
+                </svg>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <h3 className="text-white text-xl md:text-2xl font-merri font-bold drop-shadow-lg">
+                  Tech Workshops
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mid-Day Meals - Large */}
+          {/* <motion.div
+            className="relative col-span-1 row-span-1 xl:row-span-2 xl:col-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.5 } }
+            }}
+          >
+            <div className="relative h-full min-h-[400px] xl:min-h-[500px]">
+              <img src={midDay} alt="Mid-Day Meals" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6 1v3M10 1v3M14 1v3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              <div className="absolute bottom-8 left-8 right-8 z-20">
+                <h3 className="text-white text-2xl md:text-3xl font-merri font-bold drop-shadow-lg">
+                  Mid-Day Meals
+                </h3>
+              </div>
+            </div>
+          </motion.div> */}
+
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <Link to="/gallery">
+            <button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-3 rounded-full font-nuno font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group shadow-lg cursor-pointer">
               Explore Our Gallery
+              <svg className="inline-block ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
-            </Link>
-          </div>
-        </section>
+          </Link>
+        </motion.div>
       </div>
-    // </div>
+    </section>
   );
 }
 export default Facilities;

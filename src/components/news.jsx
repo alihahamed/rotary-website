@@ -94,7 +94,7 @@ function News() {
           </div>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
+            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12  mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}

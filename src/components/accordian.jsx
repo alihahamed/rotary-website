@@ -19,13 +19,16 @@ function Accordian() {
         {/* Your Content/Components */}
 
         <section className="relative z-10 mx-auto">
-          <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16 ">
-            <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9  flex justify-center items-center text-gray-800 font-merri">
-              Frequently Asked Questions
-              <Globe stroke="#374151" className="ml-3 w-6 h-6 2xl:w-9 2xl:h-9" />
+          <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16 ">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-gray-800 font-merri gap-2 sm:gap-3">
+              <span>Frequently Asked Questions</span>
+              <Globe
+                stroke="#374151"
+                className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8"
+              />
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-            <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
+            <div className="w-20 md:w-24 h-1 bg-blue-600 mx-auto mt-2 md:mt-4"></div>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno px-4">
               Get answers to the most common questions about admissions,
               academics, and campus life at Rotary PU College.
             </p>
@@ -48,7 +51,7 @@ function Accordian() {
             }}
           >
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -70,7 +73,7 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -90,7 +93,7 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -110,7 +113,7 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -131,7 +134,7 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl"
+              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }

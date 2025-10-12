@@ -43,22 +43,22 @@ function Testimonials() {
         }}
       />
       <section className="pb-10 relative z-10">
-          <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-            <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9  flex justify-center items-center text-red-800 font-merri">
-              Voices of Our Alumni
+          <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-red-800 font-merri gap-2 sm:gap-3">
+              <span>Voices of Our Alumni</span>
               <Users
                 stroke="#991B1B"
-                className="ml-3 w-6 h-6 2xl:w-8 2xl:h-8"
+                className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8"
               />
             </h2>
-            <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
-            <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
+            <div className="w-20 md:w-24 h-1 bg-red-600 mx-auto mt-2 md:mt-4"></div>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-3 md:mt-5 font-medium font-nuno px-4">
               Graduates share their journey and memories with us.
             </p>
           </div>
 
           <motion.div
-            className="flex items-center justify-center gap-4 max-w-6xl mx-auto"
+            className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-4 max-w-6xl mx-auto px-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -74,9 +74,9 @@ function Testimonials() {
               }
             }}
           >
-            {/* Left Arrow */}
+            {/* Left Arrow - Hidden on mobile, shown on desktop */}
             <motion.button
-              className="btn btn-circle btn-outline bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+              className="hidden lg:flex btn btn-circle btn-outline bg-white shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={prevCard}
               variants={{
                 hidden: { opacity: 0, x: -20 },
@@ -88,7 +88,7 @@ function Testimonials() {
 
             {/* Testimonial Card */}
             <motion.div
-              className="card max-w-4xl rounded-3xl card-lg shadow-2xl hover:shadow-3xl transition-all duration-300 mx-auto bg-gradient-to-r from-stone-100 to-zinc-50 p-6 h-[500px] flex-1"
+              className="card max-w-4xl rounded-2xl lg:rounded-3xl card-lg shadow-xl lg:shadow-2xl hover:shadow-3xl transition-all duration-300 mx-auto bg-gradient-to-r from-stone-100 to-zinc-50 p-4 md:p-6 h-auto min-h-[400px] lg:h-[500px] flex-1"
               variants={{
                 hidden: { opacity: 0, y: 40, scale: 0.95 },
                 visible: {
@@ -99,14 +99,14 @@ function Testimonials() {
                 }
               }}
             >
-              <div className="card-body grid grid-rows-[auto_1fr_auto] gap-4 h-full">
+              <div className="card-body grid grid-rows-[auto_1fr_auto] gap-2 md:gap-4 h-full">
                 {/* Large Quotation Mark SVG - Fixed at top */}
                 <div className="flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="w-10 h-10 text-blue-800 opacity-40"
+                    className="w-8 h-8 md:w-10 md:h-10 text-blue-800 opacity-40"
                   >
                     <path
                       fillRule="evenodd"
@@ -117,16 +117,16 @@ function Testimonials() {
                 </div>
 
                 {/* Testimonial Text - Takes remaining space */}
-                <div className="flex items-center justify-center overflow-hidden">
-                  <motion.h2
+                <div className="flex items-center justify-center overflow-hidden px-2 md:px-0">
+                  <motion.p
                     key={`${currentIndex}-${direction}`}
-                    className="card-title text-center italic text-gray-800 font-nuno line-clamp-6 leading-relaxed"
+                    className="text-center italic text-gray-800 font-nuno text-sm md:text-base line-clamp-6 leading-relaxed max-w-full"
                     initial={{ opacity: 0, x: direction === 'next' ? 30 : -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   >
                     {currentTestimonial.text}
-                  </motion.h2>
+                  </motion.p>
                 </div>
 
                 {/* Author Info - Fixed at bottom */}
@@ -136,15 +136,34 @@ function Testimonials() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <p className="text-center text-gray-800 font-extrabold font-merri text-xl">
+                  <p className="text-center text-gray-800 font-extrabold font-merri text-lg md:text-xl px-2">
                     {currentTestimonial.Author}
                   </p>
-                  <p className="text-center text-gray-600 font-nuno text-lg">
+                  <p className="text-center text-gray-600 font-nuno text-sm md:text-lg px-2">
                     {currentTestimonial.Stream}
                   </p>
-                  <p className="text-center text-gray-600 font-nuno font-medium text-base underline decoration-2 decoration-gray-500 underline-offset-2">
+                  <p className="text-center text-gray-600 font-nuno font-medium text-sm md:text-base underline decoration-2 decoration-gray-500 underline-offset-2 px-2">
                     {currentTestimonial.Year}
                   </p>
+
+                  {/* Navigation Dots */}
+                  <div className="flex justify-center mt-4 gap-2">
+                    {testimonials.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setDirection(index > currentIndex ? 'next' : 'prev');
+                          setCurrentIndex(index);
+                        }}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          index === currentIndex
+                            ? 'bg-red-600 w-6'
+                            : 'bg-gray-300 hover:bg-gray-400'
+                        }`}
+                        aria-label={`Go to testimonial ${index + 1}`}
+                      />
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </motion.div>

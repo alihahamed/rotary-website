@@ -12,7 +12,7 @@ function NewsEventsPage() {
             date: "2025-03-15",
             category: "Academic",
             excerpt: "Our students have achieved outstanding results in the recent board examinations, with 95% pass percentage across all streams.",
-            image: "/src/assets/campus.webp",
+            image: "/assets/campus.webp",
             readTime: "3 min read"
         },
         {
@@ -30,7 +30,7 @@ function NewsEventsPage() {
             date: "2025-07-05",
             category: "Sports",
             excerpt: "Annual sports meet featuring various athletic events and competitions showcasing student talent and teamwork.",
-            image: "/src/assets/sports.webp",
+            image: "/assets/sports.webp",
             readTime: "4 min read"
         },
         {
@@ -39,7 +39,7 @@ function NewsEventsPage() {
             date: "2024-12-20",
             category: "Career",
             excerpt: "Interactive workshop conducted by industry experts to guide students on career choices and higher education opportunities.",
-            image: "/src/assets/studyGroup.webp",
+            image: "/assets/studyGroup.webp",
             readTime: "3 min read"
         },
         {
@@ -57,7 +57,7 @@ function NewsEventsPage() {
             date: "2024-9-23",
             category: "Community Service",
             excerpt: "National Service Scheme camp conducted to promote social responsibility and community development activities.",
-            image: "/src/assets/nss.webp",
+            image: "/assets/nss.webp",
             readTime: "3 min read"
         }
     ];

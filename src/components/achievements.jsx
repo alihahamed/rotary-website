@@ -17,7 +17,7 @@ function Achievements() {
         </div>
 
         <motion.div
-          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8  mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
