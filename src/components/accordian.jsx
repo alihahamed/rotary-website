@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 function Accordian() {
   return (
     <div>
-      <div className=" w-full bg-white relative border-b border-t border-amber-100 rounded-br-4xl rounded-bl-4xl">
+      <div className=" w-full bg-white relative border-b border-amber-100 rounded-br-4xl rounded-bl-4xl">
         {/* Grid Background */}
         <div
           className="absolute inset-0 z-0"

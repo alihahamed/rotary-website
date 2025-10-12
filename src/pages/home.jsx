@@ -38,14 +38,14 @@ function Home() {
         <>
             <TopAnnouncement  />
             <Hero />
-            <motion.div initial={{ opacity: 0, x: -100 }}
+            {/* <motion.div initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-200px", amount:0.2 }}
-        transition={{ duration: 1.0 }}>
+        transition={{ duration: 1.0 }}> */}
             <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <AboutUs />
             </Suspense>
-            </motion.div>
+            {/* </motion.div> */}
             <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <Courses />
             </Suspense>

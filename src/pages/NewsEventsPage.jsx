@@ -9,7 +9,7 @@ function NewsEventsPage() {
         {
             id: 1,
             title: "Rotary PU College Achieves 95% Pass Percentage in Board Exams",
-            date: "2025-01-15",
+            date: "2025-03-15",
             category: "Academic",
             excerpt: "Our students have achieved outstanding results in the recent board examinations, with 95% pass percentage across all streams.",
             image: "/src/assets/campus.webp",
@@ -18,7 +18,7 @@ function NewsEventsPage() {
         {
             id: 2,
             title: "Admission Applications Now Open for 2025-26",
-            date: "2025-01-10",
+            date: "2025-04-29",
             category: "Infrastructure",
             excerpt: "Applications for Science and Commerce streams are now being accepted. Early bird discount available for early applications.",
             image: "/gallery/entry.webp",
@@ -27,7 +27,7 @@ function NewsEventsPage() {
         {
             id: 3,
             title: "Annual Sports Meet 2025",
-            date: "2025-01-05",
+            date: "2025-07-05",
             category: "Sports",
             excerpt: "Annual sports meet featuring various athletic events and competitions showcasing student talent and teamwork.",
             image: "/src/assets/sports.webp",
@@ -45,16 +45,16 @@ function NewsEventsPage() {
         {
             id: 5,
             title: "Rotary PU College Celebrates 10 Years of Excellence",
-            date: "2024-12-15",
+            date: "2024-11-30",
             category: "Anniversary",
             excerpt: "A decade of academic excellence, holistic development, and community service celebrated with great enthusiasm.",
-            image: "/public/gallery/annual_5.webp",
+            image: "/gallery/annual_5.webp",
             readTime: "5 min read"
         },
         {
             id: 6,
             title: "NSS Camp Organized for Community Service",
-            date: "2024-12-10",
+            date: "2024-9-23",
             category: "Community Service",
             excerpt: "National Service Scheme camp conducted to promote social responsibility and community development activities.",
             image: "/src/assets/nss.webp",
@@ -218,13 +218,13 @@ function NewsEventsPage() {
                                         <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 font-nuno text-sm md:text-base">
                                             {news.excerpt}
                                         </p>
-                                        <div className="flex items-center text-gray-500 text-sm">
+                                        {/* <div className="flex items-center text-gray-500 text-sm">
                                             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <circle cx="12" cy="12" r="10"></circle>
                                                 <polyline points="12,6 12,12 16,14"></polyline>
                                             </svg>
                                             {news.readTime}
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </motion.div>

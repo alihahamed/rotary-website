@@ -33,7 +33,7 @@ function Achievements() {
           }}
         >
           <motion.div
-            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-red-200 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-[60px] border-2 border-red-200 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {
@@ -70,7 +70,7 @@ function Achievements() {
           </motion.div>
 
           <motion.div
-            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-yellow-200 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-[60px] border-2 border-yellow-200 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {
@@ -107,7 +107,7 @@ function Achievements() {
           </motion.div>
 
           <motion.div
-            className="card w-full bg-base-100 card-lg shadow-2xl rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
+            className="card w-full bg-base-100 card-lg shadow-2xl rounded-[60px] border-2 border-blue-200 bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-3xl hover:scale-105"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {

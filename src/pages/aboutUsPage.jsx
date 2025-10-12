@@ -71,7 +71,7 @@ function AboutUsPage() {
                                 Dear Students, Parents, and Esteemed Colleagues,
                             </p>
                             <p className="mb-4">
-                                It is my great pleasure to welcome you to Rotary Pre-University College, an institution dedicated to nurturing young minds and shaping future leaders. For over two decades, our college has been a beacon of academic excellence and holistic development in the heart of our community.
+                                It is my great pleasure to welcome you to Rotary Pre-University College, an institution dedicated to nurturing young minds and shaping future leaders. For over a decade, our college has been a beacon of academic excellence and holistic development in the heart of our community.
                             </p>
                             <p className="mb-4">
                                 At Rotary PU College, we believe that education goes beyond textbooks and examinations. We strive to create an environment where students not only excel academically but also develop strong character, leadership skills, and a sense of social responsibility. Our comprehensive curriculum, experienced faculty, and state-of-the-art facilities are designed to prepare students for the challenges of higher education and life beyond.

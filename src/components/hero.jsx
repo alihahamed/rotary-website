@@ -11,7 +11,6 @@ function Hero() {
 
     return (
         <section id="home" className="relative h-[500px] sm:h-[600px] md:h-[700px] bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
-          
         <div className="absolute inset-0">
           <img
             src="/campus-rotory.webp"
@@ -21,11 +20,11 @@ function Hero() {
             loading='eager'
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 sm:from-blue-900/80 to-maroon-900/50 sm:to-maroon-900/60 backdrop-blur-sm"></div>
-          
+          {/* Black Overlay for Better Readability */}
+          <div className="absolute inset-0 bg-black/60 sm:bg-black/50 lg:bg-black/40"></div>
+
         </div>
-        <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 h-full flex items-center">
-          {/* Text Overlay for Better Readability */}
-          <div className="absolute inset-0 bg-black/40 sm:bg-black/30 lg:bg-black/20"></div>
+        <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 h-full flex items-center justify-center sm:justify-start">
 
           <motion.div
             className="relative text-white max-w-3xl z-10"
@@ -43,16 +42,16 @@ function Hero() {
             }}
           >
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-merri drop-shadow-lg tracking-wide"
+              className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 font-merri drop-shadow-lg tracking-wide text-center sm:text-left"
               variants={{
                 hidden: { opacity: 0, y: 30, scale: 0.9 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
               }}
             >
-              Welcome to <br />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College</span>
+              Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College</span>
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl mb-6 md:mb-8 font-nuno drop-shadow-md font-bold"
+              className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 font-nuno drop-shadow-md font-medium sm:font-bold text-center sm:text-left leading-relaxed"
               variants={{
                 hidden: { opacity: 0, x: -30 },
                 visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } }
@@ -61,7 +60,7 @@ function Hero() {
               Your journey to academic success begins here. Experience quality education, supportive mentors, and a dynamic campus life that prepares you for a bright future.
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center sm:items-start"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: {
@@ -75,20 +74,21 @@ function Hero() {
                 }
               }}
             >
-              <Link to={"/admissions/apply"}>
-              <motion.button
-                className="bg-gradient-to-r from-red-700 to-red-400 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-lg "
+
+              <motion.a
+                href='/admissions/apply'
+                className="bg-gradient-to-r from-red-700 to-red-900 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
                 }}
               >
-               Apply now
-              </motion.button>
-              </Link>
+               Apply Now
+              </motion.a>
+
               <motion.button
                 onClick={handleExploreCampus}
-                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl shadow-lg hover:bg-white hover:text-blue-800 transition-all duration-300 text-sm sm:text-base"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:bg-white hover:text-blue-800 transition-all duration-300 text-base sm:text-lg w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }

@@ -42,7 +42,7 @@ function Footer() {
                             </div>
                             <div className="flex items-center justify-center md:justify-start">
                                 <span className="mr-2">📞</span>
-                                <span>+91 12345 67890</span>
+                                <span>+91 8258298524</span>
                             </div>
                             <div className="flex items-center justify-center md:justify-start">
                                 <span className="mr-2">✉️</span>
