@@ -9,6 +9,7 @@ function Footer() {
                             src="/src/assets/logo.webp"
                             alt="Rotary Pre-University College Logo"
                             className="h-16 mx-auto md:mx-0 mb-4 rounded-2xl"
+                            loading="lazy"
                         />
                         <h3 className="text-xl font-merri font-bold mb-2">Rotary Pre-University College</h3>
                         <p className="text-sm font-nuno leading-relaxed mb-4">
