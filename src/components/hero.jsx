@@ -75,8 +75,8 @@ function Hero() {
               }}
             >
 
-              <motion.a
-                href='/admissions/apply'
+              <Link
+                to={"/admissions/apply"}
                 className="bg-gradient-to-r from-red-700 to-red-900 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
@@ -84,7 +84,7 @@ function Hero() {
                 }}
               >
                Apply Now
-              </motion.a>
+              </Link>
 
               <motion.button
                 onClick={handleExploreCampus}

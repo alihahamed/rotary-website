@@ -3,6 +3,7 @@
 import { Album } from "../icons/book";
 import { motion } from "framer-motion";
 import Auditorium from '../assets/auditorium.webp'
+import { Link } from "react-router-dom";
 
 function AboutUs() {
   return (
@@ -129,9 +130,9 @@ function AboutUs() {
                     </span>
                   </li>
                   <div className="flex justify-center items-center">
-                    <a href="/about-us#aboutUs" className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
+                    <Link to={"/about-us"} className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
                       Learn More About Us
-                    </a>
+                    </Link>
                   </div>
                 </ul>
               </div>
