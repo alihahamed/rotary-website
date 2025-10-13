@@ -1,5 +1,13 @@
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion';
+import anushree from '../assets/1. ANUSHREE (PCMB) 580 (96.6%).jpg';
+import kshithi from '../assets/2. KSHITHI U SHETTY (PCMC) 576 (96%).jpg';
+import sakshi from '../assets/3. SAKSHI (EBAC) 574 (95.6%).jpg';
+import prapti from '../assets/4. PRAPTHA GATTY (PCMB) 574 (95.6%).jpg'
+import ayisha from '../assets/5. AYISHA SAFREENA (EBAC) 569 (94.8%).jpg'
+import hockeyTeam from '../assets/hockey_team.webp'
+import talukGirls from '../assets/talukRunners_girls.webp'
+import talukBoys from '../assets/talukRunners_boys.webp'
 
 function ResultsPage() {
     return(
@@ -111,7 +119,7 @@ function ResultsPage() {
                                 >
                                     <div className="relative mb-4 flex justify-center">
                                         <img
-                                            src="/src/assets/1.%20ANUSHREE%20%28PCMB%29%20580%20%2896.6%25%29.jpg"
+                                            src={anushree}
                                             alt="ANUSHREE - PCMB Topper"
                                             className="h-[320px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '290px' }}
@@ -135,7 +143,7 @@ function ResultsPage() {
                                 >
                                     <div className="relative mb-4 flex justify-center">
                                         <img
-                                            src="/src/assets/2.%20KSHITHI%20U%20SHETTY%20%28PCMC%29%20576%20%2896%25%29.jpg"
+                                            src={kshithi}
                                             alt="KSHITHI U SHETTY - PCMC Topper"
                                             className="h-[320px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '290px' }}
@@ -159,7 +167,7 @@ function ResultsPage() {
                                 >
                                     <div className="relative mb-4 flex justify-center">
                                         <img
-                                            src="/src/assets/3.%20SAKSHI%20%28EBAC%29%20574%20%2895.6%25%29.jpg"
+                                            src={sakshi}
                                             alt="SAKSHI - EBAC Topper"
                                             className="h-[320px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '290px' }}
@@ -201,7 +209,7 @@ function ResultsPage() {
                                 >
                                     <div className="relative mb-4 flex justify-center">
                                         <img
-                                            src="/src/assets/4.%20PRAPTHA%20GATTY%20%28PCMB%29%20574%20%2895.6%25%29.jpg"
+                                            src={prapti}
                                             alt="PRAPTHA GATTY - PCMB Topper"
                                             className="h-[325px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '285px' }}
@@ -225,7 +233,7 @@ function ResultsPage() {
                                 >
                                     <div className="relative mb-4 flex justify-center">
                                         <img
-                                            src="/src/assets/5.%20AYISHA%20SAFREENA%20%28EBAC%29%20569%20%2894.8%25%29.jpg"
+                                            src={ayisha}
                                             alt="AYISHA SAFREENA - EBAC Topper"
                                             className="h-[320px] w-auto object-cover rounded-lg"
                                                 style={{ maxWidth: '290px' }}
@@ -287,7 +295,7 @@ function ResultsPage() {
                                     transition={{ duration: 0.6, delay: 0.6 }}
                                 >
                                     <img
-                                        src="/src/assets/hockey_team.webp"
+                                        src={hockeyTeam}
                                         alt="2025 State Hockey Champions"
                                         className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
                                         loading="lazy"
@@ -381,7 +389,7 @@ function ResultsPage() {
                                 {/* Image Section */}
                                 <div className="h-70 overflow-hidden">
                                     <img
-                                        src="/src/assets/talukRunners_girls.jpg"
+                                        src={talukGirls}
                                         alt="Girls Hockey Team - Taluk Champions"
                                         className="w-full h-[550px] object-cover"
                                         loading="lazy"
@@ -439,7 +447,7 @@ function ResultsPage() {
                                 {/* Image Section */}
                                 <div className="h-70 overflow-hidden">
                                     <img
-                                        src="/src/assets/talukRunners_boys.jpg"
+                                        src={talukBoys}
                                         alt="Boys Hockey Team - Taluk Champions"
                                         className="w-full h-full object-cover"
                                         loading="lazy"
