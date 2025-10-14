@@ -44,7 +44,7 @@ function Testimonials() {
       />
       <section className="pb-10 relative z-10">
           <div className="text-center mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-red-800 font-merri gap-2 sm:gap-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-red-800 font-merri gap-2 sm:gap-3">
               <span>Voices of Our Alumni</span>
               <Users
                 stroke="#991B1B"

@@ -78,7 +78,7 @@ function News() {
           backgroundSize: "40px 40px",
         }}
       />
-      <section className="relative z-10 mx-auto border-b border-t border-amber-100 rounded-br-4xl rounded-bl-4xl ">
+      <section className="relative z-10 mx-auto  rounded-br-4xl rounded-bl-4xl ">
           <div className="text-center mt-5 mb-8 md:mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide pt-6 md:pt-9 flex flex-col sm:flex-row justify-center items-center text-yellow-500 font-merri">
               <span className="mb-2 sm:mb-0">News & Announcements</span>
@@ -183,7 +183,7 @@ function News() {
           </motion.div>
 
           {/* View All button */}
-          <div className="text-center pb-8 md:pb-12">
+          <div className="text-center pb-10 md:pb-18">
             
             <button onClick={() => handleNews()} className="bg-gradient-to-l from-[#f97316] via-[#e11d48] to-[#ef4444] text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-medium transition flex items-center gap-2 mx-auto cursor-pointer text-sm md:text-base hover:scale-105">
               View All Announcements

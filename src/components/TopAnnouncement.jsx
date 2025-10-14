@@ -1,7 +1,7 @@
 function TopAnnouncement() {
 
     return (
-        <div className="bg-gradient-to-r from-red-500  to-red-400 text-white h-7 overflow-hidden relative border border-b-gray-400 ">
+        <div className="bg-gradient-to-r from-red-500  to-red-600 text-white h-7 overflow-hidden relative border border-b-gray-400 ">
             <div className="flex items-center h-full">
                 <div className="animate-marquee whitespace-nowrap font-nuo font-semibold text-sm ">
                     <span className="mr-8">🎓 Admission's Open - Apply Now!</span>
