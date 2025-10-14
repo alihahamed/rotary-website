@@ -1,7 +1,7 @@
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion';
 import anushree from '../assets/anushree.jpg';
-import kshithi from '..assets/ksithi.jpg';
+import kshithi from '../assets/ksithi.jpg';
 import sakshi from '../assets/sakshi.jpg';
 import prapti from '../assets/praptha.jpg'
 import ayisha from '../assets/ayisha.jpg'
