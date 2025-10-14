@@ -233,7 +233,7 @@ function Facilities() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           
-            <button onClick={() => handleGallery("gallery")} className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-3 rounded-full font-nuno font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group shadow-lg cursor-pointer">
+            <button onClick={() => handleGallery("gallery")} className="bg-gradient-to-r from-yellow-300 to-amber-300 hover:from-yellow-200 hover:to-amber-300  text-black border border-gray-400 px-8 py-3 rounded-2xl font-nuno font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group shadow-xl cursor-pointer">
               Explore Our Gallery
               <svg className="inline-block ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

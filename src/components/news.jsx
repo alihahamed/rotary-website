@@ -1,11 +1,9 @@
 import campusImg from "../assets/campus.webp";
 import { BellRing } from "../icons/bellring";
 import Sports1 from "../assets/sports1.webp";
-import PHY_LAB1 from "/gallery/PHY-LAB1.webp";
 import study from "../assets/study.webp";
-import nss from '../assets/nss.webp'
 import { motion } from 'framer-motion'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function News() {
 
 
@@ -94,7 +92,7 @@ function News() {
           </div>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12  mx-auto px-4 sm:px-5 pb-8 md:pb-12 cursor-pointer"
+            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12  mx-auto px-4 sm:px-5 pb-8 md:pb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -116,20 +114,17 @@ function News() {
                 variants={{
                   hidden: {
                     opacity: 0,
-                    x: -80,
-                    scale: 0.9,
-                    rotateY: -10
+                    y: 30,
+                    scale: 0.95
                   },
                   visible: {
                     opacity: 1,
-                    x: 0,
+                    y: 0,
                     scale: 1,
-                    rotateY: 0,
                     transition: {
-                      duration: 0.7,
+                      duration: 0.6,
                       ease: "easeOut",
-                      type: "spring",
-                      stiffness: 50
+                      delay: i * 0.1
                     }
                   }
                 }}
