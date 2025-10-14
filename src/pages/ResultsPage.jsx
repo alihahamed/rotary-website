@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import anushree from '../assets/anushree.jpg';
 import kshithi from '../assets/ksithi.jpg';
 import sakshi from '../assets/sakshi.jpg';
-import prapti from '../assets/praptha.jpg'
+import prapti from '../assets/prapta.jpg'
 import ayisha from '../assets/ayisha.jpg'
 import hockeyTeam from '../assets/hockey_team.webp'
 import talukGirls from '../assets/talukRunners_girls.webp'
