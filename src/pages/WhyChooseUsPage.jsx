@@ -1,10 +1,10 @@
 
 import pucStaff from '../assets/puc_staff.webp';
 import nonTeaching from '../assets/non_teaching.webp';
-import logo from '../assets/logo.webp';
-import anushree from '../assets/1. ANUSHREE (PCMB) 580 (96.6%).jpg';
-import kshithi from '../assets/2. KSHITHI U SHETTY (PCMC) 576 (96%).jpg';
-import sakshi from '../assets/3. SAKSHI (EBAC) 574 (95.6%).jpg';
+
+import anushree from '../assets/anushree.jpg';
+import kshithi from '../assets/ksithi.jpg';
+import sakshi from '../assets/sakshi.jpg';
 import campus from '../assets/campus.webp';
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion';

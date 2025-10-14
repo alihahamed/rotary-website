@@ -1,9 +1,11 @@
 import RotaryLogo from "../assets/rotary-logo.jpg";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleHomeClick = () => {
     if (location.pathname === '/') {
@@ -29,36 +31,41 @@ function Navbar() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 100);
     }
+    // Close mobile menu when navigating
+    setMobileMenuOpen(false);
   };
 
   const isActive = (path) => {
     return location.pathname === path;
   };
+
+
+
   return (
     <div className="navbar bg-white/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 border-b border-gray-200">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-64 p-2 shadow-lg font-nuno text-base"
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="btn btn-ghost btn-circle lg:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
+            {" "}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />{" "}
+          </svg>
+        </button>
+        {mobileMenuOpen && (
+          <ul className="menu menu-sm bg-base-100 rounded-box z-1 mt-3 w-64 p-2 shadow-lg font-nuno text-base absolute top-full left-0">
             <li className="py-1">
               <Link
                 to="/"
@@ -113,21 +120,19 @@ function Navbar() {
                 Gallery
               </Link>
             </li>
-            <li>
-        <details>
-          <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
-
-          <ul className="p-2">
-           <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
-              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
-            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
-            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
-            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
+          <li>
+            <details className="relative">
+              <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
+              <ul className="absolute left-0 top-full mt-1 p-2 bg-white border border-gray-300 rounded-lg shadow-lg w-64 z-50">
+                <li><Link to={"/admissions"} onClick={() => handlePageClick('/admissions')} className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Eligibility & Requirements</Link></li>
+                <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')} className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Procedure</Link></li>
+                <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Results</Link></li>
+                <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Apply</Link></li>
+              </ul>
+            </details>
+          </li>
           </ul>
-        </details>
-      </li>
-          </ul>
-        </div>
+        )}
         <img src={RotaryLogo} alt="Rotary Logo" className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-13 lg:w-13" />
         <button onClick={handleHomeClick} className="btn btn-ghost text-lg sm:text-lg md:text-xl lg:text-2xl font-merri tracking-wide" >
           <span>Rotary Pre-University College</span>
@@ -199,13 +204,12 @@ function Navbar() {
           <li>
         <details>
           <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
-          
           <ul className="p-2">
            <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
-              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
-            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
-            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
-            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
+              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
+            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
+            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
+            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
           </ul>
         </details>
       </li>

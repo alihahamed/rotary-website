@@ -1,5 +1,6 @@
 
 import logo from '../assets/logo.webp'
+import githubIcon from '../icons/github.png'
 
 function Footer() {
     return(
@@ -68,9 +69,15 @@ function Footer() {
                             href="https://github.com/alihahamed"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-blue-200 transition-colors duration-200 underline decoration-1 underline-offset-2"
+                            className="hover:text-blue-200 transition-colors duration-200 underline decoration-1 underline-offset-2 flex items-center justify-center"
                         >
-                            Ali ♥
+                            <img
+                                src={githubIcon}
+                                alt="GitHub"
+                                className="w-4 h-4 mt-1 mr-2 inline-block"
+                                loading="lazy"
+                            />
+                            Ali
                         </a>
                     </p>
                 </div>

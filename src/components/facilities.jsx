@@ -1,12 +1,28 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import library from '../assets/library.webp'
 import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'
 import culturalEvent from '../assets/cultural-event.webp'
 import { motion } from 'framer-motion'
 
+
 function Facilities() {
+
+  const navigate = useNavigate()
+  const handleGallery = (sectionId) => {
+    navigate('/gallery')
+
+    setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if(element) {
+          element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 100)
+  }
 
   return (
     <section className="relative bg-amber-50 py-15 px-8 overflow-hidden">
@@ -216,14 +232,14 @@ function Facilities() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <Link to="/gallery">
-            <button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-3 rounded-full font-nuno font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group shadow-lg cursor-pointer">
+          
+            <button onClick={() => handleGallery("gallery")} className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-3 rounded-full font-nuno font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl group shadow-lg cursor-pointer">
               Explore Our Gallery
               <svg className="inline-block ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
-          </Link>
+          
         </motion.div>
       </div>
     </section>

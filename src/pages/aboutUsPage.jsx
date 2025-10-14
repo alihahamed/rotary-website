@@ -9,7 +9,7 @@ function AboutUsPage() {
     
 
     return(
-        <div className=" w-full bg-white relative">
+        <div className=" w-full bg-white relative" id='aboutUs'>
             {/* Grid Background */}
             <div
                 className="absolute inset-0 z-0"
@@ -22,7 +22,7 @@ function AboutUsPage() {
                 }}
             />
             <TopAnnouncement  />
-            <section className="py-12 md:py-16 relative z-10 " id='aboutUs'>
+            <section className="py-12 md:py-16 relative z-10 " >
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     <div className="text-center mb-8 md:mb-12">
                         <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri" initial={{ opacity: 0, scale: 0.9 }}

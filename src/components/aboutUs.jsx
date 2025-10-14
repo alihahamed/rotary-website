@@ -3,9 +3,25 @@
 import { Album } from "../icons/book";
 import { motion } from "framer-motion";
 import Auditorium from '../assets/auditorium.webp'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function AboutUs() {
+
+  const navigate = useNavigate()
+  const handleAboutUs = (sectionId) => {
+    navigate('/about-us')
+
+    setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if(element) {
+          element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 100)
+  }
+
   return (
     <div>
       {/* <div className="w-full bg-[#fff9f5] relative  border-b border-b-gray-400"> */}
@@ -130,9 +146,9 @@ function AboutUs() {
                     </span>
                   </li>
                   <div className="flex justify-center items-center">
-                    <Link to={"/about-us"} className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
+                    <button onClick={() => handleAboutUs("aboutUs")} className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
                       Learn More About Us
-                    </Link>
+                    </button>
                   </div>
                 </ul>
               </div>
