@@ -1,10 +1,10 @@
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion';
-import anushree from '../assets/1. ANUSHREE (PCMB) 580 (96.6%).jpg';
-import kshithi from '../assets/2. KSHITHI U SHETTY (PCMC) 576 (96%).jpg';
-import sakshi from '../assets/3. SAKSHI (EBAC) 574 (95.6%).jpg';
-import prapti from '../assets/4. PRAPTHA GATTY (PCMB) 574 (95.6%).jpg'
-import ayisha from '../assets/5. AYISHA SAFREENA (EBAC) 569 (94.8%).jpg'
+import anushree from '../assets/anushree.jpg';
+import kshithi from '../ksithi.jpg';
+import sakshi from '../assets/sakshi.jpg';
+import prapti from '../assets/praptha.jpg'
+import ayisha from '../assets/ayisha.jpg'
 import hockeyTeam from '../assets/hockey_team.webp'
 import talukGirls from '../assets/talukRunners_girls.webp'
 import talukBoys from '../assets/talukRunners_boys.webp'
