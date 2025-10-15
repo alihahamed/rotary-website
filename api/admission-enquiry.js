@@ -47,6 +47,7 @@ export default async function handler(req, res) {
       subject: 'New Admission Query',
       html: `
         <h2>New Admission Enquiry</h2>
+        <p>-----------------------</p>
         <p><strong>Name:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
         <p><strong>Phone:</strong> ${formData.phone}</p>

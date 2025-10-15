@@ -11,6 +11,8 @@ function AdmissionForm() {
     message:""
     });
   const [loading, setLoading] = useState(false);
+  const [successfull, setSuccessfull] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,31 +20,44 @@ function AdmissionForm() {
 
   
   useEffect(() => {
-    if (loading) {
+    if (loading || error || successfull) {
       const timer = setTimeout(() => {
         setLoading(false);
+        setSuccessfull(false)
+        setError("")
       }, 2500)
 
       return () => clearTimeout(timer)
     }
-  }, [loading]);
+  }, [loading, error, successfull]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccessfull(false)
+    setError("")
     try {
-      setLoading(true);
       const response = await fetch("/api/admission-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+      
       const data = await response.json();
-      console.log(data);
+      console.log(data)
+      if(data.success) {
+        setSuccessfull(true)
+        setLoading(false)
+        setFormData({name:"",phone:"",email:"", stream:""})
+      } else {
+        setLoading(false)
+        setError(data.message)
+      }
     } catch (error) {
-      console.log("Error sending mail", error);
-      setLoading(false);
-    }
+      
+      setError("Network Error. Please try again.")
+      setLoading(false)
+    } 
   };
 
   return (
@@ -70,14 +85,25 @@ function AdmissionForm() {
             </p>
           </div>
 
-          {loading ? <div className="toast toast-bottom toast-end z-10">
+          {successfull && <div className="toast toast-bottom toast-end z-10">
             {/* <div className="alert alert-info">
               <span>New mail arrived.</span>
             </div> */}
             <div className="alert alert-success rounded-xl bg-gradient-to-tl from-[#c2410c] via-[#f97316] to-[#fdba74] border border-black">
               <span className="text-lg text-white tracking-wide font-nuno">Enquiry Sent!</span>
             </div>
-          </div> : "" }
+          </div> }
+
+          {error && <div className="toast toast-bottom toast-end z-10">
+            {/* <div className="alert alert-info">
+              <span>New mail arrived.</span>
+            </div> */}
+            <div className="alert alert-success rounded-xl bg-gradient-to-tl from-[#c2410c] via-[#f97316] to-[#fdba74] border border-black">
+              <span className="text-lg text-white tracking-wide font-nuno">{error}</span>
+            </div>
+          </div> }
+
+
           
 
           <motion.div
@@ -263,9 +289,18 @@ function AdmissionForm() {
                 >
                   <button
                     onClick={handleSubmit}
+                    disabled={loading}
                     className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg font-nuno"
                   >
-                    Submit Application
+                    {loading ? (
+    <span className="flex items-center">
+      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Processing...
+    </span>
+  ) : "Submit Application"}
                   </button>
                 </motion.div>
               </div>
