@@ -42,7 +42,7 @@ function Navbar() {
 
 
   return (
-    <div className="navbarl bg-white/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 border-b border-gray-200">
+    <div className="navbar bg-white/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 border-b border-gray-200">
       <div className="navbar-start">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
