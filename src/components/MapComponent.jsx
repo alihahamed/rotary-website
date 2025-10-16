@@ -16,7 +16,7 @@ function MapComponent() {
         <div className="bg-white p-2 rounded-3xl shadow-2xl border border-gray-200">
             <MapContainer
                 center={center}
-                zoom={14}
+                zoom={15}
                 style={{ height: '500px', width: '100%' }}
                 className="rounded-2xl"
                 eventHandlers={{ click: handleClick }}

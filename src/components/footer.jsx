@@ -29,11 +29,11 @@ function Footer() {
                     <div className="text-center md:text-left">
                         <h3 className="text-xl font-merri font-bold mb-4">Quick Links</h3>
                         <ul className="space-y-2 text-sm font-nuno">
-                            <li><a href="#admissions" className="hover:text-blue-200 transition-colors">Admissions</a></li>
-                            <li><a href="#courses" className="hover:text-blue-200 transition-colors">Courses</a></li>
-                            <li><a href="#facilities" className="hover:text-blue-200 transition-colors">Facilities</a></li>
-                            <li><a href="#about" className="hover:text-blue-200 transition-colors">About Us</a></li>
-                            <li><a href="#contact" className="hover:text-blue-200 transition-colors">Contact</a></li>
+                            <li><a href="/admissions" className="hover:text-blue-200 transition-colors">Admissions</a></li>
+                            <li><a href="/courses" className="hover:text-blue-200 transition-colors">Courses</a></li>
+                            <li><a href="/why-choose-us" className="hover:text-blue-200 transition-colors">Why Choose Us</a></li>
+                            <li><a href="/about-us" className="hover:text-blue-200 transition-colors">About Us</a></li>
+                            <li><a href="/gallery" className="hover:text-blue-200 transition-colors">Gallery</a></li>
                         </ul>
                     </div>
 

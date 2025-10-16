@@ -16,6 +16,7 @@ function Testimonials() {
   
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState('next')
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const prevCard = () => {
     setDirection('prev')
@@ -120,13 +121,38 @@ function Testimonials() {
                 <div className="flex items-center justify-center overflow-hidden px-2 md:px-0">
                   <motion.p
                     key={`${currentIndex}-${direction}`}
-                    className="text-center italic text-gray-800 font-nuno text-sm md:text-base line-clamp-6 leading-relaxed max-w-full"
+                    onClick={() => window.innerWidth <= 768 && setIsExpanded(!isExpanded)}
+                    className={`text-center italic text-gray-800 font-nuno text-sm md:text-base leading-relaxed max-w-full cursor-pointer md:cursor-default transition-all duration-300 ${
+                      isExpanded ? 'line-clamp-none' : 'line-clamp-6'
+                    } lg:line-clamp-none`}
                     initial={{ opacity: 0, x: direction === 'next' ? 30 : -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   >
                     {currentTestimonial.text}
                   </motion.p>
+                  {!isExpanded && window.innerWidth <= 768 && (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="text-center text-xs text-blue-600 font-nuno mt-1 block md:hidden cursor-pointer hover:text-blue-800"
+                      onClick={() => setIsExpanded(true)}
+                    >
+                      Read more...
+                    </motion.span>
+                  )}
+                  {isExpanded && window.innerWidth <= 768 && (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="text-center text-xs text-gray-500 font-nuno mt-1 block md:hidden cursor-pointer hover:text-gray-700"
+                      onClick={() => setIsExpanded(false)}
+                    >
+                      Show less
+                    </motion.span>
+                  )}
                 </div>
 
                 {/* Author Info - Fixed at bottom */}
