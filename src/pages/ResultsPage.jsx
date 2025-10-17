@@ -529,7 +529,7 @@ function ResultsPage() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.7 }}
                             >
-                                🎉 100% Academic Success Rate
+                                 100% Academic Success Rate
                             </motion.h4>
                             <motion.p
                                 className="text-base font-nuno"
@@ -543,7 +543,7 @@ function ResultsPage() {
                         </motion.div>
 
                         {/* Main Achievements Text */}
-                        <motion.div
+                        {/* <motion.div
                             className="space-y-6 mb-8"
                             initial="hidden"
                             whileInView="visible"
@@ -560,7 +560,7 @@ function ResultsPage() {
                             }}
                         >
                             {/* Academic Toppers */}
-                            <motion.div
+                            {/* <motion.div
                                 variants={{
                                     hidden: { opacity: 0, y: 30 },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -570,10 +570,10 @@ function ResultsPage() {
                                 <div className="text-5xl font-bold text-blue-600 mb-2">27+</div>
                                 <div className="text-xl font-semibold text-blue-800 font-merri mb-1">Academic Toppers</div>
                                 <div className="text-sm text-blue-600 font-nuno">Students scoring 90% and above</div>
-                            </motion.div>
+                            </motion.div> */}
 
                             {/* Sports Achievements */}
-                            <motion.div
+                            {/* <motion.div
                                 variants={{
                                     hidden: { opacity: 0, y: 30 },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -583,10 +583,10 @@ function ResultsPage() {
                                 <div className="text-5xl font-bold text-yellow-600 mb-2">3x</div>
                                 <div className="text-xl font-semibold text-yellow-800 font-merri mb-1">Taluk Winners</div>
                                 <div className="text-sm text-yellow-600 font-nuno">Volleyball Teams - Boys & Girls</div>
-                            </motion.div>
+                            </motion.div> */}
 
                             {/* State Level Team */}
-                            <motion.div
+                            {/* <motion.div
                                 variants={{
                                     hidden: { opacity: 0, y: 30 },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -597,7 +597,7 @@ function ResultsPage() {
                                 <div className="text-xl font-semibold text-red-800 font-merri mb-1">State Level Team</div>
                                 <div className="text-sm text-red-600 font-nuno">Hockey Champions representing Karnataka</div>
                             </motion.div>
-                        </motion.div>
+                        </motion.div>  */}
 
                         {/* Additional Highlights */}
                         <motion.div
@@ -691,7 +691,7 @@ function ResultsPage() {
                         </motion.div>
 
                         <motion.div
-                            className="bg-gradient-to-r from-red-600 via-blue-600 to-yellow-600 bg-clip-text text-transparent"
+                            className=" text-black "
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

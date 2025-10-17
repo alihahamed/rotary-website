@@ -24,16 +24,27 @@ function Courses() {
   }
 
   return (
-    <div className="w-full relative bg-gradient-to-br from-gray-50 to-gray-100/50">
+    <div className="w-full relative bg-white">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+        linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+        linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+      `,
+          backgroundSize: "40px 40px",
+        }}
+      />
 
       {/* Minimal Header */}
-      <div className="text-center py-8 px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 text-center py-8 px-4 sm:px-6 md:px-8">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-blue-900 font-bold tracking-wide">Our Academic Programs</h2>
         <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4"></div>
       </div>
 
       {/* Split Card Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-6 py-8 max-w-7xl mx-auto">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-6 py-8 max-w-7xl mx-auto">
 
         {/* Science Card */}
         <motion.div
