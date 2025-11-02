@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Layers } from '../icons/layers';
 import { Compass } from '../icons/compass';
+import { MapPin, PhoneCall, MailCheck, Clock, Car, } from 'lucide-react';
 
 // Lazy load the map component
 const MapComponent = lazy(() => import('./MapComponent'));
@@ -54,7 +55,7 @@ const center = {
                 <div className="text-center mb-8">
                     <div className="grid md:grid-cols-2 gap-8 mb-8">
                         <div>
-                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4">📍 Address</h3>
+                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4"><MapPin className='inline-block ' size={30} color='red' /> Address</h3>
                             <p className="text-gray-700 leading-relaxed font-nuno text-lg">
                                 Rotary Pre-University College, Jyotinagara<br/>
                                 Moodbidri, Karnataka<br/>
@@ -62,11 +63,11 @@ const center = {
                             </p>
                         </div>
                         <div>
-                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4">📞 Contact</h3>
+                            <h3 className="text-2xl font-merri font-bold text-gray-800 mb-4"><PhoneCall className='inline-block mr-2' color='red' size={30}/> Contact</h3>
                             <div className="text-gray-700 font-nuno text-lg space-y-2">
-                                <p>📞 +91 8258298524</p>
-                                <p>✉️ info@rotarycollege.edu</p>
-                                <p>🕒 Mon - Sat: 8:30 AM - 3:00 PM</p>
+                                <p><PhoneCall className='inline-block ' size={20} /> +91 8258298524</p>
+                                <p><MailCheck className='inline-block' size={20} /> info@rotarycollege.edu</p>
+                                <p><Clock className='inline-block' size={20}/> Mon - Sat: 8:30 AM - 3:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -92,10 +93,10 @@ const center = {
                     <div className="space-y-6">
                         {/* Directions */}
                         <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200">
-                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4"> How to Reach</h3>
+                            <h3 className="text-xl font-merri font-bold text-gray-800 mb-4"><Car className='inline-block mr-2' size={28} /> How to Reach </h3>
                             <div className="space-y-3 text-gray-600 font-nuno">
                                 <div className="flex items-start">
-                                    <span className="font-bold mr-3">🚗</span>
+                                    
                                     <span>5 Minute Drive From Moodbidri Bustand</span>
                                 </div>
                                 {/* <div className="flex items-start">
@@ -103,7 +104,7 @@ const center = {
                                     <span>Bus routes: 15A, 22B, 45C</span>
                                 </div> */}
                                 <div className="flex items-start">
-                                    <span className="font-bold mr-3">🚆</span>
+                                    
                                     <span>Near Police Station, Moodbidri</span>
                                 </div>
                             </div>
@@ -117,10 +118,10 @@ const center = {
                                     onClick={handleClick}
                                     className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-xl font-medium transition-colors flex items-center justify-center"
                                 >
-                                    🗺️ Get Directions
+                                    <MapPin className='inline-block mr-2' size={24} /> Get Directions
                                 </button>
                                 <button onClick={handleCall} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-xl font-medium border border-gray-300 transition-colors flex items-center justify-center">
-                                    📞 Call Now
+                                    <PhoneCall className='inline-block mr-2' size={22}/> Call Now
                                 </button>
                             </div>
                         </div>

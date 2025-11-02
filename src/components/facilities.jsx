@@ -61,7 +61,7 @@ function Facilities() {
 
           {/* Sports & Athletics - Large Card */}
           <motion.div
-            className="relative col-span-1 row-span-1 xl:col-span-1 xl:row-span-2 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            className="relative col-span-1 row-span-1 xl:col-span-1 xl:row-span-2 bg-white rounded-3xl shadow-xl overflow-hidden group  transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -89,7 +89,7 @@ function Facilities() {
 
           {/* Cultural Events - Medium */}
           <motion.div
-            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }
@@ -115,7 +115,7 @@ function Facilities() {
 
           {/* Study Groups - Medium */}
           <motion.div
-            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }
@@ -142,7 +142,7 @@ function Facilities() {
 
           {/* Mid-Day Meals - Medium Image Card */}
           <motion.div
-            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.3 } }
@@ -169,7 +169,7 @@ function Facilities() {
 
           {/* Tech Workshops - Medium Image Card */}
           <motion.div
-            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+            className="relative col-span-1 row-span-1 bg-white rounded-3xl shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.4 } }

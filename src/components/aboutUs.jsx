@@ -47,8 +47,8 @@ function AboutUs() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-[47px] font-bold text-gray-800 mb-6 md:mb-4 font-merri tracking-wide flex flex-col sm:flex-row justify-center sm:justify-center items-center text-center sm:text-left">
-                 <p className="mb-2 sm:mb-0">About <span className="text-red-800">Rotary PU College</span></p>
-                  <Album stroke="#374151" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 mt-2 sm:mt-0 sm:ml-3" />
+                 <p className="mb-2 sm:mb-0">About <span className="text-red-600">Rotary PU College</span></p>
+                  <Album stroke="#374151" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 mt-2 sm:mt-0 sm:ml-3 inline-block" />
                 </h2>
                 <div className="w-24 h-1 bg-red-600 mx-auto mt-4 mb-6 md:mb-8"></div>
                 <p className="text-lg md:text-xl font-medium text-gray-600 mb-6 md:mb-8 leading-relaxed font-nuno">

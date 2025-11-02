@@ -48,7 +48,7 @@ function Hero() {
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
               }}
             >
-              Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College</span>
+              Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College, <span className='text-5xl text-white'>Moodbidri</span></span>
             </motion.h1>
             <motion.p
               className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 font-nuno drop-shadow-md font-medium sm:font-bold text-center sm:text-left leading-relaxed"
@@ -77,7 +77,7 @@ function Hero() {
 
               <Link
                 to={"/admissions/apply"}
-                className="bg-gradient-to-r from-red-700 to-red-900 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
+                className="bg-gradient-to-r from-red-600 to-red-700 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
