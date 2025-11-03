@@ -5,6 +5,7 @@ import sports from '../assets/sports.webp'
 import midDay from '../assets/mid-day.webp'
 import culturalEvent from '../assets/cultural-event.webp'
 import { motion } from 'framer-motion'
+import bus from '../assets/bus.jpg'
 
 
 function Facilities() {
@@ -204,7 +205,7 @@ function Facilities() {
             }}
           >
             <div className="relative h-full min-h-[400px] xl:min-h-[500px]">
-              <img src={midDay} alt="Mid-Day Meals" className="w-full h-full object-cover" />
+              <img src={bus} alt="Mid-Day Meals" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
 
               <div className="absolute top-6 left-6 z-20">
@@ -222,6 +223,37 @@ function Facilities() {
             </div>
           </motion.div> */}
 
+        </motion.div>
+
+        {/* Transportation Services - Full Width Card */}
+        <motion.div
+          className="mt-8 lg:mt-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+            <div className="relative h-64 md:h-80 lg:h-96">
+              <img src={bus} alt="Transportation Services" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
+
+              {/* Icon in top-left */}
+              <div className="absolute top-6 left-6 z-20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 17h2l-2.5-2.5L17 17h2zM5 17h2l2.5-2.5L9 17H5zM12 2l4 4h-3v6h2l-4 4-4-4h2V6H8l4-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <rect x="3" y="9" width="18" height="10" rx="2" stroke="white" strokeWidth="2"/>
+                </svg>
+              </div>
+
+              {/* Title */}
+              <div className="absolute bottom-8 left-8 right-8 z-20">
+                <h3 className="text-white text-2xl md:text-3xl font-merri font-bold drop-shadow-lg">
+                  Transportation Services
+                </h3>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* CTA Button */}
