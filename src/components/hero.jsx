@@ -48,7 +48,7 @@ function Hero() {
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
               }}
             >
-              Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College, <span className='text-5xl text-white'>Moodbidri</span></span>
+              Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College, <span className='text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white'>Moodbidri</span></span>
             </motion.h1>
             <motion.p
               className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 font-nuno drop-shadow-md font-medium sm:font-bold text-center sm:text-left leading-relaxed"

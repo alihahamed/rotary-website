@@ -3,6 +3,7 @@
 import { Album } from "../icons/book";
 import { motion } from "framer-motion";
 import Auditorium from '../assets/auditorium.webp'
+import Amarnath from '../assets/amarnath.jpg'
 import { Link, useNavigate } from "react-router-dom";
 
 function AboutUs() {
@@ -40,10 +41,13 @@ function AboutUs() {
         <section
           className="py-12 md:py-23 rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-stone-50 to-amber-100/50 border-b border-b-amber-100"
         >
-          <motion.div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16"initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px", amount:0.1 }}
-        transition={{ duration: 1.0 }}>
+          <motion.div
+            className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px", amount: 0.1 }}
+            transition={{ duration: 1.0 }}
+          >
             <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-[47px] font-bold text-gray-800 mb-6 md:mb-4 font-merri tracking-wide flex flex-col sm:flex-row justify-center sm:justify-center items-center text-center sm:text-left">
@@ -159,6 +163,67 @@ function AboutUs() {
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[550px] object-cover rounded-3xl shadow-2xl"
                   loading="lazy"
                 />
+              </div>
+            </div>
+
+            {/* Founder Section within About Us */}
+            <div className="mt-12 md:mt-16">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
+                  Our Founder
+                </h2>
+                <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+              </div>
+
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-gradient-to-r from-stone-100 to-zinc-100 rounded-lg shadow-md p-6 md:p-8">
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+                    <motion.div
+                      className="flex-shrink-0"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <img
+                        src={Amarnath}
+                        alt="Rtn. K. Amaranath Shetty - Founder"
+                        className="w-48 h-48 md:w-64 md:h-70 object-cover rounded-lg shadow-lg"
+                        loading="lazy"
+                      />
+                    </motion.div>
+
+                    <div className="flex-1 text-center md:text-left">
+                      <motion.h3
+                        className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 font-merri"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                      >
+                        Rtn. K. Amaranath Shetty
+                      </motion.h3>
+                      <motion.p
+                        className="text-lg text-red-600 mb-6 font-nuno"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                      >
+                        Founder President ~ Rotary Education Society
+                      </motion.p>
+                      <motion.p
+                        className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
