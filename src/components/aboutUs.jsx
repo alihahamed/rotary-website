@@ -176,10 +176,10 @@ function AboutUs() {
               </div>
 
               <div className="max-w-4xl mx-auto">
-                <div className="bg-gradient-to-r from-stone-100 to-zinc-100 rounded-lg shadow-md p-6 md:p-8">
+                <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
                     <motion.div
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
