@@ -8,6 +8,8 @@ import ayisha from '../assets/ayisha.jpg'
 import hockeyTeam from '../assets/hockey_team.webp'
 import talukGirls from '../assets/talukRunners_girls.webp'
 import talukBoys from '../assets/talukRunners_boys.webp'
+import { GraduationCap, Palette, Trophy, Award } from 'lucide-react';
+import rotaractLogo from '../assets/rotaract-logo.jpg'
 
 function ResultsPage() {
     return(
@@ -498,14 +500,14 @@ function ResultsPage() {
 
                     {/* Achievement Summary */}
                     <motion.div
-                        className="text-center bg-gradient-to-br from-red-50 via-blue-50 to-yellow-50 rounded-lg shadow-md p-8 border border-red-100"
+                        className="text-center bg-gradient-to-br from-red-100  to-yellow-50 rounded-lg shadow-md p-8 border border-red-100"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <motion.h3
-                            className="text-3xl font-bold text-red-800 font-merri mb-6"
+                            className="text-3xl font-bold text-black font-merri mb-6"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -516,7 +518,7 @@ function ResultsPage() {
 
                         {/* 100% Result Banner */}
                         <motion.div
-                            className="mb-8 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg p-6 shadow-lg"
+                            className="mb-8 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg p-6 shadow-lg border-2 border-black"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
@@ -614,7 +616,7 @@ function ResultsPage() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 1.1 }}
                             >
-                                🏆 Additional Highlights
+                                <Trophy className='inline-block mr-3' size={32} color='orange' /> Additional Highlights
                             </motion.h4>
                             <motion.div
                                 className="grid md:grid-cols-2 gap-6"
@@ -639,7 +641,7 @@ function ResultsPage() {
                                     }}
                                     className="flex flex-col items-center text-center space-y-2"
                                 >
-                                    <span className="text-blue-600 text-2xl">🎓</span>
+                                    <span className=" text-2xl"><GraduationCap size={37} color='blue' /></span>
                                     <div>
                                         <div className="font-semibold text-gray-800 font-merri">Best Academic Performance</div>
                                         <div className="text-sm text-gray-600 font-nuno">District Level Recognition</div>
@@ -653,7 +655,7 @@ function ResultsPage() {
                                     }}
                                     className="flex flex-col items-center text-center space-y-2"
                                 >
-                                    <span className="text-yellow-600 text-2xl">🤝</span>
+                                    <span className="text-yellow-600 text-2xl"><img src={rotaractLogo} className='w-10 h-10' alt="Rotaract logo" /></span>
                                     <div>
                                         <div className="font-semibold text-gray-800 font-merri">Rotaract Club</div>
                                         <div className="text-sm text-gray-600 font-nuno">Community Service Excellence</div>
@@ -667,7 +669,7 @@ function ResultsPage() {
                                     }}
                                     className="flex flex-col items-center text-center space-y-2"
                                 >
-                                    <span className="text-red-600 text-2xl">🎨</span>
+                                    <span className=" text-2xl"><Palette color='purple' size={37} /></span>
                                     <div>
                                         <div className="font-semibold text-gray-800 font-merri">Cultural Excellence</div>
                                         <div className="text-sm text-gray-600 font-nuno">Multiple Event Wins</div>
@@ -681,7 +683,7 @@ function ResultsPage() {
                                     }}
                                     className="flex flex-col items-center text-center space-y-2"
                                 >
-                                    <span className="text-blue-600 text-2xl">🏃‍♂️</span>
+                                    <span className=" text-2xl"><Award size={37} color='green' /></span>
                                     <div>
                                         <div className="font-semibold text-gray-800 font-merri">Athletic Champions</div>
                                         <div className="text-sm text-gray-600 font-nuno">Individual Excellence Awards</div>

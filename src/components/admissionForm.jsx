@@ -89,7 +89,7 @@ function AdmissionForm() {
             {/* <div className="alert alert-info">
               <span>New mail arrived.</span>
             </div> */}
-            <div className="alert alert-success rounded-xl bg-gradient-to-tl from-[#c2410c] via-[#f97316] to-[#fdba74] border border-black">
+            <div className="alert alert-success bg-black border border-black">
               <span className="text-lg text-white tracking-wide font-nuno">Enquiry Sent!</span>
             </div>
           </div> }
@@ -98,7 +98,7 @@ function AdmissionForm() {
             {/* <div className="alert alert-info">
               <span>New mail arrived.</span>
             </div> */}
-            <div className="alert alert-success rounded-xl bg-gradient-to-tl from-[#c2410c] via-[#f97316] to-[#fdba74] border border-black">
+            <div className="alert alert-success bg-black border border-black">
               <span className="text-lg text-white tracking-wide font-nuno">{error}</span>
             </div>
           </div> }

@@ -77,7 +77,7 @@ function AdmissionsPage() {
                                     <ul className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg space-y-3">
                                         <li className="flex items-start">
                                             <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                            Student should be above 16 years of age
+                                            Student should be above 15 years of age
                                         </li>
                                     </ul>
                                 </div>

@@ -61,7 +61,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'Email sent successfully',
+      message: 'lawda login huwe',
       email: formData.email
     });
 
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
     console.error('Error sending email:', error);
     return res.status(500).json({
       success: false,
-      message: 'Failed to send email. Please try again later.'
+      message: 'lawde ko email maalum nai.'
     });
   }
 }

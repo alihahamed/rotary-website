@@ -1,18 +1,21 @@
 
 import logo from '../assets/logo.webp'
 import githubIcon from '../icons/github.png'
+import instagramIcon from '../assets/instagram-icon.png'
+import collegeLogo from '../assets/insta-college-logo.jpg'
+import nssLogo from '../assets/insta-nns-logo.jpg'
 
 function Footer() {
     return(
         <footer className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 text-white">
             <div className="max-w-7xl mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Institution Info */}
                     <div className="text-center md:text-left">
                         <img
                             src={logo}
                             alt="Rotary Pre-University College Logo"
-                            className="h-16 mx-auto md:mx-0 mb-4 rounded-2xl"
+                            className="h-16 mx-auto md:mx-0 mb-4 rounded-full"
                             loading="lazy"
                         />
                         <h3 className="text-xl font-merri font-bold mb-2">Rotary Pre-University College</h3>
@@ -56,6 +59,51 @@ function Footer() {
                             <div className="flex items-center justify-center md:justify-start">
                                 <span className="mr-2">🕒</span>
                                 <span>Mon - Sat: 8:30 AM - 5:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Follow Us */}
+                    <div className="text-center md:text-left">
+                        <h3 className="text-xl font-merri font-bold mb-4">Follow Us</h3>
+                        <div className="relative inline-block group ">
+                            <img
+                                src={instagramIcon}
+                                alt="Instagram"
+                                className="w-12 h-12 mx-auto md:mx-0 cursor-pointer hover:scale-110 transition-transform duration-200"
+                                loading="lazy"
+                            />
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 min-w-max">
+                                <div className="p-2">
+                                    <a
+                                        href="https://www.instagram.com/rotary_puc/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center space-x-2 p-2 hover:bg-gray-600   rounded transition-colors"
+                                    >
+                                        <img
+                                            src={collegeLogo}
+                                            alt="College Instagram"
+                                            className="w-6 h-6 rounded-full"
+                                            loading="lazy"
+                                        />
+                                        <span className="text-sm text-white font-nuno">College</span>
+                                    </a>
+                                    <a
+                                        href="https://www.instagram.com/nss_rotarypuc/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center space-x-2 p-2 hover:bg-gray-600 rounded transition-colors"
+                                    >
+                                        <img
+                                            src={nssLogo}
+                                            alt="NSS Instagram"
+                                            className="w-6 h-6 rounded-full"
+                                            loading="lazy"
+                                        />
+                                        <span className="text-sm text-white font-nuno">NSS</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

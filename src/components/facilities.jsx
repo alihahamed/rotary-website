@@ -6,6 +6,7 @@ import midDay from '../assets/mid-day.webp'
 import culturalEvent from '../assets/cultural-event.webp'
 import { motion } from 'framer-motion'
 import bus from '../assets/bus.jpg'
+import { Volleyball, Bus, Album, CookingPot, FlaskConical, Bomb, Award } from 'lucide-react'
 
 
 function Facilities() {
@@ -74,9 +75,10 @@ function Facilities() {
 
               {/* Icon in top-left */}
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 8.5L9.5 12L6 15.5M18 12H10M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 22V12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                </svg> */}
+                <Award size={36} color='white' />
               </div>
 
               {/* Title */}
@@ -101,9 +103,10 @@ function Facilities() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
 
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 12l2 2 4-4M21.791 5.759l-1.586 9.689c-.047.286-.145.557-.288.794l-3.732 6.564c-.914 1.609-3.162 1.609-4.076 0l-3.732-6.564c-.143-.237-.241-.508-.288-.794l-1.586-9.689c-.029-.18.108-.348.288-.348h12.808c.18 0 .317.168.288.348z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                </svg> */}
+                <Bomb size={36} color='white'/>
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 z-20">
@@ -127,10 +130,11 @@ function Facilities() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
 
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2l8 5v10l-8 5-8-5V7l8-5z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M7 10.5L12 13l5-2.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                </svg> */}
+                <Album size={36} color='white'/>
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 z-20">
@@ -154,10 +158,11 @@ function Facilities() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
 
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M6 1v3M10 1v3M14 1v3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                </svg> */}
+                <CookingPot size={36} color='white' />
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 z-20">
@@ -181,11 +186,12 @@ function Facilities() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent group-hover:from-black/40 transition-all duration-500" />
 
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="4" y="3" width="16" height="12" rx="2" stroke="white" strokeWidth="2"/>
                   <path d="M9 8h2M11 11v2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                   <circle cx="12" cy="15" r="2" stroke="white" strokeWidth="2"/>
-                </svg>
+                </svg> */}
+                <FlaskConical size={36} color='white' />
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 z-20">
@@ -240,10 +246,11 @@ function Facilities() {
 
               {/* Icon in top-left */}
               <div className="absolute top-6 left-6 z-20">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 17h2l-2.5-2.5L17 17h2zM5 17h2l2.5-2.5L9 17H5zM12 2l4 4h-3v6h2l-4 4-4-4h2V6H8l4-4z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <rect x="3" y="9" width="18" height="10" rx="2" stroke="white" strokeWidth="2"/>
-                </svg>
+                </svg> */}
+                <Bus size={36} color='white'/>
               </div>
 
               {/* Title */}

@@ -30,7 +30,7 @@ function News() {
       date: "Jan 15, 2025",
       category: "Admissions",
       categoryColor:
-        "bg-gradient-to-r from-[#f43f5e] via-[#db2777] to-[#ef4444]",
+        "bg-red-500",
       img: campusImg,
     },
     {
@@ -40,7 +40,7 @@ function News() {
       date: "Jan 10, 2025",
       category: "Academic",
       categoryColor:
-        "bg-gradient-to-r from-[#0e7490] via-[#3b82f6] to-[#4f46e5]",
+        "bg-blue-500",
       img: study,
     },
     {
@@ -50,7 +50,7 @@ function News() {
       date: "Jan 8, 2025",
       category: "Sports",
       categoryColor:
-        "bg-gradient-to-b from-[#16a34a] via-[#4ade80] to-[#bbf7d0]",
+        "bg-orange-500",
       img: Sports1,
     },
     // {

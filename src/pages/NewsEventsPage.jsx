@@ -2,7 +2,7 @@
 import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion'
 import campus from '../assets/campus.webp';
-import studyGroup from '../assets/studyGroup.webp';
+import trip from '../assets/trip.jpg'
 import sports from '../assets/sports.webp';
 import nss from '../assets/nss.webp';
 import entry from '/gallery/entry.webp';
@@ -14,7 +14,7 @@ function NewsEventsPage() {
     const newsData = [
         {
             id: 1,
-            title: "Rotary PU College Achieves 95% Pass Percentage in Board Exams",
+            title: "Rotary PU College Achieves 100% Pass Percentage in Board Exams",
             date: "2025-03-15",
             category: "Academic",
             excerpt: "Our students have achieved outstanding results in the recent board examinations, with 95% pass percentage across all streams.",
@@ -41,11 +41,11 @@ function NewsEventsPage() {
         },
         {
             id: 4,
-            title: "Career Guidance Workshop for Final Year Students",
+            title: "A Memorable College Trip Arranged for the Students!",
             date: "2024-12-20",
-            category: "Career",
-            excerpt: "Interactive workshop conducted by industry experts to guide students on career choices and higher education opportunities.",
-            image: studyGroup,
+            category: "College Life",
+            excerpt: "A memorable fun college trip to Kochi, Kerala, awaits our students! The city's vibrant culture, modern metro stations,  thrilling Wonderla Water Park in this exciting adventure",
+            image: trip,
             readTime: "3 min read"
         },
         {
@@ -81,12 +81,13 @@ function NewsEventsPage() {
 
     const getCategoryColor = (category) => {
         const colors = {
-            'Academic': 'bg-gradient-to-r from-[#0e7490] via-[#3b82f6] to-[#4f46e5]',
-            'Infrastructure': 'bg-gradient-to-r from-[#16a34a] via-[#4ade80] to-[#bbf7d0]',
-            'Sports': 'bg-gradient-to-b from-[#16a34a] via-[#4ade80] to-[#bbf7d0]',
-            'Career': 'bg-gradient-to-r from-[#f43f5e] via-[#db2777] to-[#ef4444]',
+            'Academic': 'bg-blue-600',
+            'Infrastructure': 'bg-lime-500',
+            'Sports': 'bg-orange-500',
+            'Career': 'bg-red-500',
             'Anniversary': 'bg-gradient-to-l from-[#fb7185] via-[#a21caf] to-[#6366f1]',
-            'Community Service': 'bg-gradient-to-r from-[#0e7490] via-[#3b82f6] to-[#4f46e5]'
+            'Community Service': 'bg-cyan-500',
+            'College Life': 'bg-yellow-400'
         };
         return colors[category] || 'bg-gradient-to-r from-[#6b7280] via-[#9ca3af] to-[#d1d5db]';
     };

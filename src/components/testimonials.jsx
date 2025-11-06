@@ -4,7 +4,7 @@ import { ChevronLeft } from "../icons/chevronLeft";
 import { useState } from "react";
 import { motion } from 'framer-motion'
 import melisha from '../assets/melisha.jpg'
-import ali from '../assets/ali.jpg'
+import ali from '../assets/ali.webp'
 import vinyas from '../assets/vinyas.jpg'
 import josita from '../assets/josita.jpg'
 function Testimonials() {
@@ -13,7 +13,7 @@ function Testimonials() {
     {id:1, text: "I feel truly blessed to have completed both my schooling and pre-university studies at this esteemed institution. From my early years until PU completion, the teachers provided exceptional guidance, instilling values of discipline, hard work, and integrity while offering countless opportunities for academic and extracurricular growth. The friendly environment helped me build confidence and leadership skills, and I'm proud to be an alumnus of this remarkable institution that prioritizes both quality education and overall development.",
       Author:"Melisha Miranda", Year:2023, Stream:"Commerce Stream Graduate", photo: melisha
      }, {
-      id:2, text: "Rotary PU College gave me so much more than just academics. I made lifelong friends here and enjoyed every moment of student life. Being part of the student council taught me leadership and teamwork, while the supportive environment always encouraged us to grow together. The memories and bonds I built here will always stay close to my heart",
+      id:2, text: "Rotary PU College gave me so much more than just academics. It was a place where I discovered my potential and learned the importance of hard work, discipline, and collaboration. Being part of the student council taught me invaluable lessons in leadership, communication, and teamwork—skills that continue to help me beyond the classroom. The faculty and staff were always supportive, creating an environment that motivated us to strive for excellence in every field, whether academics, extracurriculars, or personal growth. My time at Rotary PU College truly shaped me into a more confident and responsible individual, preparing me for the challenges ahead.",
       Author:"Ali Ahmed", Year:2022, Stream:"Science Stream Graduate", photo: ali
      },
       {
@@ -131,7 +131,7 @@ function Testimonials() {
                 </div>
 
                 {/* Testimonial Text - Takes remaining space */}
-                <div className="flex items-center justify-center overflow-hidden px-2 md:px-0">
+                <div className="flex flex-col items-center justify-center overflow-hidden px-2 md:px-0">
                   <motion.p
                     key={`${currentIndex}-${direction}`}
                     onClick={() => window.innerWidth <= 768 && setIsExpanded(!isExpanded)}

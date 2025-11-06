@@ -388,7 +388,28 @@ function GalleryPage() {
             gradient: "from-orange-600 to-yellow-700",
             videoSrc: "/gallery/football.mp4",
             hasVideo: true
-        }
+        },
+        {
+            id: 7,
+            title: "Face Painting Competition",
+            description: "Exciting matches, team spirit, and sporting achievements",
+            shortDesc: "Art, Creativity and Face Painting!",
+            emoji: "⚽",
+            gradient: "from-orange-600 to-yellow-700",
+            videoSrc: "/gallery/face-painting.mp4",
+            hasVideo: true
+        },
+        {
+            id: 8,
+            title: "Drawing & Painting Competition",
+            description: "Exciting matches, team spirit, and sporting achievements",
+            shortDesc: "Drawing & Painting Competition!",
+            emoji: "⚽",
+            gradient: "from-orange-600 to-yellow-700",
+            videoSrc: "/gallery/painting.mp4",
+            hasVideo: true
+        },
+
     ];
 
     return (
