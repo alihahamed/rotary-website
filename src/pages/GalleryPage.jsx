@@ -6,6 +6,8 @@ function GalleryPage() {
     const [showMore, setShowMore] = useState(false);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Handle photo click to open modal
     const openModal = (photo, index) => {
@@ -31,6 +33,19 @@ function GalleryPage() {
         setCurrentIndex(prevIndex);
         setSelectedPhoto(photos[prevIndex]);
     };
+
+    // Mobile detection
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+
 
     // Keyboard navigation
     useEffect(() => {
@@ -468,7 +483,9 @@ function GalleryPage() {
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 font-merri mb-8 text-center">
                              Campus Moments
+                             <div className="w-18 h-1 bg-red-600 mx-auto mt-4"></div>
                         </h2>
+                        
 
                         {/* 5 Column Grid Layout */}
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
@@ -548,7 +565,7 @@ function GalleryPage() {
                         )}
                     </motion.div>
 
-                    {/* Videos Grid Section */}
+                    {/* Videos Section */}
                     <motion.div
                         className="mb-8"
                         initial={{ opacity: 0, y: 30 }}
@@ -557,78 +574,185 @@ function GalleryPage() {
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 font-merri mb-8 text-center">
                             Event Highlights
+                            <div className="w-18 h-1 bg-yellow-500 mx-auto mt-4"></div>
                         </h2>
 
-                        {/* Videos Grid Layout - 16:9 Aspect Ratio */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                            {videos.map((video, index) => (
-                                <motion.div
-                                    key={video.id}
-                                    className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${video.hasVideo ? '' : `bg-gradient-to-br ${video.gradient}`}`}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    whileHover={{ scale: video.hasVideo ? 1.02 : 1.02 }}
-                                >
-                                    {/* Dynamic Aspect Ratio Container */}
-                                    <div className={`relative aspect-[9/16]`}>
-                                        {video.hasVideo ? (
-                                            /* Actual Video Player with Description */
-                                            <>
-                                                <video
-                                                    className="w-full h-full object-cover rounded-xl"
-                                                    controls
-                                                    preload="metadata"
-                                                    poster={video.thumbnail || undefined}
+                        {/* Mobile Carousel */}
+                        {isMobile ? (
+                            <div className="relative mx-auto px-5 pb-8">
+                                <div className="overflow-hidden rounded-xl">
+                                    <motion.div
+                                        className="flex"
+                                        animate={{ x: -currentVideoIndex * 100 + "%" }}
+                                        transition={{ type: "spring", stiffness: 200, damping: 30 }}
+                                        drag="x"
+                                        dragConstraints={{ left: -((videos.length - 1) * 100), right: 0 }}
+                                        onDragEnd={(event, info) => {
+                                            const swipeThreshold = 50;
+                                            if (info.offset.x > swipeThreshold && currentVideoIndex > 0) {
+                                                setCurrentVideoIndex(currentVideoIndex - 1);
+                                            } else if (info.offset.x < -swipeThreshold && currentVideoIndex < videos.length - 1) {
+                                                setCurrentVideoIndex(currentVideoIndex + 1);
+                                            }
+                                        }}
+                                    >
+                                        {videos.map((video, index) => (
+                                            <motion.div
+                                                key={video.id}
+                                                className="w-full flex-shrink-0 px-2"
+                                                initial={{ opacity: 0, scale: 0.95 }}
+                                                animate={{
+                                                    opacity: index === currentVideoIndex ? 1 : 0.7,
+                                                    scale: index === currentVideoIndex ? 1 : 0.95
+                                                }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <div className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${video.hasVideo ? '' : `bg-gradient-to-br ${video.gradient}`}`}>
+                                                    {/* Dynamic Aspect Ratio Container */}
+                                                    <div className="relative aspect-[9/16]">
+                                                        {video.hasVideo ? (
+                                                            /* Actual Video Player with Description */
+                                                            <>
+                                                                <video
+                                                                    className="w-full h-full object-cover rounded-xl"
+                                                                    controls
+                                                                    preload="metadata"
+                                                                    poster={video.thumbnail || undefined}
+                                                                >
+                                                                    <source src={video.videoSrc} type="video/mp4" />
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                                {/* Description below video */}
+                                                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                                                    <p className="text-white text-sm font-merri font-bold text-center">
+                                                                        {video.shortDesc}
+                                                                    </p>
+                                                                </div>
+                                                            </>
+                                                        ) : (
+                                                            /* Video Placeholder */
+                                                            <>
+                                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                                    <div className="text-center text-white p-4">
+                                                                        <div className="text-4xl mb-3">{video.emoji}</div>
+                                                                        <h3 className="text-base font-bold font-merri mb-2 line-clamp-2">
+                                                                            {video.title}
+                                                                        </h3>
+                                                                        <p className="text-xs opacity-90 font-nuno mb-3 line-clamp-3">
+                                                                            {video.description}
+                                                                        </p>
+                                                                        <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 inline-block">
+                                                                            <span className="text-xs font-semibold font-nuno">Coming Soon</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
-                                                >
-                                                    <source src={video.videoSrc} type="video/mp4" />
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                {/* Description below video */}
-                                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-10">
-                                                    <p className="text-white text-sm font-merri font-bold text-center">
-                                                        {video.shortDesc}
-                                                    </p>
+                                                                {/* Play Button Overlay */}
+                                                                <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer">
+                                                                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-colors">
+                                                                        <div className="text-white text-2xl">▶️</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                {/* Video Dimensions Indicator */}
+                                                                <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-sm rounded px-1.5 py-0.5">
+                                                                    <span className="text-white text-xs font-nuno">
+                                                                        9:16
+                                                                    </span>
+                                                                </div>
+                                                            </>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                            </>
-                                        ) : (
-                                            /* Video Placeholder */
-                                            <>
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className="text-center text-white p-6">
-                                                        <div className="text-5xl md:text-6xl mb-4">{video.emoji}</div>
-                                                        <h3 className="text-lg md:text-xl font-bold font-merri mb-3 line-clamp-2">
-                                                            {video.title}
-                                                        </h3>
-                                                        <p className="text-sm md:text-base opacity-90 font-nuno mb-4 line-clamp-3">
-                                                            {video.description}
+                                            </motion.div>
+                                        ))}
+                                    </motion.div>
+                                </div>
+
+                                {/* Navigation Dots */}
+                                <div className="flex justify-center mt-4 space-x-2">
+                                    {videos.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentVideoIndex(index)}
+                                            className={`w-3 h-3 rounded-full transition-colors ${
+                                                index === currentVideoIndex ? "bg-blue-600 border border-black" : "bg-gray-300 "
+                                            }`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            /* Desktop Grid Layout */
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                                {videos.map((video, index) => (
+                                    <motion.div
+                                        key={video.id}
+                                        className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${video.hasVideo ? '' : `bg-gradient-to-br ${video.gradient}`}`}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        whileHover={{ scale: video.hasVideo ? 1.02 : 1.02 }}
+                                    >
+                                        {/* Dynamic Aspect Ratio Container */}
+                                        <div className="relative aspect-[9/16]">
+                                            {video.hasVideo ? (
+                                                /* Actual Video Player with Description */
+                                                <>
+                                                    <video
+                                                        className="w-full h-full object-cover rounded-xl"
+                                                        controls
+                                                        preload="metadata"
+                                                        poster={video.thumbnail || undefined}
+                                                    >
+                                                        <source src={video.videoSrc} type="video/mp4" />
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                    {/* Description below video */}
+                                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-10">
+                                                        <p className="text-white text-sm font-merri font-bold text-center">
+                                                            {video.shortDesc}
                                                         </p>
-                                                        <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 inline-block">
-                                                            <span className="text-sm font-semibold font-nuno">Coming Soon</span>
+                                                    </div>
+                                                </>
+                                            ) : (
+                                                /* Video Placeholder */
+                                                <>
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className="text-center text-white p-6">
+                                                            <div className="text-5xl md:text-6xl mb-4">{video.emoji}</div>
+                                                            <h3 className="text-lg md:text-xl font-bold font-merri mb-3 line-clamp-2">
+                                                                {video.title}
+                                                            </h3>
+                                                            <p className="text-sm md:text-base opacity-90 font-nuno mb-4 line-clamp-3">
+                                                                {video.description}
+                                                            </p>
+                                                            <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 inline-block">
+                                                                <span className="text-sm font-semibold font-nuno">Coming Soon</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                {/* Play Button Overlay */}
-                                                <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer">
-                                                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-colors">
-                                                        <div className="text-white text-3xl">▶️</div>
+                                                    {/* Play Button Overlay */}
+                                                    <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer">
+                                                        <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-colors">
+                                                            <div className="text-white text-3xl">▶️</div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                {/* Video Dimensions Indicator */}
-                                                <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded px-2 py-1">
-                                                    <span className="text-white text-xs  font-nuno">
-                                                        9:16
-                                                    </span>
-                                                </div>
-                                            </>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                                                    {/* Video Dimensions Indicator */}
+                                                    <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded px-2 py-1">
+                                                        <span className="text-white text-xs font-nuno">
+                                                            9:16
+                                                        </span>
+                                                    </div>
+                                                </>
+                                            )}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        )}
                     </motion.div>
                 </div>
             </section>
@@ -687,11 +811,21 @@ function GalleryPage() {
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            onDragEnd={(event, info) => {
+                                const swipeThreshold = 50;
+                                if (info.offset.x > swipeThreshold) {
+                                    prevPhoto();
+                                } else if (info.offset.x < -swipeThreshold) {
+                                    nextPhoto();
+                                }
+                            }}
                         >
                             <img
                                 src={selectedPhoto.src}
                                 alt={selectedPhoto.alt}
-                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-grab active:cursor-grabbing"
                             />
 
                             {/* Image Info Overlay */}

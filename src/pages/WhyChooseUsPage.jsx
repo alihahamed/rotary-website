@@ -356,7 +356,7 @@ function WhyChooseUsPage() {
                                 </motion.div>
 
                                 {/* Achievement Summary */}
-                                <motion.div
+                                {/* <motion.div
                                     className="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-200"
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
@@ -382,7 +382,7 @@ function WhyChooseUsPage() {
                                             </div>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </motion.div> */}
                             </div>
                         </div>
                     </motion.div>

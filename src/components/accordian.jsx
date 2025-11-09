@@ -35,7 +35,7 @@ function Accordian() {
           </div>
 
           <motion.div
-            className="max-w-2xl mx-auto bg-gradient-to-r from-stone-100 to-zinc-50"
+            className="max-w-sm md:max-w-3xl mx-auto bg-stone-200 rounded-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -51,18 +51,18 @@ function Accordian() {
             }}
           >
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" defaultChecked aria-label="Toggle answer for: What makes Rotary PU College different from other PU colleges in the region?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 What makes Rotary PU College different from other PU colleges in
                 the region?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 Rotary PU College stands out for its legacy as one of the
                 earliest institutions in Moodbidri, offering a strong foundation
                 in academics while also focusing on leadership, values, and
@@ -73,17 +73,17 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What courses and training programs does Rotary PU College offer?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 What courses and training programs does Rotary PU College offer?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 We offer Science and Commerce streams with popular combinations
                 like PCMB, PCMC, EBAS, CEBA, and SEBA. Alongside the PU
                 curriculum, students receive focused training for KCET, JEE, and
@@ -93,18 +93,18 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college provide entrance and professional exam coaching?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 How does the college provide entrance and professional exam
                 coaching?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 Rotary PU College invites expert training officers and subject
                 specialists who conduct focused coaching sessions for exams like
                 KCET, JEE, NEET, CA, and ACCA, ensuring students get
@@ -113,18 +113,18 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What facilities and achievements make Rotary PU College stand out?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 What facilities and achievements make Rotary PU College stand
                 out?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 With a strong 95% academic pass rate, Rotary PU College combines
                 excellence in studies with vibrant sports achievements,
                 including state-level wins in football and hockey. Students also
@@ -134,18 +134,18 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-4"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-4"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college ensure the overall development and discipline of students?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 How does the college ensure the overall development and
                 discipline of students?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 Rotary PU College focuses on holistic growth by blending
                 academics with extracurricular activities, sports, and cultural
                 events. Regular mentoring, value-based programs, and a
@@ -155,30 +155,30 @@ function Accordian() {
             </motion.div>
 
             <motion.div
-              className="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl mb-9"
+              className="collapse collapse-plus bg-black border border-base-300 rounded-2xl mb-9"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What is the admission process, and what documents are required?" />
-              <div className="collapse-title font-semibold font-merri text-gray-800">
+              <div className="collapse-title font-semibold font-merri text-white">
                 What is the admission process, and what documents are required?
               </div>
-              <div className="collapse-content text-sm font-nuno text-gray-600">
+              <div className="collapse-content text-sm font-nuno text-white">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Admission Timeline</h4>
+                    <h4 className="font-semibold text-white mb-2">Admission Timeline</h4>
                     <p className="mb-3">The Admission commences immediately after the announcement of S.S.L.C results.</p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">How to Apply</h4>
+                    <h4 className="font-semibold text-white mb-2">How to Apply</h4>
                     <p className="mb-3">Candidates who wish to take admission should contact the Principal/Admission office personally along with parent/guardian. They should bring completely filled application form along with four passport size photographs and a statement of marks obtained in S.S.L.C Examination duly attested by the Headmaster/Principal of the School.</p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Eligibility Requirements</h4>
+                    <h4 className="font-semibold text-white mb-2">Eligibility Requirements</h4>
                     <ul className="list-disc list-inside mb-3 space-y-1">
                       <li>Passing of 10th standard (SSLC/ICSE/CBSE or equivalent)</li>
                       <li>Student should be above 16 years of age</li>
@@ -186,7 +186,7 @@ function Accordian() {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Required Documents</h4>
+                    <h4 className="font-semibold text-white mb-2">Required Documents</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <h5 className="font-medium text-gray-700 mb-2">Academic Documents</h5>
@@ -199,7 +199,7 @@ function Accordian() {
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-medium text-gray-700 mb-2">Personal Documents</h5>
+                        <h5 className="font-medium text-white mb-2">Personal Documents</h5>
                         <ul className="list-disc list-inside space-y-1 text-sm">
                           <li>Recent Passport Size Photos (4 copies)</li>
                           <li>Aadhaar Card Copy</li>
@@ -213,7 +213,7 @@ function Accordian() {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Application Form</h4>
+                    <h4 className="font-semibold text-white mb-2">Application Form</h4>
                     <p className="mb-3">Application form with Prospectus can be obtained from the College or Admission Office.</p>
                   </div>
 

@@ -4,24 +4,52 @@ import Sports1 from "../assets/sports1.webp";
 import study from "../assets/study.webp";
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 function News() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
 
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const navigate = useNavigate()
+
   const handleNews = () => {
     navigate('/news-events')
 
     setTimeout(() => {
         const element = document.getElementById('newsEvents')
         if(element) {
-          element.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
+          element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     }, 100)
   }
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === newsItems.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? newsItems.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
   const newsItems = [
     {
       id: 1,
@@ -91,96 +119,216 @@ function News() {
             </p>
           </div>
 
-          <motion.div
-            className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12  mx-auto px-4 sm:px-5 pb-8 md:pb-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.1
-                }
-              }
-            }}
-          >
-            {newsItems.map((item, i) => (
-              <motion.div
-                className="indicator w-full transition-all duration-300 transform hover:-translate-y-2"
-                key={i}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.95
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: {
-                      duration: 0.6,
-                      ease: "easeOut",
-                      delay: i * 0.1
+          {/* Mobile Carousel */}
+          {isMobile ? (
+            <div className="relative mx-auto px-5 pb-8">
+              <div className="overflow-hidden rounded-2xl">
+                <motion.div
+                  className="flex"
+                  animate={{ x: -currentIndex * 100 + "%" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  drag="x"
+                  dragConstraints={{ left: -((newsItems.length - 1) * 100), right: 0 }}
+                  onDragEnd={(event, info) => {
+                    const swipeThreshold = 50;
+                    if (info.offset.x > swipeThreshold && currentIndex > 0) {
+                      prevSlide();
+                    } else if (info.offset.x < -swipeThreshold && currentIndex < newsItems.length - 1) {
+                      nextSlide();
                     }
-                  }
-                }}
-              >
-                {/* DaisyUI Indicator Badge */}
-                <span
-                  className={`indicator-item badge  text-white font-semibold p-3 absolute right-4 font-nuno border-1 border-black ${item.categoryColor}`}
+                  }}
                 >
-                  {item.category}
-                </span>
+                  {newsItems.map((item, i) => (
+                    <motion.div
+                      key={i}
+                      className="w-full flex-shrink-0 px-2"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{
+                        opacity: i === currentIndex ? 1 : 0.7,
+                        scale: i === currentIndex ? 1 : 0.95
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="indicator w-full transition-all duration-300 transform hover:-translate-y-2">
+                        
 
-                {/* Card Content */}
-                <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group bg-white w-full ">
-                  <div className="relative h-54 overflow-hidden">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                        {/* Card Content */}
+                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group bg-white w-full">
+                          <div className="relative h-54 overflow-hidden">
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
-                    {/* Date badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700 flex items-center gap-1">
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                            {/* Date badge */}
+                            <div className="absolute top-4 left-4">
+                              <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700 flex items-center gap-1">
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                  />
+                                </svg>
+                                {item.date}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="p-4">
+                            <h3 className="text-lg font-bold text-gray-800 mb-2 font-merri">
+                              {item.title}
+                            </h3>
+                            <p className="text-gray-600 mb-3 line-clamp-3 font-nuno text-sm">
+                              {item.desc}
+                            </p>
+                          </div>
+
+                          {/* DaisyUI Indicator Badge */}
+                        <span
+                          className={`indicator-item indicator-bottom indicator-center badge text-white font-semibold p-2 relative bottom-7 font-nuno border-1 border-black z-10 ${item.categoryColor}`}
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                        {item.date}
-                      </span>
+                          {item.category}
+                        </span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Navigation Dots */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {newsItems.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentIndex ? "bg-yellow-400 border border-black" : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Navigation Arrows */}
+              {/* <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors z-10"
+              >
+                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors z-10"
+              >
+                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button> */}
+            </div>
+          ) : (
+            /* Desktop Grid */
+            <motion.div
+              className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 mx-auto px-4 sm:px-5 pb-8 md:pb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.1
+                  }
+                }
+              }}
+            >
+              {newsItems.map((item, i) => (
+                <motion.div
+                  className="indicator w-full transition-all duration-300 transform hover:-translate-y-2"
+                  key={i}
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: 30,
+                      scale: 0.95
+                    },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: {
+                        duration: 0.6,
+                        ease: "easeOut",
+                        delay: i * 0.1
+                      }
+                    }
+                  }}
+                >
+                  {/* DaisyUI Indicator Badge */}
+                  <span
+                    className={`indicator-item badge text-white font-semibold p-3 absolute right-4 font-nuno border-1 border-black ${item.categoryColor}`}
+                  >
+                    {item.category}
+                  </span>
+
+                  {/* Card Content */}
+                  <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group bg-white w-full">
+                    <div className="relative h-54 overflow-hidden">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+
+                      {/* Date badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700 flex items-center gap-1">
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                          {item.date}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 md:p-6">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3 font-merri">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 font-nuno text-sm md:text-base">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
-
-                  <div className="p-4 md:p-6">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3 font-merri">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 font-nuno text-sm md:text-base">
-                      {item.desc}
-                    </p>
-                    
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
 
           {/* View All button */}
           <div className="text-center pb-10 md:pb-18">

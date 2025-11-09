@@ -61,7 +61,7 @@ function NewsEventsPage() {
             id: 6,
             title: "NSS Camp Organized for Community Service",
             date: "2024-9-23",
-            category: "Community Service",
+            category: "Community",
             excerpt: "National Service Scheme camp conducted to promote social responsibility and community development activities.",
             image: nss,
             readTime: "3 min read"
@@ -86,7 +86,7 @@ function NewsEventsPage() {
             'Sports': 'bg-orange-500',
             'Career': 'bg-red-500',
             'Anniversary': 'bg-gradient-to-l from-[#fb7185] via-[#a21caf] to-[#6366f1]',
-            'Community Service': 'bg-cyan-500',
+            'Community': 'bg-cyan-500',
             'College Life': 'bg-yellow-400'
         };
         return colors[category] || 'bg-gradient-to-r from-[#6b7280] via-[#9ca3af] to-[#d1d5db]';
@@ -182,7 +182,7 @@ function NewsEventsPage() {
                                 }}
                             >
                                 {/* DaisyUI Indicator Badge */}
-                                <span className={`indicator-item badge text-white font-semibold p-3 absolute right-4 font-nuno border-1 border-black ${getCategoryColor(news.category)}`}>
+                                <span className={`indicator-item badge text-white font-semibold p-2  md:p-3 absolute right-7 md:right-4 text-xs md:text-sm font-nuno border-1 border-black ${getCategoryColor(news.category)}`}>
                                     {news.category}
                                 </span>
 

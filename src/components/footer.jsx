@@ -4,8 +4,43 @@ import githubIcon from '../icons/github.png'
 import instagramIcon from '../assets/instagram-icon.png'
 import collegeLogo from '../assets/insta-college-logo.jpg'
 import nssLogo from '../assets/insta-nns-logo.jpg'
+import { useState, useEffect, useRef } from 'react'
 
 function Footer() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        if (isDropdownOpen && isMobile) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isDropdownOpen, isMobile]);
+
+    const handleInstagramClick = () => {
+        if (isMobile) {
+            setIsDropdownOpen(!isDropdownOpen);
+        }
+    };
     return(
         <footer className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 text-white">
             <div className="max-w-7xl mx-auto px-4 py-12">
@@ -66,20 +101,26 @@ function Footer() {
                     {/* Follow Us */}
                     <div className="text-center md:text-left">
                         <h3 className="text-xl font-merri font-bold mb-4">Follow Us</h3>
-                        <div className="relative inline-block group ">
+                        <div className="relative inline-block group" ref={dropdownRef}>
                             <img
                                 src={instagramIcon}
                                 alt="Instagram"
                                 className="w-12 h-12 mx-auto md:mx-0 cursor-pointer hover:scale-110 transition-transform duration-200"
+                                onClick={handleInstagramClick}
                                 loading="lazy"
                             />
-                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 min-w-max">
+                            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black rounded-lg shadow-lg transition-all duration-200 z-10 min-w-max ${
+                                isMobile
+                                    ? (isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible')
+                                    : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'
+                            }`}>
                                 <div className="p-2">
                                     <a
                                         href="https://www.instagram.com/rotary_puc/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center space-x-2 p-2 hover:bg-gray-600   rounded transition-colors"
+                                        className="flex items-center space-x-2 p-2 hover:bg-gray-600 rounded transition-colors"
+                                        onClick={() => isMobile && setIsDropdownOpen(false)}
                                     >
                                         <img
                                             src={collegeLogo}
@@ -94,6 +135,7 @@ function Footer() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center space-x-2 p-2 hover:bg-gray-600 rounded transition-colors"
+                                        onClick={() => isMobile && setIsDropdownOpen(false)}
                                     >
                                         <img
                                             src={nssLogo}

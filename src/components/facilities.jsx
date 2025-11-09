@@ -37,7 +37,7 @@ function Facilities() {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri font-bold text-gray-900 mb-4 tracking-wide">
           Facilities & Campus Life
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-gray-800 to-gray-900 mx-auto mt-4 mb-7"></div>
+        <div className="w-24 h-1 bg-blue-800 mx-auto mt-4 mb-7"></div>
         <p className="text-lg md:text-xl lg:text-2xl text-gray-600 font-nuno font-medium max-w-3xl mx-auto leading-relaxed">
           Explore the resources and activities that make learning at Rotary PU College vibrant and engaging.
         </p>

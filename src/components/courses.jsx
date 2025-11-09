@@ -39,8 +39,8 @@ function Courses() {
 
       {/* Minimal Header */}
       <div className="relative z-10 text-center py-8 px-4 sm:px-6 md:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-blue-900 font-bold tracking-wide">Our Academic Programs</h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4"></div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-merri text-black font-bold tracking-wide">Our Academic Programs</h2>
+        <div className="w-24 h-1 bg-blue-800 mx-auto mt-4"></div>
       </div>
 
       {/* Split Card Layout */}
