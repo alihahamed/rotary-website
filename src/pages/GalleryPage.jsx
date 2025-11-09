@@ -584,7 +584,7 @@ function GalleryPage() {
                                     <motion.div
                                         className="flex"
                                         animate={{ x: -currentVideoIndex * 100 + "%" }}
-                                        transition={{ type: "spring", stiffness: 200, damping: 30 }}
+                                        transition={{ type: "spring", stiffness: 200, damping: 0 }}
                                         drag="x"
                                         dragConstraints={{ left: -((videos.length - 1) * 100), right: 0 }}
                                         onDragEnd={(event, info) => {
