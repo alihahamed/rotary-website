@@ -126,7 +126,7 @@ function News() {
                 <motion.div
                   className="flex"
                   animate={{ x: -currentIndex * 100 + "%" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  transition={{ type: "tween", stiffness: 100, damping: 30}}
                   drag="x"
                   dragConstraints={{ left: -((newsItems.length - 1) * 100), right: 0 }}
                   onDragEnd={(event, info) => {
