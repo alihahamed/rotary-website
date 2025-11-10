@@ -33,9 +33,9 @@ function App() {
           smoothWheel:true,
           wheelMultiplier:1,
           touchMultiplier:2,
-          syncTouch:true,
+          
           anchors:true,
-          syncTouchLerp:0.4
+          
         }
       }
     >
