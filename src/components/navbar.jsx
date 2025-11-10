@@ -1,6 +1,7 @@
 import RotaryLogo from "../assets/rotary-logo.jpg";
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { BookOpenIcon, Calendar1, CircleQuestionMark, Home, Image, Info, Scale, Send, SquarePen, Trophy, UserPen } from "lucide-react";
 
 function Navbar() {
   const location = useLocation();
@@ -72,7 +73,7 @@ function Navbar() {
                 onClick={() => handlePageClick('/')}
                 className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
-                Home
+               <Home size={16} className="inline-block mr-2" /> Home
               </Link>
             </li>
             <li className="py-1">
@@ -81,7 +82,7 @@ function Navbar() {
                 onClick={() => handlePageClick('/about-us')}
                 className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
-                About us
+                <Info size={16} className="inline-block mr-2" /> About us
               </Link>
             </li>
             <li className="py-1">
@@ -90,7 +91,7 @@ function Navbar() {
                 onClick={() => handlePageClick('/courses')}
                 className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
-                Courses
+                <BookOpenIcon size={16} className="inline-block mr-2" /> Courses
               </Link>
             </li>
           <li className="py-1">
@@ -99,7 +100,7 @@ function Navbar() {
               onClick={() => handlePageClick('/why-choose-us')}
               className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
             >
-              Why Choose Us
+              <CircleQuestionMark size={16} className="inline-block mr-2" /> Why Choose Us
             </Link>
           </li>
             <li className="py-1">
@@ -108,7 +109,7 @@ function Navbar() {
                 onClick={() => handlePageClick('/news-events')}
                 className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
-                News & Events
+                <Calendar1 size={16} className="inline-block mr-2" /> News & Events
               </Link>
             </li>
             <li className="py-1">
@@ -117,17 +118,17 @@ function Navbar() {
                 onClick={() => handlePageClick('/gallery')}
                 className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition py-2 px-4 block rounded`}
               >
-                Gallery
+                <Image size={16} className="inline-block mr-2" /> Gallery
               </Link>
             </li>
           <li>
             <details className="relative">
-              <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
+              <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}><UserPen size={16} className="inline-block mr-2" /> Admissions</summary>
               <ul className="absolute left-0 top-full mt-1 p-2 bg-white border border-gray-300 rounded-lg shadow-lg w-64 z-50">
-                <li><Link to={"/admissions"} onClick={() => handlePageClick('/admissions')} className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Eligibility & Requirements</Link></li>
-                <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')} className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Procedure</Link></li>
-                <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Results</Link></li>
-                <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}>Apply</Link></li>
+                <li><Link to={"/admissions"} onClick={() => handlePageClick('/admissions')} className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}><Scale size={16} className="inline-block mr-2" /> Eligibility & Requirements</Link></li>
+                <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')} className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}><SquarePen size={16} className="inline-block mr-2" /> Procedure</Link></li>
+                <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}><Trophy size={16} className="inline-block mr-2" /> Results</Link></li>
+                <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition block`}><Send size={16} className="inline-block mr-2" /> Apply</Link></li>
               </ul>
             </details>
           </li>
@@ -148,7 +149,7 @@ function Navbar() {
                 onClick={() => handlePageClick('/')}
                 className={`${isActive('/') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
               >
-                Home
+               <Home size={20} className="inline-block" /> Home
               </Link>
             </li>
 
@@ -161,7 +162,7 @@ function Navbar() {
               onClick={() => handlePageClick('/about-us')}
               className={`${isActive('/about-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
             >
-                About us
+              <Info size={20} className="inline-block" />  About us
               </Link>
             </li>
 
@@ -171,7 +172,7 @@ function Navbar() {
               onClick={() => handlePageClick('/courses')}
               className={`${isActive('/courses') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
             >
-              Courses
+             <BookOpenIcon  size={20} className="inline-block"/> Courses
             </Link>
           </li>
           <li>
@@ -180,7 +181,7 @@ function Navbar() {
               onClick={() => handlePageClick('/why-choose-us')}
               className={`${isActive('/why-choose-us') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
             >
-              Why Choose Us
+             <CircleQuestionMark size={20} className="inline-block" /> Why Choose Us
             </Link>
           </li>
           <li>
@@ -189,7 +190,7 @@ function Navbar() {
               onClick={() => handlePageClick('/news-events')}
               className={`${isActive('/news-events') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
             >
-              News & Events
+            <Calendar1 size={20} className="inline-block"/>  News & Events
             </Link>
           </li>
           <li>
@@ -198,18 +199,18 @@ function Navbar() {
               onClick={() => handlePageClick('/gallery')}
               className={`${isActive('/gallery') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}
             >
-              Gallery
+             <Image size={20} className="inline-block"/> Gallery
             </Link>
           </li>
           <li>
         <details>
-          <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}>Admissions</summary>
+          <summary className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:border-b-2 hover:border-red-800 transition`}><UserPen size={20} className="inline-block" /> Admissions</summary>
           <ul className="p-2">
            <Link to={"/admissions"} onClick={() => handlePageClick('/admissions')}
-              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>   <li><a>Eligibility & Requirements</a></li></Link>
-            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Procedure</Link></li>
-            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Results</Link></li>
-            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>Apply</Link></li>
+              className={`${isActive('/admissions') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}>   <li><a><Scale size={20} className="inline-block"  /> Eligibility & Requirements</a></li></Link>
+            <li><Link to={"/admissions/procedure"} onClick={() => handlePageClick('/admissions/procedure')}  className={`${isActive('/admissions/procedure') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}><SquarePen size={20} className="inline-block"  /> Procedure</Link></li>
+            <li><Link to={"/admissions/results"} onClick={() => handlePageClick('/admissions/results')} className={`${isActive('/admissions/results') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}><Trophy size={20} className="inline-block" /> Results</Link></li>
+            <li><Link to={"/admissions/apply"} onClick={() => handlePageClick('/admissions/apply')} className={`${isActive('/admissions/apply') ? 'text-blue-600 bg-blue-50 border-b-2 border-blue-600' : ''} hover:text-red-800 hover:bg-red-50 hover:border-b-2 hover:border-red-800 transition`}><Send size={20} className="inline-block"  /> Apply</Link></li>
           </ul>
         </details>
       </li>
