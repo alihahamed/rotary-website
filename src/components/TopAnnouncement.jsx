@@ -1,9 +1,9 @@
 function TopAnnouncement() {
 
     return (
-        <div className="bg-blue-600 text-white h-10 overflow-hidden relative">
+        <div className="bg-blue-600 text-white h-6 lg:h-10 overflow-hidden relative">
             <div className="flex items-center h-full">
-                <div className="animate-marquee whitespace-nowrap font-nuno font-bold text-base">
+                <div className="animate-marquee whitespace-nowrap font-merri font-bold text-[10px] lg:text-sm">
                     <span className="mr-8">🎓 Admission's Open - Apply Now!</span>
                     <span className="mr-8">📞 +91 8258298524</span>
                     <span className="mr-8">✉️ info@rotarycollege.edu</span>
