@@ -32,10 +32,10 @@ function App() {
           gestureOrientation:'vertical',
           smoothWheel:true,
           wheelMultiplier:1,
-          touchMultiplier:1,
+          touchMultiplier:2,
           syncTouch:true,
           anchors:true,
-          syncTouchLerp:0.085
+          syncTouchLerp:0.4
         }
       }
     >
