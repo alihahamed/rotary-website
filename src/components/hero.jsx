@@ -10,7 +10,7 @@ function Hero() {
     };
 
     return (
-        <section id="home" className="relative h-[500px] sm:h-[600px] md:h-[700px] bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
+        <section id="home" className="relative h-screen sm:h-[600px] md:h-[700px] bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/campus-rotory.webp"
@@ -42,7 +42,7 @@ function Hero() {
             }}
           >
             <motion.h1
-              className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 font-merri drop-shadow-lg tracking-wide text-center sm:text-left"
+              className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-7 sm:mb-4 font-merri drop-shadow-lg tracking-wide text-center sm:text-left"
               variants={{
                 hidden: { opacity: 0, y: 30, scale: 0.9 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
@@ -51,7 +51,7 @@ function Hero() {
               Welcome to <br className="hidden sm:block" />  <span className="text-yellow-400 drop-shadow-md">Rotary Pre University College, <span className='text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white'>Moodbidri</span></span>
             </motion.h1>
             <motion.p
-              className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 font-nuno drop-shadow-md font-medium sm:font-bold text-center sm:text-left leading-relaxed"
+              className="text-lg sm:text-lg md:text-xl mb-8 sm:mb-6 md:mb-8 font-nuno drop-shadow-md font-medium sm:font-bold text-center sm:text-left leading-relaxed"
               variants={{
                 hidden: { opacity: 0, x: -30 },
                 visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } }
@@ -77,7 +77,7 @@ function Hero() {
 
               <Link
                 to={"/admissions/apply"}
-                className="bg-gradient-to-r from-red-600 to-red-700 text-white font-nuno font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
+                className="bg-gradient-to-r from-red-600 to-red-700 text-white font-merri font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-base sm:text-lg text-center w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
@@ -88,13 +88,13 @@ function Hero() {
 
               <motion.button
                 onClick={handleExploreCampus}
-                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:bg-white hover:text-blue-800 transition-all duration-300 text-base sm:text-lg w-40 sm:w-auto"
+                className="bg-white cursor-pointer  text-black font-merri py-3 px-6 sm:py-4 sm:px-10 rounded-xl shadow-lg hover:bg-white hover:text-blue-800 transition-all duration-300 text-base sm:text-lg w-40 sm:w-auto"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8, y: 20 },
                   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
                 }}
               >
-                Explore Campus
+                Visit Us
               </motion.button>
             </motion.div>
           </motion.div>

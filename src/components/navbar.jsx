@@ -134,7 +134,7 @@ function Navbar() {
           </ul>
         )}
         <img src={RotaryLogo} alt="Rotary Logo" className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-13 lg:w-13" />
-        <button onClick={handleHomeClick} className="btn btn-ghost text-lg sm:text-lg md:text-xl lg:text-2xl font-merri tracking-wide" >
+        <button onClick={handleHomeClick} className="btn btn-ghost text-xl sm:text-lg md:text-xl lg:text-2xl font-merri tracking-wide" >
           <span>Rotary Pre-University College</span>
           
         </button>

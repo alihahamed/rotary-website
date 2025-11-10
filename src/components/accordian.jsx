@@ -58,7 +58,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" defaultChecked aria-label="Toggle answer for: What makes Rotary PU College different from other PU colleges in the region?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title text-sm font-semibold font-merri text-white">
                 What makes Rotary PU College different from other PU colleges in
                 the region?
               </div>
@@ -80,7 +80,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What courses and training programs does Rotary PU College offer?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title font-semibold text-sm font-merri text-white">
                 What courses and training programs does Rotary PU College offer?
               </div>
               <div className="collapse-content text-sm font-nuno text-white">
@@ -100,7 +100,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college provide entrance and professional exam coaching?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title font-semibold text-sm font-merri text-white">
                 How does the college provide entrance and professional exam
                 coaching?
               </div>
@@ -120,7 +120,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What facilities and achievements make Rotary PU College stand out?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title font-semibold text-sm font-merri text-white">
                 What facilities and achievements make Rotary PU College stand
                 out?
               </div>
@@ -141,7 +141,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: How does the college ensure the overall development and discipline of students?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title font-semibold text-sm font-merri text-white">
                 How does the college ensure the overall development and
                 discipline of students?
               </div>
@@ -162,7 +162,7 @@ function Accordian() {
               }}
             >
               <input type="radio" name="my-accordion-3" aria-label="Toggle answer for: What is the admission process, and what documents are required?" />
-              <div className="collapse-title font-semibold font-merri text-white">
+              <div className="collapse-title font-semibold  text-sm font-merri text-white">
                 What is the admission process, and what documents are required?
               </div>
               <div className="collapse-content text-sm font-nuno text-white">

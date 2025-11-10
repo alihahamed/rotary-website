@@ -6,6 +6,7 @@ import AboutUs from './components/aboutUs'
 import { Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import Footer from './components/footer'
+import ReactLenis from 'lenis/react'
 
 const Home = lazy(() => import('./pages/home'))
 const AboutUsPage = lazy(() => import('./pages/aboutUsPage'))
@@ -21,8 +22,26 @@ const ResultsPage = lazy(() => import('./pages/ResultsPage'))
 function App() {
   return (
     <>
+    <ReactLenis
+    
+      root options={
+        {
+          lerp:0.5,
+          duration:0.9,
+          orientation:'vertical',
+          gestureOrientation:'vertical',
+          smoothWheel:true,
+          wheelMultiplier:1,
+          touchMultiplier:1,
+          syncTouch:true,
+          anchors:true,
+          syncTouchLerp:0.085
+        }
+      }
+    >
       <Header />
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
+       
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/about-us' element={<AboutUsPage />}></Route>
@@ -35,8 +54,10 @@ function App() {
           <Route path='/admissions/apply' element={<ApplyPage />}></Route>
           <Route path='/admissions/results' element={<ResultsPage />}></Route>
         </Routes>
+        
       </Suspense>
       <Footer />
+      </ReactLenis>
     </>
   )
 }
