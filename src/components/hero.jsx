@@ -10,7 +10,7 @@ function Hero() {
     };
 
     return (
-        <section id="home" className="relative h-screen sm:h-[600px] md:h-[700px] bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
+        <section id="home" className="relative h-screen sm:h-[600px] md:h-[850px] bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/campus-rotory.webp"

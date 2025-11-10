@@ -6,12 +6,53 @@ import anushree from '../assets/anushree.jpg';
 import kshithi from '../assets/ksithi.jpg';
 import sakshi from '../assets/sakshi.jpg';
 import campus from '../assets/campus.webp';
+import midDay from '../assets/mid-day.webp';
+import library from '../assets/library.webp';
+import socialLife from '../assets/social-life.webp';
+import culturalEvent from '../assets/cultural-event.webp';
+import sports1 from '../assets/sports1.webp';
+import studyGroup from '../assets/studyGroup.webp';
+import stage from '../assets/stage.webp';
+import drug4 from '../assets/drug_4.webp';
 import TopAnnouncement from '../components/TopAnnouncement';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 
 function WhyChooseUsPage() {
-    
+    const carouselItems = [
+        { image: midDay, description: "Nutritious Mid-Day Meals" },
+        { image: library, description: "Well-Stocked Library Facilities" },
+        { image: socialLife, description: "Vibrant Social Life & Activities" },
+        { image: culturalEvent, description: "Cultural Events & Celebrations" },
+        { image: sports1, description: "Sports & Athletic Facilities" },
+        { image: studyGroup, description: "Collaborative Study Groups" },
+        { image: stage, description: "Performance Stage & Auditorium" },
+        { image: drug4, description: "Drug Awareness Programs" }
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+        }, 4000); // Change slide every 4 seconds
+
+        return () => clearInterval(interval);
+    }, [carouselItems.length]);
+
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + carouselItems.length) % carouselItems.length);
+    };
+
+    const goToSlide = (index) => {
+        setCurrentIndex(index);
+    };
+
     return(
         <div className=" w-full bg-white relative">
             {/* Grid Background */}
@@ -180,13 +221,69 @@ function WhyChooseUsPage() {
                                 <div className="lg:col-span-1">
                                     <div className="sticky top-8">
                                         <div className="relative overflow-hidden rounded-lg shadow-2xl bg-gray-200">
-                                            <img
-                                                src={campus}
-                                                alt="Campus Facilities"
-                                                className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
-                                                loading="lazy"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                                            <AnimatePresence mode="wait">
+                                                <motion.img
+                                                    key={currentIndex}
+                                                    src={carouselItems[currentIndex].image}
+                                                    alt={carouselItems[currentIndex].description}
+                                                    className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover"
+                                                    loading="lazy"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                />
+                                            </AnimatePresence>
+
+                                            {/* Description Overlay */}
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
+                                                <motion.p
+                                                    key={`desc-${currentIndex}`}
+                                                    className="text-white text-lg md:text-xl font-semibold font-nuno text-center"
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                                >
+                                                    {carouselItems[currentIndex].description}
+                                                </motion.p>
+                                            </div>
+
+                                            {/* Navigation Arrows */}
+                                            <button
+                                                onClick={prevSlide}
+                                                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200 backdrop-blur-sm"
+                                                aria-label="Previous slide"
+                                            >
+                                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                                </svg>
+                                            </button>
+
+                                            <button
+                                                onClick={nextSlide}
+                                                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200 backdrop-blur-sm"
+                                                aria-label="Next slide"
+                                            >
+                                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
+
+                                            {/* Dot Indicators */}
+                                            <div className="absolute bottom-15 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                                {carouselItems.map((_, index) => (
+                                                    <button
+                                                        key={index}
+                                                        onClick={() => goToSlide(index)}
+                                                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                                                            index === currentIndex
+                                                                ? 'bg-white scale-125'
+                                                                : 'bg-white/50 hover:bg-white/70'
+                                                        }`}
+                                                        aria-label={`Go to slide ${index + 1}`}
+                                                    />
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
