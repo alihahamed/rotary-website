@@ -39,7 +39,7 @@ function AboutUs() {
         {/* Your Content/Components */}
 
         <section
-          className="py-12 md:py-23 rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-stone-50 to-amber-100/50 border-b border-b-amber-100"
+          className="py-12 md:py-23 rounded-bl-4xl rounded-br-4xl bg-gradient-to-br from-blue-50 to-indigo-50 border-b border-b-amber-100"
         >
           <motion.div
             className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16"
