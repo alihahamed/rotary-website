@@ -1,4 +1,8 @@
 import principalImg from '../assets/principal.webp';
+import Amarnath from '../assets/amarnath.jpg';
+import secretary_rotary from '../assets/secretary_rotary.jpg';
+import president_rotary from '../assets/president_rotary.jpg';
+import correspondent from '../assets/correspondent.jpg';
 import TopAnnouncement from '../components/TopAnnouncement';
 
 import { motion } from 'framer-motion'
@@ -24,6 +28,115 @@ function AboutUsPage() {
             <TopAnnouncement  />
             <section className="py-12 md:py-16 relative z-10 " >
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                    {/* Our Leadership Section */}
+                    <div className="text-center mb-8 md:mb-12">
+                        <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri" initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}>
+                            Our Leadership
+                        </motion.h2>
+                        <motion.div className="w-24 h-1 bg-blue-600 mx-auto mt-4" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.4 }}></motion.div>
+                    </div>
+
+                    <motion.div
+                        className="bg-gradient-to-r from-stone-100 to-zinc-50 rounded-lg shadow-md p-6 md:p-8 mb-12 md:mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                            {/* Founder */}
+                            <div>
+                                <div className="float-left mr-9 mb-3">
+                                    <motion.img
+                                        src={Amarnath}
+                                        alt="Rtn. K. Amaranath Shetty - Founder"
+                                        className="w-48 h-48 md:w-64 md:h-72 object-cover rounded-lg shadow-lg border-4 border-orange-300"
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.2 }}
+                                    />
+                                </div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                >
+                                    <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 font-merri">
+                                       Late Rtn. K. Amaranath Shetty
+                                        <p className='text-sm mt-2'>(Ex-Minister, Govt. Of Karnataka)</p>
+                                    </h3>
+                                    <p className=" text-sm md:text-lg text-red-600 mb-4 font-nuno font-bold ">
+                                        Founder President ~ Rotary Education Society
+                                    </p>
+                                </motion.div>
+                                <motion.div
+                                    className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.8, delay: 0.4 }}
+                                >
+                                    <p className="mb-4">
+                                        As the visionary founder of Rotary PU College, Rtn. K. Amaranath Shetty has dedicated his life to educational excellence and community development.
+                                    </p>
+                                    <p>
+                                    </p>
+                                </motion.div>
+                            </div>
+
+                            {/* Management Board */}
+                            <div>
+                                <h3 className="text-2xl md:text-3xl text-center font-bold text-gray-800 mb-6 font-merri">
+                                    Management Board
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <motion.div
+                                        className="text-center"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.5 }}
+                                    >
+                                        <img
+                                            src={secretary_rotary}
+                                            alt="Rtn. Anantha Krishna Rao - Secretary"
+                                            className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
+                                        />
+                                        <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. Anantha Krishna Rao</h4>
+                                        <p className="text-red-600 font-nuno font-semibold">Secretary</p>
+                                    </motion.div>
+                                    <motion.div
+                                        className="text-center"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.6 }}
+                                    >
+                                        <img
+                                            src={president_rotary}
+                                            alt="Rtn. Naryan - President"
+                                            className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
+                                        />
+                                        <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. Naryan P.M</h4>
+                                        <p className="text-red-600 font-nuno font-semibold">President</p>
+                                    </motion.div>
+                                    <motion.div
+                                        className="text-center"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.7 }}
+                                    >
+                                        <img
+                                            src={correspondent}
+                                            alt="Rtn. Pinto - Correspondent"
+                                            className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
+                                        />
+                                        <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. J W Pinto</h4>
+                                        <p className="text-red-600 font-nuno font-semibold">Correspondent</p>
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
                     <div className="text-center mb-8 md:mb-12">
                         <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri" initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}

@@ -4,6 +4,7 @@ import { Album } from "../icons/book";
 import { motion } from "framer-motion";
 import Auditorium from '../assets/auditorium.webp'
 import Amarnath from '../assets/amarnath.jpg'
+
 import { Link, useNavigate } from "react-router-dom";
 
 function AboutUs() {
@@ -150,7 +151,7 @@ function AboutUs() {
                     </span>
                   </li>
                   <div className="flex justify-center items-center">
-                    <button onClick={() => handleAboutUs("aboutUs")} className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
+                    <button onClick={() => handleAboutUs("aboutUs")} className="bg-blue-400 text-white px-10 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno mt-5 text-[15px]">
                       Learn More About Us
                     </button>
                   </div>
@@ -166,61 +167,68 @@ function AboutUs() {
               </div>
             </div>
 
-            {/* Founder Section within About Us */}
-            <div className="mt-12 md:mt-16">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri">
-                  Our Founder
+            {/* Leadership Section */}
+            <div className="mt-8 md:mt-12">
+              <div className="text-center mb-4 md:mb-6">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 font-merri tracking-wide">
+                  Led by Excellence
                 </h2>
-                <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+                <div className="w-20 h-1 bg-blue-600 mx-auto mt-2"></div>
               </div>
 
-              <div className="max-w-4xl mx-auto">
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-                  <motion.div
-                    className="shrink-0"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    <img
-                      src={Amarnath}
-                      alt="Rtn. K. Amaranath Shetty - Founder"
-                      className="w-48 h-48 md:w-70 md:h-80 object-cover rounded-lg shadow-lg"
-                      loading="lazy"
-                    />
-                  </motion.div>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <img
+                    src={Amarnath}
+                    alt="Rtn. K. Amaranath Shetty - Founder"
+                    className="w-32 h-32 md:w-48 md:h-62 object-cover rounded-lg shadow-lg border-5 border-orange-200"
+                    loading="lazy"
+                  />
+                </motion.div>
 
-                  <div className="flex-1 text-center md:text-left">
-                    <motion.h3
-                      className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 font-merri"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                      Rtn. K. Amaranath Shetty
-                    </motion.h3>
-                    <motion.p
-                      className="text-lg text-red-600 mb-6 font-nuno"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                    >
-                      Founder President ~ Rotary Education Society
-                    </motion.p>
-                    <motion.p
-                      className="text-gray-700 leading-relaxed font-nuno text-base md:text-lg"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.5 }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </motion.p>
-                  </div>
+                <div className="text-center md:text-left">
+                  <motion.h3
+                    className="text-xl md:text-2xl font-bold text-gray-800 mb-1 font-merri"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    Late  Rtn. K. Amaranath Shetty
+                  </motion.h3>
+                  <motion.p
+                    className="text-lg text-red-600 mb-2 font-nuno"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    Founder President ~ Rotary Education Society
+                  </motion.p>
+                  <motion.p
+                    className="text-base md:text-lg tracking-wide font-medium text-gray-700 mb-3 font-nuno"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    Guided by visionary leadership committed to excellence in education.
+                  </motion.p>
+                  <motion.button
+                    onClick={() => handleAboutUs("aboutUs")}
+                    className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-nuno text-base"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    Learn more about our leadership →
+                  </motion.button>
                 </div>
               </div>
             </div>
