@@ -87,23 +87,9 @@ function AboutUsPage() {
                             {/* Management Board */}
                             <div>
                                 <h3 className="text-2xl md:text-3xl text-center font-bold text-gray-800 mb-6 font-merri">
-                                    Management Board
+                                    Management 
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    <motion.div
-                                        className="text-center"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, delay: 0.5 }}
-                                    >
-                                        <img
-                                            src={secretary_rotary}
-                                            alt="Rtn. Anantha Krishna Rao - Secretary"
-                                            className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
-                                        />
-                                        <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. Anantha Krishna Rao</h4>
-                                        <p className="text-red-600 font-nuno font-semibold">Secretary</p>
-                                    </motion.div>
                                     <motion.div
                                         className="text-center"
                                         initial={{ opacity: 0, y: 20 }}
@@ -118,6 +104,21 @@ function AboutUsPage() {
                                         <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. Naryan P.M</h4>
                                         <p className="text-red-600 font-nuno font-semibold">President</p>
                                     </motion.div>
+                                    <motion.div
+                                        className="text-center"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.5 }}
+                                    >
+                                        <img
+                                            src={secretary_rotary}
+                                            alt="Rtn. Anantha Krishna Rao - Secretary"
+                                            className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
+                                        />
+                                        <h4 className="text-lg font-semibold text-gray-800 font-merri">Rtn. Anantha Krishna Rao</h4>
+                                        <p className="text-red-600 font-nuno font-semibold">Secretary</p>
+                                    </motion.div>
+                                    
                                     <motion.div
                                         className="text-center"
                                         initial={{ opacity: 0, y: 20 }}
