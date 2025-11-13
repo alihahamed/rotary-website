@@ -3,7 +3,7 @@ import TopAnnouncement from '../components/TopAnnouncement';
 import { motion } from 'framer-motion'
 import campus from '../assets/campus.webp';
 import trip from '../assets/trip.jpg'
-import sports from '../assets/sports.webp';
+import sports from '../assets/sports_day.jpg';
 import nss from '../assets/nss.webp';
 import entry from '/gallery/entry.webp';
 import annual5 from '/gallery/annual_5.webp';
@@ -33,16 +33,16 @@ function NewsEventsPage() {
         {
             id: 3,
             title: "Annual Sports Meet 2025",
-            date: "2025-07-05",
+            date: "2025-11-12",
             category: "Sports",
-            excerpt: "Annual sports meet featuring various athletic events and competitions showcasing student talent and teamwork.",
+            excerpt: "Declaring Rotary Institutions Annual Sports Meet open by our Alumnus Dr Roopa Kamath amidst the guest Mr Hemant Gatti , management Heads and the Athletes@ Swaraj maidan today 💫✨",
             image: sports,
             readTime: "4 min read"
         },
         {
             id: 4,
             title: "A Memorable College Trip Arranged for the Students!",
-            date: "2024-12-20",
+            date: "2025-10-20",
             category: "College Life",
             excerpt: "A memorable fun college trip to Kochi, Kerala, awaits our students! The city's vibrant culture, modern metro stations,  thrilling Wonderla Water Park in this exciting adventure",
             image: trip,

@@ -1,6 +1,6 @@
 import campusImg from "../assets/campus.webp";
 import { BellRing } from "../icons/bellring";
-import Sports1 from "../assets/sports1.webp";
+import Sports1 from "../assets/sports_day.jpg";
 import study from "../assets/study.webp";
 import { motion } from 'framer-motion'
 import { useNavigate } from "react-router-dom";
@@ -74,8 +74,8 @@ function News() {
     {
       id: 3,
       title: "Annual Sports Meet 2025",
-      desc: "Join us for the annual sports meet featuring athletics, team sports, and cultural events. Registration open until January 25th.",
-      date: "Jan 8, 2025",
+      desc: "Declaring Rotary Institutions Annual Sports Meet open by our Alumnus Dr Roopa Kamath amidst the guest Mr Hemant Gatti , management Heads and the Athletes@ Swaraj maidan today 💫✨",
+      date: "Nov 12, 2025",
       category: "Sports",
       categoryColor:
         "bg-orange-500",
