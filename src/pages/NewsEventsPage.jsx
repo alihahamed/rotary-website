@@ -1,6 +1,8 @@
 import TopAnnouncement from "../components/TopAnnouncement";
 import { motion } from "framer-motion";
 import SEOHead from "../components/SEOHead";
+import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabase";
 import campus from "../assets/campus.webp";
 import trip from "../assets/trip.jpg";
 import sports from "../assets/sports_day.jpg";
@@ -9,69 +11,24 @@ import entry from "/gallery/entry.webp";
 import annual5 from "/gallery/annual_5.webp";
 
 function NewsEventsPage() {
-  // Dummy news data
-  const newsData = [
-    {
-      id: 1,
-      title: "Rotary PU College Achieves 100% Pass Percentage in Board Exams",
-      date: "2025-03-15",
-      category: "Academic",
-      excerpt:
-        "Our students have achieved outstanding results in the recent board examinations, with 95% pass percentage across all streams.",
-      image: campus,
-      readTime: "3 min read",
-    },
-    {
-      id: 2,
-      title: "Admission Applications Now Open for 2025-26",
-      date: "2025-04-29",
-      category: "Infrastructure",
-      excerpt:
-        "Applications for Science and Commerce streams are now being accepted. Early bird discount available for early applications.",
-      image: entry,
-      readTime: "2 min read",
-    },
-    {
-      id: 3,
-      title: "Annual Sports Meet 2025",
-      date: "2025-11-12",
-      category: "Sports",
-      excerpt:
-        "Declaring Rotary Institutions Annual Sports Meet open by our Alumnus Dr Roopa Kamath amidst the guest Mr Hemant Gatti , management Heads and the Athletes@ Swaraj maidan today 💫✨",
-      image: sports,
-      readTime: "4 min read",
-    },
-    {
-      id: 4,
-      title: "A Memorable College Trip Arranged for the Students!",
-      date: "2025-10-20",
-      category: "College Life",
-      excerpt:
-        "A memorable fun college trip to Kochi, Kerala, awaits our students! The city's vibrant culture, modern metro stations,  thrilling Wonderla Water Park in this exciting adventure",
-      image: trip,
-      readTime: "3 min read",
-    },
-    {
-      id: 5,
-      title: "Rotary PU College Celebrates 10 Years of Excellence",
-      date: "2024-11-30",
-      category: "Anniversary",
-      excerpt:
-        "A decade of academic excellence, holistic development, and community service celebrated with great enthusiasm.",
-      image: annual5,
-      readTime: "5 min read",
-    },
-    {
-      id: 6,
-      title: "NSS Camp Organized for Community Service",
-      date: "2024-9-23",
-      category: "Community",
-      excerpt:
-        "National Service Scheme camp conducted to promote social responsibility and community development activities.",
-      image: nss,
-      readTime: "3 min read",
-    },
-  ];
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
+  const fetchNews = async () => {
+    const { data, error } = await supabase
+      .from("news_events")
+      .select("*")
+      .order("event_date", { ascending: false });
+
+    if (!error && data) {
+      setNewsData(data);
+    }
+    setLoading(false);
+  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -199,7 +156,7 @@ function NewsEventsPage() {
                 <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group bg-white w-full">
                   <div className="relative h-54 overflow-hidden">
                     <img
-                      src={news.image}
+                      src={news.image_url || campus}
                       alt={news.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
@@ -222,7 +179,7 @@ function NewsEventsPage() {
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                           />
                         </svg>
-                        {formatDate(news.date)}
+                        {formatDate(news.event_date)}
                       </span>
                     </div>
                   </div>
@@ -232,7 +189,7 @@ function NewsEventsPage() {
                       {news.title}
                     </h3>
                     <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 font-nuno text-sm md:text-base">
-                      {news.excerpt}
+                      {news.description}
                     </p>
                     {/* <div className="flex items-center text-gray-500 text-sm">
                                             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

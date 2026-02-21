@@ -1,65 +1,112 @@
+import "./App.css";
+import Header from "./components/navbar";
+import Hero from "./components/hero";
+import AboutUs from "./components/aboutUs";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import Footer from "./components/footer";
+import ReactLenis from "lenis/react";
 
-import './App.css'
-import Header from './components/navbar'
-import Hero from './components/hero'
-import AboutUs from './components/aboutUs'
-import { Routes, Route } from 'react-router-dom'
-import { lazy, Suspense } from 'react'
-import Footer from './components/footer'
-import ReactLenis from 'lenis/react'
+const Home = lazy(() => import("./pages/home"));
+const AboutUsPage = lazy(() => import("./pages/aboutUsPage"));
+const CoursesPage = lazy(() => import("./pages/CoursesPage"));
+const WhyChooseUsPage = lazy(() => import("./pages/WhyChooseUsPage"));
+const NewsEventsPage = lazy(() => import("./pages/NewsEventsPage"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const AdmissionsPage = lazy(() => import("./pages/AdmissionsPage"));
+const AdmissionProcedurePage = lazy(
+  () => import("./pages/AdmissionProcedurePage"),
+);
+const ApplyPage = lazy(() => import("./pages/ApplyPage"));
+const ResultsPage = lazy(() => import("./pages/ResultsPage"));
 
-const Home = lazy(() => import('./pages/home'))
-const AboutUsPage = lazy(() => import('./pages/aboutUsPage'))
-const CoursesPage = lazy(() => import('./pages/CoursesPage'))
-const WhyChooseUsPage = lazy(() => import('./pages/WhyChooseUsPage'))
-const NewsEventsPage = lazy(() => import('./pages/NewsEventsPage'))
-const GalleryPage = lazy(() => import('./pages/GalleryPage'))
-const AdmissionsPage = lazy(() => import('./pages/AdmissionsPage'))
-const AdmissionProcedurePage = lazy(() => import('./pages/AdmissionProcedurePage'))
-const ApplyPage = lazy(() => import('./pages/ApplyPage'))
-const ResultsPage = lazy(() => import('./pages/ResultsPage'))
+// Admin Pages
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminNews = lazy(() => import("./pages/admin/AdminNews"));
+const AdminGallery = lazy(() => import("./pages/admin/AdminGallery"));
+const AdminToppers = lazy(() => import("./pages/admin/AdminToppers"));
+const AdminSports = lazy(() => import("./pages/admin/AdminSports"));
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <>
-    <ReactLenis
-    
-      root options={
-        {
-          lerp:0.5,
-          duration:0.9,
-          orientation:'vertical',
-          gestureOrientation:'vertical',
-          smoothWheel:true,
-          wheelMultiplier:1,
-          touchMultiplier:2,
-          
-          anchors:true,
-          
-        }
-      }
-    >
-      <Header />
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
-       
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/about-us' element={<AboutUsPage />}></Route>
-          <Route path='/courses' element={<CoursesPage />}></Route>
-          <Route path='/why-choose-us' element={<WhyChooseUsPage />}></Route>
-          <Route path='/news-events' element={<NewsEventsPage />}></Route>
-          <Route path='/gallery' element={<GalleryPage />}></Route>
-          <Route path='/admissions' element={<AdmissionsPage />}></Route>
-          <Route path='/admissions/procedure' element={<AdmissionProcedurePage />}></Route>
-          <Route path='/admissions/apply' element={<ApplyPage />}></Route>
-          <Route path='/admissions/results' element={<ResultsPage />}></Route>
-        </Routes>
-        
-      </Suspense>
-      <Footer />
+      <ReactLenis
+        root
+        options={{
+          lerp: 0.5,
+          duration: 0.9,
+          orientation: "vertical",
+          gestureOrientation: "vertical",
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+          anchors: true,
+        }}
+      >
+        {!isAdminRoute && <Header />}
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about-us" element={<AboutUsPage />}></Route>
+            <Route path="/courses" element={<CoursesPage />}></Route>
+            <Route path="/why-choose-us" element={<WhyChooseUsPage />}></Route>
+            <Route path="/news-events" element={<NewsEventsPage />}></Route>
+            <Route path="/gallery" element={<GalleryPage />}></Route>
+            <Route path="/admissions" element={<AdmissionsPage />}></Route>
+            <Route
+              path="/admissions/procedure"
+              element={<AdmissionProcedurePage />}
+            ></Route>
+            <Route path="/admissions/apply" element={<ApplyPage />}></Route>
+            <Route path="/admissions/results" element={<ResultsPage />}></Route>
+
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route
+                index
+                element={
+                  <div className="p-8">
+                    <h1 className="text-2xl font-bold font-merri">
+                      Dashboard Overview
+                    </h1>
+                    <p className="mt-4 font-nuno">
+                      Welcome to the Rotary PU College CMS. Select an option
+                      from the sidebar to manage content.
+                    </p>
+                  </div>
+                }
+              />
+              <Route path="news" element={<AdminNews />} />
+              <Route path="gallery" element={<AdminGallery />} />
+              <Route path="toppers" element={<AdminToppers />} />
+              <Route path="sports" element={<AdminSports />} />
+            </Route>
+          </Routes>
+        </Suspense>
+        {!isAdminRoute && <Footer />}
       </ReactLenis>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

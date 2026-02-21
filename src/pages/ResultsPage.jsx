@@ -1,20 +1,47 @@
+import { useState, useEffect } from "react";
 import TopAnnouncement from "../components/TopAnnouncement";
 import { motion } from "framer-motion";
-import anushree from "../assets/anushree.jpg";
-import kshithi from "../assets/ksithi.jpg";
-import sakshi from "../assets/sakshi.jpg";
-import prapti from "../assets/prapta.jpg";
-import ayisha from "../assets/ayisha.jpg";
-import hockeyTeam from "../assets/hockey_team.webp";
-import talukGirls from "../assets/talukRunners_girls.webp";
-import talukBoys from "../assets/talukRunners_boys.webp";
 import { GraduationCap, Palette, Trophy, Award } from "lucide-react";
 import rotaractLogo from "../assets/rotaract-logo.jpg";
 import SEOHead from "../components/SEOHead";
+import { supabase } from "../lib/supabase";
 
 function ResultsPage() {
+  const [toppers, setToppers] = useState([]);
+  const [sports, setSports] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchResults();
+  }, []);
+
+  const fetchResults = async () => {
+    setLoading(true);
+
+    const [toppersResponse, sportsResponse] = await Promise.all([
+      supabase
+        .from("toppers")
+        .select("*")
+        .order("percentage", { ascending: false }),
+      supabase
+        .from("sports_achievements")
+        .select("*")
+        .order("created_at", { ascending: false }),
+    ]);
+
+    if (!toppersResponse.error && toppersResponse.data) {
+      setToppers(toppersResponse.data);
+    }
+
+    if (!sportsResponse.error && sportsResponse.data) {
+      setSports(sportsResponse.data);
+    }
+
+    setLoading(false);
+  };
+
   return (
-    <div className=" w-full bg-white relative">
+    <div className="w-full bg-white relative">
       <SEOHead
         title="Results & Achievements | 100% Pass Rate — Rotary PU College"
         description="Discover the outstanding academic and sports achievements of Rotary Pre-University College students. Celebrating 100% results and state-level athletic success."
@@ -70,7 +97,7 @@ function ResultsPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.8 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <motion.div
               className="text-center mb-8"
@@ -80,7 +107,7 @@ function ResultsPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-merri mb-4">
-                Academic Excellence 2024-25
+                Academic Excellence
               </h2>
               <motion.div
                 className="w-24 h-1 bg-red-600 mx-auto"
@@ -92,207 +119,84 @@ function ResultsPage() {
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-r from-stone-100 to-zinc-50 rounded-lg shadow-md p-6 md:p-12"
+              className="bg-linear-to-r from-stone-100 to-zinc-50 rounded-lg shadow-md p-6 md:p-12"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              {/* First Row - 3 Toppers */}
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.15,
-                      delayChildren: 0.2,
-                    },
-                  },
-                }}
-              >
-                {/* Topper 1 */}
+              {loading ? (
+                <div className="flex justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                </div>
+              ) : toppers.length === 0 ? (
+                <div className="text-center py-12 text-gray-500 font-nuno">
+                  No academic toppers recorded yet.
+                </div>
+              ) : (
                 <motion.div
-                  className="text-center"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
                   variants={{
-                    hidden: { opacity: 0, y: 30, scale: 0.9 },
+                    hidden: { opacity: 0 },
                     visible: {
                       opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.6 },
+                      transition: {
+                        staggerChildren: 0.15,
+                        delayChildren: 0.2,
+                      },
                     },
                   }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
-                  <div className="relative mb-4 flex justify-center">
-                    <img
-                      src={anushree}
-                      alt="ANUSHREE - PCMB Topper"
-                      className="h-[320px] w-auto object-cover rounded-lg"
-                      style={{ maxWidth: "290px" }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 font-merri mb-1">
-                    ANUSHREE
-                  </h4>
-                  <p className="text-xs text-gray-600 font-nuno">PCMB</p>
-                  <p className="text-xs text-blue-600 font-semibold">
-                    580/600 (96.6%)
-                  </p>
+                  {toppers.map((topper) => (
+                    <motion.div
+                      key={topper.id}
+                      className="text-center"
+                      variants={{
+                        hidden: { opacity: 0, y: 30, scale: 0.9 },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          scale: 1,
+                          transition: { duration: 0.6 },
+                        },
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }}
+                    >
+                      <div className="relative mb-4 flex justify-center">
+                        {topper.image_url ? (
+                          <img
+                            src={topper.image_url}
+                            alt={`${topper.name} - ${topper.stream} Topper`}
+                            className="h-[320px] w-auto object-cover rounded-lg shadow-md"
+                            style={{ maxWidth: "290px" }}
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="h-[320px] w-[220px] bg-gray-200 rounded-lg shadow-md flex items-center justify-center">
+                            <GraduationCap className="h-16 w-16 text-gray-400" />
+                          </div>
+                        )}
+                      </div>
+                      <h4 className="text-base sm:text-lg font-bold text-gray-800 font-merri mb-1 uppercase">
+                        {topper.name}
+                      </h4>
+                      <p className="text-sm text-gray-600 font-nuno">
+                        {topper.stream} {topper.year && `(${topper.year})`}
+                      </p>
+                      <p className="text-sm text-blue-600 font-semibold mt-1">
+                        {topper.marks ? `${topper.marks} ` : ""}
+                        {topper.percentage ? `(${topper.percentage}%)` : ""}
+                      </p>
+                    </motion.div>
+                  ))}
                 </motion.div>
-
-                {/* Topper 2 */}
-                <motion.div
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, y: 30, scale: 0.9 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.6 },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                >
-                  <div className="relative mb-4 flex justify-center">
-                    <img
-                      src={kshithi}
-                      alt="KSHITHI U SHETTY - PCMC Topper"
-                      className="h-[320px] w-auto object-cover rounded-lg"
-                      style={{ maxWidth: "290px" }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 font-merri mb-1">
-                    KSHITHI U SHETTY
-                  </h4>
-                  <p className="text-xs text-gray-600 font-nuno">PCMC</p>
-                  <p className="text-xs text-blue-600 font-semibold">
-                    576/600 (96%)
-                  </p>
-                </motion.div>
-
-                {/* Topper 3 */}
-                <motion.div
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, y: 30, scale: 0.9 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.6 },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                >
-                  <div className="relative mb-4 flex justify-center">
-                    <img
-                      src={sakshi}
-                      alt="SAKSHI - EBAC Topper"
-                      className="h-[320px] w-auto object-cover rounded-lg"
-                      style={{ maxWidth: "290px" }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 font-merri mb-1">
-                    SAKSHI
-                  </h4>
-                  <p className="text-xs text-gray-600 font-nuno">EBAC</p>
-                  <p className="text-xs text-blue-600 font-semibold">
-                    574/600 (95.6%)
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* Second Row - 2 Toppers (Centered) */}
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-2xl mx-auto"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.15,
-                      delayChildren: 0.4,
-                    },
-                  },
-                }}
-              >
-                {/* Topper 4 */}
-                <motion.div
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, y: 30, scale: 0.9 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.6 },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                >
-                  <div className="relative mb-4 flex justify-center">
-                    <img
-                      src={prapti}
-                      alt="PRAPTHA GATTY - PCMB Topper"
-                      className="h-[325px] w-auto object-cover rounded-lg"
-                      style={{ maxWidth: "285px" }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 font-merri mb-1">
-                    PRAPTHA GATTY
-                  </h4>
-                  <p className="text-xs text-gray-600 font-nuno">PCMB</p>
-                  <p className="text-xs text-blue-600 font-semibold">
-                    574/600 (95.6%)
-                  </p>
-                </motion.div>
-
-                {/* Topper 5 */}
-                <motion.div
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, y: 30, scale: 0.9 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.6 },
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                >
-                  <div className="relative mb-4 flex justify-center">
-                    <img
-                      src={ayisha}
-                      alt="AYISHA SAFREENA - EBAC Topper"
-                      className="h-[320px] w-auto object-cover rounded-lg"
-                      style={{ maxWidth: "290px" }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 font-merri mb-1">
-                    AYISHA SAFREENA
-                  </h4>
-                  <p className="text-xs text-gray-600 font-nuno">EBAC</p>
-                  <p className="text-xs text-blue-600 font-semibold">
-                    569/600 (94.8%)
-                  </p>
-                </motion.div>
-              </motion.div>
+              )}
             </motion.div>
           </motion.div>
 
@@ -309,523 +213,147 @@ function ResultsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-merri mb-4">
-                Sports Excellence
+                Sports Achievements
               </h2>
               <motion.div
-                className="w-24 h-1 bg-slate-600 mx-auto"
+                className="w-24 h-1 bg-red-600 mx-auto mt-4"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               />
             </motion.div>
 
-            {/* Primary Achievement Block - State Champions */}
-            <motion.div
-              className="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] p-6 md:p-8 mb-8"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-            >
-              <div className="flex flex-col lg:flex-row gap-8 items-center">
-                {/* State Team Image - Left Column (60%) */}
-                <motion.div
-                  className="lg:w-3/5"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                >
-                  <img
-                    src={hockeyTeam}
-                    alt="2025 State Hockey Champions"
-                    className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
-                    loading="lazy"
-                  />
-                </motion.div>
-
-                {/* Stats & Description - Right Column (40%) */}
-                <motion.div
-                  className="lg:w-2/5 space-y-6"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  {/* Badge */}
+            {loading ? (
+              <div className="flex justify-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+              </div>
+            ) : sports.length === 0 ? (
+              <div className="text-center py-12 text-gray-500 font-nuno">
+                No sports achievements recorded yet.
+              </div>
+            ) : (
+              <div className="space-y-12 max-w-5xl mx-auto">
+                {sports.map((sport, index) => (
                   <motion.div
-                    className="inline-block bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wide"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 1.0,
-                      type: "spring",
-                      bounce: 0.3,
-                    }}
-                  >
-                    STATE TEAM
-                  </motion.div>
-
-                  {/* Headline */}
-                  <motion.h3
-                    className="text-2xl md:text-3xl font-bold text-gray-800 font-merri"
-                    initial={{ opacity: 0, y: 20 }}
+                    key={sport.id}
+                    className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 items-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100`}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6 }}
                   >
-                    2025 Hockey State Level Team
-                  </motion.h3>
-
-                  {/* Description */}
-                  <motion.p
-                    className="text-gray-700 leading-relaxed font-nuno text-base"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1.2 }}
-                  >
-                    Earning a place in the State Level championships is a
-                    significant achievement in itself. Our hockey team
-                    demonstrated remarkable teamwork and determination
-                    throughout the season, proudly representing our college
-                    against top-tier competition from across Karnataka.
-                  </motion.p>
-
-                  {/* Key Stats */}
-                  <motion.div
-                    className="space-y-3"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1.3 }}
-                  >
-                    <div className="flex items-center">
-                      <span className="text-2xl mr-3">🎯</span>
-                      <span className="text-gray-800 font-nuno text-sm">
-                        Representing: Karnataka
-                      </span>
+                    <div className="w-full md:w-1/2">
+                      {sport.image_url ? (
+                        <img
+                          src={sport.image_url}
+                          alt={sport.title}
+                          className="rounded-xl shadow-md w-full h-auto object-cover max-h-[400px]"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-64 bg-gray-100 rounded-xl flex items-center justify-center">
+                          <Trophy className="h-16 w-16 text-gray-300" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="w-full md:w-1/2 flex flex-col justify-center px-4 md:px-8">
+                      <div className="inline-flex items-center space-x-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold mb-4 w-fit">
+                        <Trophy size={16} />
+                        <span>{sport.category}</span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-merri mb-4 leading-tight">
+                        {sport.title}
+                      </h3>
+                      {sport.description && (
+                        <p className="text-gray-600 font-nuno text-base md:text-lg leading-relaxed">
+                          {sport.description}
+                        </p>
+                      )}
                     </div>
                   </motion.div>
-                </motion.div>
+                ))}
               </div>
-            </motion.div>
-
-            {/* Secondary Achievements Grid - Taluk Level */}
-            <motion.div
-              className="grid md:grid-cols-2 gap-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.2,
-                  },
-                },
-              }}
-            >
-              {/* Girls Hockey Team Card */}
-              <motion.div
-                className="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] overflow-hidden"
-                variants={{
-                  hidden: { opacity: 0, y: 50, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.6 },
-                  },
-                }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              >
-                {/* Image Section */}
-                <div className="h-70 overflow-hidden">
-                  <img
-                    src={talukGirls}
-                    alt="Girls Hockey Team - Taluk Champions"
-                    className="w-full h-[550px] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Content Section */}
-                <div className="p-6 space-y-4">
-                  {/* Badge */}
-                  <motion.div
-                    className="inline-block bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.3,
-                      type: "spring",
-                      bounce: 0.3,
-                    }}
-                  >
-                    TALUK RUNNERS
-                  </motion.div>
-
-                  {/* Team Title */}
-                  <motion.h4
-                    className="text-xl font-bold text-gray-800 font-merri"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    Girls Volleyball Team
-                  </motion.h4>
-
-                  {/* Description */}
-                  <motion.p
-                    className="text-gray-700 font-nuno text-lg leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
-                    Secured the Taluk Runner's Up Position with an undefeated
-                    run.
-                  </motion.p>
-                </div>
-              </motion.div>
-
-              {/* Boys Hockey Team Card */}
-              <motion.div
-                className="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] overflow-hidden"
-                variants={{
-                  hidden: { opacity: 0, y: 50, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.6 },
-                  },
-                }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              >
-                {/* Image Section */}
-                <div className="h-70 overflow-hidden">
-                  <img
-                    src={talukBoys}
-                    alt="Boys Hockey Team - Taluk Champions"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Content Section */}
-                <div className="p-6 space-y-4">
-                  {/* Badge */}
-                  <motion.div
-                    className="inline-block bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.3,
-                      type: "spring",
-                      bounce: 0.3,
-                    }}
-                  >
-                    TALUK RUNNERS
-                  </motion.div>
-
-                  {/* Team Title */}
-                  <motion.h4
-                    className="text-xl font-bold text-gray-800 font-merri"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    Boys Volleyball Team
-                  </motion.h4>
-
-                  {/* Description */}
-                  <motion.p
-                    className="text-gray-700 font-nuno text-lg leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
-                    Dominant performance throughout the Taluk tournament.
-                  </motion.p>
-                </div>
-              </motion.div>
-            </motion.div>
+            )}
           </motion.div>
 
-          {/* Achievement Summary */}
+          {/* Extracurricular Activities Overview */}
           <motion.div
-            className="text-center bg-gradient-to-br from-red-100  to-yellow-50 rounded-lg shadow-md p-8 border border-red-100"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-16 mt-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
           >
-            <motion.h3
-              className="text-3xl font-bold text-black font-merri mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Overall Achievements 2024-25
-            </motion.h3>
+            <div className="bg-linear-to-br from-indigo-900 via-blue-900 to-indigo-800 rounded-2xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-            {/* 100% Result Banner */}
-            <motion.div
-              className="mb-8 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg p-6 shadow-lg border-2 border-black"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <motion.h4
-                className="text-2xl font-bold font-merri mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                100% Academic Success Rate
-              </motion.h4>
-              <motion.p
-                className="text-base font-nuno"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                Rotary PU College achieved 100% pass percentage in the 2024-25
-                academic year
-              </motion.p>
-            </motion.div>
+              <div className="relative z-10">
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl md:text-4xl font-bold font-merri mb-4">
+                    Beyond the Classroom
+                  </h2>
+                  <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+                  <p className="mt-6 text-indigo-100 font-nuno text-lg max-w-2xl mx-auto">
+                    We believe in holistic development. Our students actively
+                    participate in various co-curricular activities that build
+                    character, leadership, and creativity.
+                  </p>
+                </div>
 
-            {/* Main Achievements Text */}
-            {/* <motion.div
-                            className="space-y-6 mb-8"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                hidden: { opacity: 0 },
-                                visible: {
-                                    opacity: 1,
-                                    transition: {
-                                        staggerChildren: 0.2,
-                                        delayChildren: 0.6
-                                    }
-                                }
-                            }}
-                        >
-                            {/* Academic Toppers */}
-            {/* <motion.div
-                                variants={{
-                                    hidden: { opacity: 0, y: 30 },
-                                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-                                }}
-                                className="text-center"
-                            >
-                                <div className="text-5xl font-bold text-blue-600 mb-2">27+</div>
-                                <div className="text-xl font-semibold text-blue-800 font-merri mb-1">Academic Toppers</div>
-                                <div className="text-sm text-blue-600 font-nuno">Students scoring 90% and above</div>
-                            </motion.div> */}
-
-            {/* Sports Achievements */}
-            {/* <motion.div
-                                variants={{
-                                    hidden: { opacity: 0, y: 30 },
-                                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-                                }}
-                                className="text-center"
-                            >
-                                <div className="text-5xl font-bold text-yellow-600 mb-2">3x</div>
-                                <div className="text-xl font-semibold text-yellow-800 font-merri mb-1">Taluk Winners</div>
-                                <div className="text-sm text-yellow-600 font-nuno">Volleyball Teams - Boys & Girls</div>
-                            </motion.div> */}
-
-            {/* State Level Team */}
-            {/* <motion.div
-                                variants={{
-                                    hidden: { opacity: 0, y: 30 },
-                                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-                                }}
-                                className="text-center"
-                            >
-                                <div className="text-4xl font-bold text-red-600 mb-2">1</div>
-                                <div className="text-xl font-semibold text-red-800 font-merri mb-1">State Level Team</div>
-                                <div className="text-sm text-red-600 font-nuno">Hockey Champions representing Karnataka</div>
-                            </motion.div>
-                        </motion.div>  */}
-
-            {/* Additional Highlights */}
-            <motion.div
-              className="bg-white/70 rounded-lg p-6 mb-6 border border-blue-200"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-            >
-              <motion.h4
-                className="text-2xl font-bold text-gray-800 font-merri mb-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-              >
-                <Trophy
-                  className="inline-block mr-3"
-                  size={32}
-                  color="orange"
-                />{" "}
-                Additional Highlights
-              </motion.h4>
-              <motion.div
-                className="grid md:grid-cols-2 gap-6"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 1.2,
-                    },
-                  },
-                }}
-              >
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    },
-                  }}
-                  className="flex flex-col items-center text-center space-y-2"
-                >
-                  <span className=" text-2xl">
-                    <GraduationCap size={37} color="blue" />
-                  </span>
-                  <div>
-                    <div className="font-semibold text-gray-800 font-merri">
-                      Best Academic Performance
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div className="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                      <Palette className="text-indigo-900" size={24} />
                     </div>
-                    <div className="text-sm text-gray-600 font-nuno">
-                      District Level Recognition
-                    </div>
+                    <h3 className="text-xl font-bold font-merri mb-2 text-white">
+                      Cultural Events
+                    </h3>
+                    <p className="text-indigo-100 font-nuno text-sm">
+                      Regular competitions in dance, music, debate, and fine
+                      arts nurture creative talents and boost confidence.
+                    </p>
                   </div>
-                </motion.div>
 
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    },
-                  }}
-                  className="flex flex-col items-center text-center space-y-2"
-                >
-                  <span className="text-yellow-600 text-2xl">
-                    <img
-                      src={rotaractLogo}
-                      className="w-10 h-10"
-                      alt="Rotaract logo"
-                    />
-                  </span>
-                  <div>
-                    <div className="font-semibold text-gray-800 font-merri">
-                      Rotaract Club
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div className="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                      <Award className="text-indigo-900" size={24} />
                     </div>
-                    <div className="text-sm text-gray-600 font-nuno">
-                      Community Service Excellence
-                    </div>
+                    <h3 className="text-xl font-bold font-merri mb-2 text-white">
+                      Leadership
+                    </h3>
+                    <p className="text-indigo-100 font-nuno text-sm">
+                      Student council, class representation, and organizing
+                      committees develop essential management and leadership
+                      skills.
+                    </p>
                   </div>
-                </motion.div>
 
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    },
-                  }}
-                  className="flex flex-col items-center text-center space-y-2"
-                >
-                  <span className=" text-2xl">
-                    <Palette color="purple" size={37} />
-                  </span>
-                  <div>
-                    <div className="font-semibold text-gray-800 font-merri">
-                      Cultural Excellence
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all items-center">
+                    <div className="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                      <img
+                        src={rotaractLogo}
+                        className="w-8"
+                        alt="Rotaract Logo"
+                      />
                     </div>
-                    <div className="text-sm text-gray-600 font-nuno">
-                      Multiple Event Wins
-                    </div>
+                    <h3 className="text-xl font-bold font-merri mb-2 text-white">
+                      Interact Club
+                    </h3>
+                    <p className="text-indigo-100 font-nuno text-sm">
+                      Sponsored by Rotary Club, students engage in community
+                      service, blood donation camps, and social awareness
+                      programs.
+                    </p>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    },
-                  }}
-                  className="flex flex-col items-center text-center space-y-2"
-                >
-                  <span className=" text-2xl">
-                    <Award size={37} color="green" />
-                  </span>
-                  <div>
-                    <div className="font-semibold text-gray-800 font-merri">
-                      Athletic Champions
-                    </div>
-                    <div className="text-sm text-gray-600 font-nuno">
-                      Individual Excellence Awards
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className=" text-black "
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-            >
-              <p className="text-lg font-semibold font-merri">
-                "Excellence is not just a goal, it's our tradition at Rotary PU
-                College."
-              </p>
-            </motion.div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
