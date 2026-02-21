@@ -1,7 +1,8 @@
-import { useEffect, Suspense, lazy } from 'react';
-import TopAnnouncement from "../components/TopAnnouncement"
-import Hero from "../components/hero"
-import {motion} from 'framer-motion'
+import { useEffect, Suspense, lazy } from "react";
+import TopAnnouncement from "../components/TopAnnouncement";
+import Hero from "../components/hero";
+import { motion } from "framer-motion";
+import SEOHead from "../components/SEOHead";
 
 // Lazy load heavy components
 const AboutUs = lazy(() => import("../components/aboutUs"));
@@ -17,66 +18,115 @@ const Footer = lazy(() => import("../components/footer"));
 const Location = lazy(() => import("../components/location"));
 
 function Home() {
-    useEffect(() => {
-        
-        const hash = window.location.hash;
-        if (hash === '#home') {
-            const element = document.getElementById('home');
-            if (element) {
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        }
-    }, []);
-
-    const variants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0 }
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === "#home") {
+      const element = document.getElementById("home");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
     }
-    return(
-        <>
-            <TopAnnouncement  />
-            <Hero />
-            {/* <motion.div initial={{ opacity: 0, x: -100 }}
+  }, []);
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+  return (
+    <>
+      <SEOHead
+        title="Rotary Pre-University College | Top PU College in Hubli-Dharwad"
+        description="Rotary Pre-University College, Hubli — offering Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) streams with 100% results, modern labs, and holistic education. Enroll now!"
+      />
+      <TopAnnouncement />
+      <Hero />
+      {/* <motion.div initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-200px", amount:0.2 }}
         transition={{ duration: 1.0 }}> */}
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <AboutUs />
-            </Suspense>
-            {/* </motion.div> */}
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <Courses />
-            </Suspense>
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <Facilities />
-            </Suspense>
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <News />
-            </Suspense>
-            {/* <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <AboutUs />
+      </Suspense>
+      {/* </motion.div> */}
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <Courses />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <Facilities />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <News />
+      </Suspense>
+      {/* <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <Achievements />
             </Suspense> */}
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <Testimonials />
-            </Suspense>
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <Accordian />
-            </Suspense>
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <AdmissionBanner />
-            </Suspense>
-            {/* <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <Testimonials />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <Accordian />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <AdmissionBanner />
+      </Suspense>
+      {/* <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
                 <AdmissionForm />
             </Suspense> */}
-            <Suspense fallback={<div className="h-32 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>}>
-                <Location />
-            </Suspense>
-            
-        </>
+      <Suspense
+        fallback={
+          <div className="h-32 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+      >
+        <Location />
+      </Suspense>
+    </>
+  );
+}
 
-    )
-}   
-
-export default Home
+export default Home;

@@ -1,0 +1,6 @@
+# Rotary Pre-University College - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rotarypuc.in/sitemap.xml
