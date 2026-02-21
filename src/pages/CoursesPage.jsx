@@ -1,18 +1,18 @@
-
 import { Atom } from "../icons/atom";
 import { ChartNoAxes } from "../icons/chart";
 import lab from "../assets/PHY-LAB.webp";
 import commerce from "/gallery/cs-lab.webp";
 import TopAnnouncement from "../components/TopAnnouncement";
 import { motion } from "framer-motion";
-
+import SEOHead from "../components/SEOHead";
 
 function CoursesPage() {
-
-    
-  
   return (
     <div className=" w-full bg-white relative">
+      <SEOHead
+        title="Courses Offered | Science (PCMB) & Commerce (EBAC) — Rotary PU College"
+        description="Explore Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) programs at Rotary PU College, Hubli. Experience comprehensive education with top-tier faculties."
+      />
       {/* Grid Background */}
       <div
         className="absolute inset-0 z-0"
@@ -28,9 +28,12 @@ function CoursesPage() {
       <section className="py-12 md:py-16 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
           <div className="text-center mb-8 md:mb-12">
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri" initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}>
+            <motion.h2
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-merri"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Our Academic Programs
             </motion.h2>
             <motion.div
@@ -299,8 +302,12 @@ function CoursesPage() {
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-800 font-merri">
                 Commerce Stream
               </h3>
-              <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.4 }}>
-              <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
               </motion.div>
               <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-4 font-medium font-nuno">
                 Building strong foundations in business, finance, and
@@ -608,9 +615,13 @@ function CoursesPage() {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-800 font-merri mb-4">
                 Additional Learning Support
               </h3>
-             <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.4 }}>
-                 <div className="w-16 h-1 bg-blue-600 mx-auto"></div>
-                  </motion.div>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="w-16 h-1 bg-blue-600 mx-auto"></div>
+              </motion.div>
             </motion.div>
 
             <motion.div
@@ -737,7 +748,6 @@ function CoursesPage() {
               </motion.div>
             </motion.div>
           </motion.div>
-          
         </div>
       </section>
     </div>
