@@ -32,7 +32,7 @@ export default function AdminLayout() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="h-screen overflow-hidden bg-gray-50 flex">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div
@@ -126,7 +126,7 @@ export default function AdminLayout() {
         </div>
 
         {/* Main content area */}
-        <main className="flex-1 bg-gray-50 focus:outline-none">
+        <main className="flex-1 overflow-y-auto bg-gray-50 focus:outline-none">
           <Outlet />
         </main>
       </div>

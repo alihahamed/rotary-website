@@ -17,6 +17,7 @@ import TopAnnouncement from "../components/TopAnnouncement";
 import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "../components/SEOHead";
 import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabase";
 
 function WhyChooseUsPage() {
   const carouselItems = [
@@ -31,8 +32,26 @@ function WhyChooseUsPage() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [toppers, setToppers] = useState([]);
+  const [loadingToppers, setLoadingToppers] = useState(true);
 
   useEffect(() => {
+    const fetchData = async () => {
+      setLoadingToppers(true);
+      const { data, error } = await supabase
+        .from("toppers")
+        .select("*")
+        .order("percentage", { ascending: false })
+        .limit(3);
+
+      if (!error && data) {
+        setToppers(data);
+      }
+      setLoadingToppers(false);
+    };
+
+    fetchData();
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
     }, 4000); // Change slide every 4 seconds
@@ -413,128 +432,85 @@ function WhyChooseUsPage() {
                     },
                   }}
                 >
-                  {/* Topper 1 - ANUSHREE */}
-                  <motion.div
-                    className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-                    variants={{
-                      hidden: { opacity: 0, y: 30, scale: 0.9 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        transition: { duration: 0.6 },
-                      },
-                    }}
-                  >
-                    <div className="relative mb-4 flex justify-center">
-                      <img
-                        src={anushree}
-                        alt="ANUSHREE - PCMB Topper with 96.6% marks"
-                        className="h-[400px] w-auto object-cover rounded-lg"
-                        style={{ maxWidth: "313px" }}
-                        loading="lazy"
-                      />
-                      {/* <div className="absolute top-2 right-2 bg-blue-700 text-white px-2 py-1 rounded-full text-xs font-bold">
-                                                🏆 1st Rank
-                                            </div> */}
+                  {loadingToppers ? (
+                    <div className="col-span-full flex justify-center items-center py-12">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
                     </div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2 font-merri">
-                      ANUSHREE
-                    </h4>
-                    <p className="text-gray-600 font-nuno text-sm mb-1">
-                      PCMB Stream
-                    </p>
-                    <p className="text-blue-600 font-nuno text-sm font-semibold">
-                      580/600 (96.6%)
-                    </p>
-                    <div className="mt-3 bg-green-50 border border-green-200 rounded-lg p-2">
-                      <p className="text-green-800 font-nuno text-xs">
-                        Outstanding Performance!
-                      </p>
+                  ) : toppers.length === 0 ? (
+                    <div className="col-span-full text-center py-12 text-gray-500 font-nuno text-lg">
+                      Wait for results to be announced!
                     </div>
-                  </motion.div>
+                  ) : (
+                    toppers.map((topper, index) => {
+                      const rankColors = [
+                        {
+                          bg: "bg-green-50",
+                          border: "border-green-200",
+                          text: "text-green-800",
+                          msg: "Outstanding Performance!",
+                        },
+                        {
+                          bg: "bg-blue-50",
+                          border: "border-blue-200",
+                          text: "text-blue-800",
+                          msg: "Excellent Achievement!",
+                        },
+                        {
+                          bg: "bg-purple-50",
+                          border: "border-purple-200",
+                          text: "text-purple-800",
+                          msg: "Remarkable Success!",
+                        },
+                      ];
+                      const style = rankColors[index % rankColors.length];
 
-                  {/* Topper 2 - KSHITHI U SHETTY */}
-                  <motion.div
-                    className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-                    variants={{
-                      hidden: { opacity: 0, y: 30, scale: 0.9 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        transition: { duration: 0.6 },
-                      },
-                    }}
-                  >
-                    <div className="relative mb-4 flex justify-center">
-                      <img
-                        src={kshithi}
-                        alt="KSHITHI U SHETTY - PCMC Topper with 96% marks"
-                        className="h-[400px] w-auto object-cover rounded-lg"
-                        style={{ maxWidth: "313px" }}
-                        loading="lazy"
-                      />
-                      {/* <div className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                                                🥈 2nd Rank
-                                            </div> */}
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2 font-merri">
-                      KSHITHI U SHETTY
-                    </h4>
-                    <p className="text-gray-600 font-nuno text-sm mb-1">
-                      PCMC Stream
-                    </p>
-                    <p className="text-blue-600 font-nuno text-sm font-semibold">
-                      576/600 (96%)
-                    </p>
-                    <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-2">
-                      <p className="text-blue-800 font-nuno text-xs">
-                        Excellent Achievement!
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  {/* Topper 3 - SAKSHI */}
-                  <motion.div
-                    className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-                    variants={{
-                      hidden: { opacity: 0, y: 30, scale: 0.9 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        transition: { duration: 0.6 },
-                      },
-                    }}
-                  >
-                    <div className="relative mb-4 flex justify-center">
-                      <img
-                        src={sakshi}
-                        alt="SAKSHI - EBAC Topper with 95.6% marks"
-                        className="h-[400px] w-auto object-cover rounded-lg"
-                        style={{ maxWidth: "313px" }}
-                        loading="lazy"
-                      />
-                      {/* <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                                                🥉 3rd Rank
-                                            </div> */}
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2 font-merri">
-                      SAKSHI
-                    </h4>
-                    <p className="text-gray-600 font-nuno text-sm mb-1">
-                      EBAC Stream
-                    </p>
-                    <p className="text-blue-600 font-nuno text-sm font-semibold">
-                      574/600 (95.6%)
-                    </p>
-                    <div className="mt-3 bg-purple-50 border border-purple-200 rounded-lg p-2">
-                      <p className="text-purple-800 font-nuno text-xs">
-                        Remarkable Success!
-                      </p>
-                    </div>
-                  </motion.div>
+                      return (
+                        <motion.div
+                          key={topper.id}
+                          className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+                          variants={{
+                            hidden: { opacity: 0, y: 30, scale: 0.9 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              scale: 1,
+                              transition: { duration: 0.6 },
+                            },
+                          }}
+                        >
+                          <div className="relative mb-4 flex justify-center">
+                            <img
+                              src={
+                                topper.image_url ||
+                                "https://via.placeholder.com/313x400?text=No+Photo"
+                              }
+                              alt={`${topper.name} - ${topper.stream} Topper with ${topper.percentage}% marks`}
+                              className="h-[400px] w-auto object-cover rounded-lg"
+                              style={{ maxWidth: "313px" }}
+                              loading="lazy"
+                            />
+                          </div>
+                          <h4 className="text-lg font-bold text-gray-800 mb-2 font-merri uppercase">
+                            {topper.name}
+                          </h4>
+                          <p className="text-gray-600 font-nuno text-sm mb-1">
+                            {topper.stream} Stream
+                          </p>
+                          <p className="text-blue-600 font-nuno text-sm font-semibold">
+                            {topper.marks ? `${topper.marks}/600 ` : ""}(
+                            {topper.percentage}%)
+                          </p>
+                          <div
+                            className={`mt-3 ${style.bg} border ${style.border} rounded-lg p-2`}
+                          >
+                            <p className={`${style.text} font-nuno text-xs`}>
+                              {style.msg}
+                            </p>
+                          </div>
+                        </motion.div>
+                      );
+                    })
+                  )}
                 </motion.div>
 
                 {/* Achievement Summary */}

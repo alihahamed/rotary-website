@@ -23,6 +23,7 @@ const ResultsPage = lazy(() => import("./pages/ResultsPage"));
 // Admin Pages
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminNews = lazy(() => import("./pages/admin/AdminNews"));
 const AdminGallery = lazy(() => import("./pages/admin/AdminGallery"));
 const AdminToppers = lazy(() => import("./pages/admin/AdminToppers"));
@@ -33,22 +34,10 @@ function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
 
-  return (
+  const content = (
     <>
-      <ReactLenis
-        root
-        options={{
-          lerp: 0.5,
-          duration: 0.9,
-          orientation: "vertical",
-          gestureOrientation: "vertical",
-          smoothWheel: true,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
-          anchors: true,
-        }}
-      >
-        {!isAdminRoute && <Header />}
+      {!isAdminRoute && <Header />}
+      <div className={!isAdminRoute ? "pt-16" : ""}>
         <Suspense
           fallback={
             <div className="min-h-screen flex items-center justify-center">
@@ -82,20 +71,7 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route
-                index
-                element={
-                  <div className="p-8">
-                    <h1 className="text-2xl font-bold font-merri">
-                      Dashboard Overview
-                    </h1>
-                    <p className="mt-4 font-nuno">
-                      Welcome to the Rotary PU College CMS. Select an option
-                      from the sidebar to manage content.
-                    </p>
-                  </div>
-                }
-              />
+              <Route index element={<AdminDashboard />} />
               <Route path="news" element={<AdminNews />} />
               <Route path="gallery" element={<AdminGallery />} />
               <Route path="toppers" element={<AdminToppers />} />
@@ -103,9 +79,29 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-        {!isAdminRoute && <Footer />}
-      </ReactLenis>
+      </div>
+      {!isAdminRoute && <Footer />}
     </>
+  );
+
+  return isAdminRoute ? (
+    content
+  ) : (
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.5,
+        duration: 0.9,
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        anchors: true,
+      }}
+    >
+      {content}
+    </ReactLenis>
   );
 }
 

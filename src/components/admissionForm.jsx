@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import { supabase } from "../lib/supabase";
 
 function AdmissionForm() {
   const [formData, setFormData] = useState({
@@ -8,56 +9,95 @@ function AdmissionForm() {
     phone: "",
     stream: "",
     school: "",
-    message:""
-    });
+    message: "",
+  });
   const [loading, setLoading] = useState(false);
-  const [successfull, setSuccessfull] = useState(false)
-  const [error, setError] = useState("")
+  const [successfull, setSuccessfull] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
   useEffect(() => {
     if (loading || error || successfull) {
       const timer = setTimeout(() => {
         setLoading(false);
-        setSuccessfull(false)
-        setError("")
-      }, 2500)
+        setSuccessfull(false);
+        setError("");
+      }, 2500);
 
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     }
   }, [loading, error, successfull]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setSuccessfull(false)
-    setError("")
+    setSuccessfull(false);
+    setError("");
+
+    // Basic validation
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.stream
+    ) {
+      setError("Please fill all required fields (Name, Email, Phone, Stream).");
+      setLoading(false);
+      return;
+    }
+
     try {
+      // 1. Save to Supabase PrimeCrest Database
+      const { error: supabaseError } = await supabase
+        .from("admission_enquiries")
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            stream: formData.stream,
+            school: formData.school,
+            message: formData.message,
+          },
+        ]);
+
+      if (supabaseError) {
+        console.error("Supabase Insert Error:", supabaseError);
+        throw new Error("Failed to save enquiry to database.");
+      }
+
+      // 2. Send Notification Email via Backend
       const response = await fetch("/api/admission-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      
+
       const data = await response.json();
-      console.log(data)
-      if(data.success) {
-        setSuccessfull(true)
-        setLoading(false)
-        setFormData({name:"",phone:"",email:"", stream:""})
+      console.log(data);
+      if (data.success) {
+        setSuccessfull(true);
+        setLoading(false);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          stream: "",
+          school: "",
+          message: "",
+        });
       } else {
-        setLoading(false)
-        setError(data.message)
+        setLoading(false);
+        setError(data.message);
       }
     } catch (error) {
-      
-      setError("Network Error. Please try again.")
-      setLoading(false)
-    } 
+      console.error(error);
+      setError("Network Error. Please try again.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -74,238 +114,265 @@ function AdmissionForm() {
         }}
       />
       <section className="relative z-10">
-          <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-            <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9 flex justify-center items-center text-gray-800 font-merri">
-              Admission Enquiry
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-            <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
-              Take the first step towards your bright future. Submit your
-              enquiry and we'll get back to you soon!
-            </p>
+        <div className="text-center mb-12 mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+          <h2 className="text-3xl md:text-5xl 2xl:text-5xl font-bold tracking-wide pt-9 flex justify-center items-center text-gray-800 font-merri">
+            Admission Enquiry
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+          <p className="text-xl md:text-2xl 2xl:text-2xl text-gray-600 mt-5 font-medium font-nuno">
+            Take the first step towards your bright future. Submit your enquiry
+            and we'll get back to you soon!
+          </p>
+        </div>
+
+        {successfull && (
+          <div className="toast toast-bottom toast-end z-10">
+            {/* <div className="alert alert-info">
+              <span>New mail arrived.</span>
+            </div> */}
+            <div className="alert alert-success bg-black border border-black">
+              <span className="text-lg text-white tracking-wide font-nuno">
+                Enquiry Sent!
+              </span>
+            </div>
           </div>
+        )}
 
-          {successfull && <div className="toast toast-bottom toast-end z-10">
+        {error && (
+          <div className="toast toast-bottom toast-end z-10">
             {/* <div className="alert alert-info">
               <span>New mail arrived.</span>
             </div> */}
             <div className="alert alert-success bg-black border border-black">
-              <span className="text-lg text-white tracking-wide font-nuno">Enquiry Sent!</span>
+              <span className="text-lg text-white tracking-wide font-nuno">
+                {error}
+              </span>
             </div>
-          </div> }
+          </div>
+        )}
 
-          {error && <div className="toast toast-bottom toast-end z-10">
-            {/* <div className="alert alert-info">
-              <span>New mail arrived.</span>
-            </div> */}
-            <div className="alert alert-success bg-black border border-black">
-              <span className="text-lg text-white tracking-wide font-nuno">{error}</span>
-            </div>
-          </div> }
-
-
-          
-
+        <motion.div
+          className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1,
+              },
+            },
+          }}
+        >
           <motion.div
-            className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
             variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.1
-                }
-              }
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <motion.div
-              className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-              }}
-            >
-              {/* Form Sections */}
-              <div className="p-8 space-y-8">
-                {/* Personal Information Section */}
-                <motion.div
-                  className="border-l-4 border-blue-600 pl-6"
-                  variants={{
-                    hidden: { opacity: 0, x: -40 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
-                  }}
-                >
-                  <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm">1</span>
-                    </div>
-                    Personal Information
-                  </h4>
-                  <div className="">
-                    <div className="bg-gray-50 p-4 rounded-lg grid sm:grid-cols-2 md:grid-cols-2 gap-4">
-                      <div>
-                        <fieldset className="fieldset">
-                          <legend className="fieldset-legend font-nuno text-gray-800 text-sm">
-                            What is your name?
-                          </legend>
-                          <input
-                            name="name"
-                            type="text"
-                            className="input"
-                            placeholder="Type here"
-                            value={formData.name}
-                            onChange={handleChange}
-                          />
-                        </fieldset>
-                      </div>
-                      <div>
-                        <fieldset className="fieldset">
-                          <legend className="fieldset-legend text-gray-800 text-sm">
-                            Enter Your Email
-                          </legend>
-                          <input
-                            name="email"
-                            type="text"
-                            className="input"
-                            placeholder="xyz@gmail.com"
-                            value={formData.email}
-                            onChange={handleChange}
-                          />
-                        </fieldset>
-                      </div>
-                      <div>
-                        <fieldset className="fieldset">
-                          <legend className="fieldset-legend text-gray-800 text-sm">
-                            Enter Your Phone Number
-                          </legend>
-                          <input
-                            name="phone"
-                            type="text"
-                            className="input"
-                            placeholder="+91"
-                            value={formData.phone}
-                            onChange={handleChange}
-                          />
-                        </fieldset>
-                      </div>
-                      <div>
-                        <fieldset className="fieldset">
-                          <legend className="fieldset-legend">
-                            Select Your Stream
-                          </legend>
-                          <select
-                            name="stream"
-                            className="select"
-                            value={formData.stream}
-                            onChange={handleChange}
-                          >
-                            <option value="">Preferred Stream</option>
-                            <option value="science">Science</option>
-                            <option value="commerce">Commerce</option>
-                          </select>
-                        </fieldset>
-                      </div>
-                    </div>
+            {/* Form Sections */}
+            <div className="p-8 space-y-8">
+              {/* Personal Information Section */}
+              <motion.div
+                className="border-l-4 border-blue-600 pl-6"
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                }}
+              >
+                <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
+                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">1</span>
                   </div>
-                </motion.div>
-
-                {/* Academic Information Section */}
-                <motion.div
-                  className="border-l-4 border-yellow-500 pl-6"
-                  variants={{
-                    hidden: { opacity: 0, x: 40 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
-                  }}
-                >
-                  <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
-                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm">2</span>
-                    </div>
-                    Academic Information
-                  </h4>
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  Personal Information
+                </h4>
+                <div className="">
+                  <div className="bg-gray-50 p-4 rounded-lg grid sm:grid-cols-2 md:grid-cols-2 gap-4">
                     <div>
                       <fieldset className="fieldset">
-                        <legend className="fieldset-legend text-sm">
-                          Enter Your Previous/Current School
+                        <legend className="fieldset-legend font-nuno text-gray-800 text-sm">
+                          What is your name?
                         </legend>
                         <input
-                          name="school"
+                          name="name"
                           type="text"
-                          className="input w-full rounded-xl"
+                          className="input"
                           placeholder="Type here"
-                          value={formData.school}
+                          value={formData.name}
                           onChange={handleChange}
                         />
                       </fieldset>
                     </div>
-                  </div>
-                </motion.div>
-
-                {/* Additional Information Section */}
-                <motion.div
-                  className="border-l-4 border-red-500 pl-6"
-                  variants={{
-                    hidden: { opacity: 0, x: -40 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
-                  }}
-                >
-                  <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
-                    <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm ">3</span>
-                    </div>
-                    Additional Information
-                  </h4>
-                  <div className="bg-gray-50 p-4 rounded-lg">
                     <div>
                       <fieldset className="fieldset">
-                        <legend className="fieldset-legend text-sm">
-                          Message/Questions
+                        <legend className="fieldset-legend text-gray-800 text-sm">
+                          Enter Your Email
                         </legend>
-                        <textarea
-                          name="message"
-                          className="textarea h-24 w-full rounded-lg"
-                          placeholder="Any specific questions/requirements you'd like to share.."
-                          value={formData.message}
+                        <input
+                          name="email"
+                          type="text"
+                          className="input"
+                          placeholder="xyz@gmail.com"
+                          value={formData.email}
                           onChange={handleChange}
-                        ></textarea>
-                        <div className="label">Optional</div>
+                        />
+                      </fieldset>
+                    </div>
+                    <div>
+                      <fieldset className="fieldset">
+                        <legend className="fieldset-legend text-gray-800 text-sm">
+                          Enter Your Phone Number
+                        </legend>
+                        <input
+                          name="phone"
+                          type="text"
+                          className="input"
+                          placeholder="+91"
+                          value={formData.phone}
+                          onChange={handleChange}
+                        />
+                      </fieldset>
+                    </div>
+                    <div>
+                      <fieldset className="fieldset">
+                        <legend className="fieldset-legend">
+                          Select Your Stream
+                        </legend>
+                        <select
+                          name="stream"
+                          className="select"
+                          value={formData.stream}
+                          onChange={handleChange}
+                        >
+                          <option value="">Preferred Stream</option>
+                          <option value="science">Science</option>
+                          <option value="commerce">Commerce</option>
+                        </select>
                       </fieldset>
                     </div>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* Submit Button */}
-                <motion.div
-                  className="text-center pt-6 border-t border-gray-200"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } }
-                  }}
+              {/* Academic Information Section */}
+              <motion.div
+                className="border-l-4 border-yellow-500 pl-6"
+                variants={{
+                  hidden: { opacity: 0, x: 40 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                }}
+              >
+                <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
+                  <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">2</span>
+                  </div>
+                  Academic Information
+                </h4>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div>
+                    <fieldset className="fieldset">
+                      <legend className="fieldset-legend text-sm">
+                        Enter Your Previous/Current School
+                      </legend>
+                      <input
+                        name="school"
+                        type="text"
+                        className="input w-full rounded-xl"
+                        placeholder="Type here"
+                        value={formData.school}
+                        onChange={handleChange}
+                      />
+                    </fieldset>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Additional Information Section */}
+              <motion.div
+                className="border-l-4 border-red-500 pl-6"
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                }}
+              >
+                <h4 className="text-xl font-bold text-gray-800 font-merri mb-4 flex items-center tracking-wide">
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm ">3</span>
+                  </div>
+                  Additional Information
+                </h4>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div>
+                    <fieldset className="fieldset">
+                      <legend className="fieldset-legend text-sm">
+                        Message/Questions
+                      </legend>
+                      <textarea
+                        name="message"
+                        className="textarea h-24 w-full rounded-lg"
+                        placeholder="Any specific questions/requirements you'd like to share.."
+                        value={formData.message}
+                        onChange={handleChange}
+                      ></textarea>
+                      <div className="label">Optional</div>
+                    </fieldset>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Submit Button */}
+              <motion.div
+                className="text-center pt-6 border-t border-gray-200"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.5, delay: 0.2 },
+                  },
+                }}
+              >
+                <button
+                  onClick={handleSubmit}
+                  disabled={loading}
+                  className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg font-nuno"
                 >
-                  <button
-                    onClick={handleSubmit}
-                    disabled={loading}
-                    className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 shadow-lg font-nuno"
-                  >
-                    {loading ? (
-    <span className="flex items-center">
-      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      </svg>
-      Processing...
-    </span>
-  ) : "Submit Application"}
-                  </button>
-                </motion.div>
-              </div>
-            </motion.div>
+                  {loading ? (
+                    <span className="flex items-center">
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Processing...
+                    </span>
+                  ) : (
+                    "Submit Application"
+                  )}
+                </button>
+              </motion.div>
+            </div>
           </motion.div>
+        </motion.div>
       </section>
     </div>
   );

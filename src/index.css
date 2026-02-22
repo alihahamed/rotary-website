@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import 'leaflet/dist/leaflet.css';
-
+@import "leaflet/dist/leaflet.css";
 
 @custom-variant dark (&:is(.dark *));
 @plugin "daisyui" {
@@ -9,13 +8,14 @@
 }
 
 @theme {
-  --font-poppins: 'Poppins', 'sans-serif';
-  --font-nuno: 'Nunito', 'sans-serif';
-  --font-merri:'Merriweather', 'serif'
+  --font-poppins: "Poppins", "sans-serif";
+  --font-nuno: "Nunito", "sans-serif";
+  --font-merri: "Merriweather", "serif";
 }
 
 /* Global overflow prevention for mobile */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
@@ -24,10 +24,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Fixed navbar spacing */
-body {
-  padding-top: 4rem; 
-}
+/* Fixed navbar spacing removed to handle conditionally in App.jsx */
 
 /* Container max-width enforcement */
 /* .container, .max-w-7xl, .max-w-4xl {
@@ -81,12 +78,10 @@ body {
   animation: slide-down 0.5s ease-out;
 }
 
-
-
 .course-card {
   display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
