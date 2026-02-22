@@ -37,8 +37,8 @@ function Home() {
   return (
     <>
       <SEOHead
-        title="Rotary Pre-University College | Top PU College in Hubli-Dharwad"
-        description="Rotary Pre-University College, Hubli — offering Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) streams with 100% results, modern labs, and holistic education. Enroll now!"
+        title="Rotary Pre-University College | Top PU College in Moodbidri, Dakshina Kannada"
+        description="Rotary Pre-University College, Moodbidri — offering Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) streams with 100% results, modern labs, and holistic education. Enroll now!"
       />
       <TopAnnouncement />
       <Hero />

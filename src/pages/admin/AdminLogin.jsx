@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../../lib/supabase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logo from "../../assets/logo.webp";
-import { Lock } from "lucide-react";
+import { Lock, ArrowLeft } from "lucide-react";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -43,6 +43,15 @@ export default function AdminLogin() {
         <p className="mt-2 text-center text-sm text-gray-600 font-nuno">
           Sign in to manage college content
         </p>
+        <div className="mt-4 flex justify-center">
+          <Link
+            to="/"
+            className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500 font-nuno transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Back to Website
+          </Link>
+        </div>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

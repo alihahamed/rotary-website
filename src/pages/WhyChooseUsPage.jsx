@@ -77,8 +77,8 @@ function WhyChooseUsPage() {
   return (
     <div className=" w-full bg-white relative">
       <SEOHead
-        title="Why Choose Rotary? | Top Faculty & Facilities in Hubli"
-        description="Discover why Rotary PU College is the best choice for Commerce and Science in Hubli-Dharwad. Excellent facilities, experienced faculty, and strong academic support."
+        title="Why Choose Rotary? | Top Faculty & Facilities in Moodbidri"
+        description="Discover why Rotary PU College is the best choice for Commerce and Science in Moodbidri, Dakshina Kannada. Excellent facilities, experienced faculty, and strong academic support."
       />
       {/* Grid Background */}
       <div

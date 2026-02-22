@@ -6,8 +6,8 @@ function AdmissionsPage() {
   return (
     <div className=" w-full bg-white relative">
       <SEOHead
-        title="Admissions | Eligibility & Requirements — Rotary PU College, Hubli"
-        description="Check admission requirements and eligibility for Rotary Pre-University College, Hubli. SSLC/ICSE/CBSE pass required. View documents needed and age criteria."
+        title="Admissions | Eligibility & Requirements — Rotary PU College, Moodbidri"
+        description="Check admission requirements and eligibility for Rotary Pre-University College, Moodbidri. SSLC/ICSE/CBSE pass required. View documents needed and age criteria."
       />
       {/* Grid Background */}
       <div

@@ -6,8 +6,8 @@ function AdmissionProcedurePage() {
   return (
     <div className=" w-full bg-white relative">
       <SEOHead
-        title="Admission Procedure | How to Apply — Rotary PU College, Hubli"
-        description="Step-by-step admission procedure for Rotary Pre-University College, Hubli. Learn how to apply, required documents, timeline, and important notes for SSLC students."
+        title="Admission Procedure | How to Apply — Rotary PU College, Moodbidri"
+        description="Step-by-step admission procedure for Rotary Pre-University College, Moodbidri. Learn how to apply, required documents, timeline, and important notes for SSLC students."
       />
       {/* Grid Background */}
       <div

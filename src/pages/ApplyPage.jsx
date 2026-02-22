@@ -6,7 +6,7 @@ function ApplyPage() {
     <>
       <SEOHead
         title="Apply Online | Online Admission Form — Rotary PU College"
-        description="Submit your application online to join Rotary Pre-University College, Hubli. Start your journey towards academic excellence in Science or Commerce."
+        description="Submit your application online to join Rotary Pre-University College, Moodbidri. Start your journey towards academic excellence in Science or Commerce."
       />
       <AdmissionForm />
     </>

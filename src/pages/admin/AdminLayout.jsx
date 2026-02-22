@@ -10,6 +10,7 @@ import {
   LogOut,
   Menu,
   X,
+  Home,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -95,7 +96,14 @@ export default function AdminLayout() {
             </nav>
           </div>
 
-          <div className="p-4 bg-white/5 border-t border-white/10">
+          <div className="p-4 bg-white/5 border-t border-white/10 space-y-2">
+            <Link
+              to="/"
+              className="group flex w-full items-center px-2 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-white/10 hover:text-white transition-colors font-nuno"
+            >
+              <Home className="mr-3 flex-shrink-0 h-5 w-5" />
+              Return to Website
+            </Link>
             <button
               onClick={handleLogout}
               className="group flex w-full items-center px-2 py-2 text-sm font-medium text-red-400 rounded-md hover:bg-red-400/10 hover:text-red-300 transition-colors font-nuno"

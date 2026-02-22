@@ -12,8 +12,8 @@ function AboutUsPage() {
   return (
     <div className=" w-full bg-white relative" id="aboutUs">
       <SEOHead
-        title="About Us | Our Vision & Mission — Rotary PU College, Hubli"
-        description="Learn about the history, vision, and mission of Rotary Pre-University College in Hubli. Meet our dedicated faculty and leadership team guiding student excellence."
+        title="About Us | Our Vision & Mission — Rotary PU College, Moodbidri"
+        description="Learn about the history, vision, and mission of Rotary Pre-University College in Moodbidri. Meet our dedicated faculty and leadership team guiding student excellence."
       />
       {/* Grid Background */}
       <div

@@ -11,7 +11,7 @@ function CoursesPage() {
     <div className=" w-full bg-white relative">
       <SEOHead
         title="Courses Offered | Science (PCMB) & Commerce (EBAC) — Rotary PU College"
-        description="Explore Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) programs at Rotary PU College, Hubli. Experience comprehensive education with top-tier faculties."
+        description="Explore Science (PCMB, PCMC, PCME) and Commerce (EBAC, BSBA) programs at Rotary PU College, Moodbidri. Experience comprehensive education with top-tier faculties."
       />
       {/* Grid Background */}
       <div

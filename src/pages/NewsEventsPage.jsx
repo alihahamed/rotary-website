@@ -59,7 +59,7 @@ function NewsEventsPage() {
     <div className="w-full bg-white relative">
       <SEOHead
         title="News & Events | Latest Updates — Rotary PU College"
-        description="Stay updated with the latest news, events, and announcements from Rotary Pre-University College, Hubli. Check out upcoming activities and college updates."
+        description="Stay updated with the latest news, events, and announcements from Rotary Pre-University College, Moodbidri. Check out upcoming activities and college updates."
       />
       {/* Grid Background */}
       <div

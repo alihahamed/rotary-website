@@ -176,8 +176,8 @@ function GalleryPage() {
   return (
     <div className="w-full bg-white relative">
       <SEOHead
-        title="Gallery | Campus Life at Rotary PU College, Hubli"
-        description="Explore photo and video highlights from Rotary Pre-University College — orientations, annual day, cultural events, sports achievements, and campus life in Hubli-Dharwad."
+        title="Gallery | Campus Life at Rotary PU College, Moodbidri"
+        description="Explore photo and video highlights from Rotary Pre-University College — orientations, annual day, cultural events, sports achievements, and campus life in Moodbidri, Dakshina Kannada."
       />
       {/* Grid Background */}
       <div
