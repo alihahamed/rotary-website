@@ -18,11 +18,11 @@ function Testimonials() {
      },
       {
       id:3, text: "My college has always encouraged and supported me in all kinds of sports. The teachers and management motivated every student to take part in games and physical activities along with studies. The college provided a friendly environment where I could learn, grow, and express my talents freely. Their continuous guidance and encouragement helped me balance my studies with extracurricular activities, making my college life both enjoyable and meaningful.My college gave me the wonderful opportunity to serve as the president, which helped me grow both as a leader and as a person.",
-      Author:"Vinyas G Poojary", Year:2025, Stream:"Science Stream Graduate", photo: vinyas
+      Author:"Vinyas G Poojary", Year:2025, Stream:"Commerece Stream Graduate", photo: vinyas
      },
      {
       id:4, text: "I completed my PUC at Rotary PU College and was part of the second batch of this new institute. Despite being newly established, the quality of education was never compromised and neither was the fun! Our lecturers ensured we participated in inter-college events and also organized many memorable activities within the campus. The college had well-equipped classrooms, laboratories, and a dedicated teaching staff who truly cared about our growth. I had the honor of serving as the College President in my 12th year, and I owe that achievement to the amazing faculty who laid a strong foundation for my journey ahead.",
-      Author:"Josita", Year:2017, Stream:"Science Stream Graduate", photo: josita
+      Author:"Queenie D Costa", Year:2017, Stream:"Science Stream Graduate", photo: josita
      },
 
   ]

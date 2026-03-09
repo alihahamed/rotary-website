@@ -114,7 +114,7 @@ function AboutUsPage() {
                       className="w-24 h-24 md:w-32 md:h-38 object-cover rounded-lg shadow-lg mx-auto mb-3"
                     />
                     <h4 className="text-lg font-semibold text-gray-800 font-merri">
-                      Rtn. Naryan P.M
+                      Rtn. Narayan P.M
                     </h4>
                     <p className="text-red-600 font-nuno font-semibold">
                       President
